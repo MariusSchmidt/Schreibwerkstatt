@@ -34,7 +34,7 @@ body {
     width: 100%;
 }
 
-#station, #stationlist {
+#station, #stationlist, #greeter, #legalNotice {
     display: none;
 }
 
