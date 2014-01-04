@@ -47,9 +47,9 @@ define('index', [
 
     var loadTemplates = function () {
 
-        /*require([
+        require([
             'text!../tpl/splash-tpl.html'
-        ], templatesReady);*/
+        ], templatesReady);
 
 
         console.log(document.paths)
@@ -94,10 +94,11 @@ define('index', [
     }
 
     var resizeApp = function () {
-        $("#app").height($(window).height());
-        $("#app").width($(window).width());
-        var navHeight = $("#nav").outerHeight();
-        $("#map-canvas").height($(window).height() - navHeight);// TODO set
+        /*$("#app").height($(window).height());
+        $("#app").width($(window).width());*/
+        var navHeight = $("nav").outerHeight();
+        var footerHeight = $("footer").outerHeight();
+        $("#map-canvas").height($(window).height() - (navHeight + footerHeight));// TODO set
     }
 
     return {

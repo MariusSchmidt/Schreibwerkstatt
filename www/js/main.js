@@ -2,7 +2,7 @@ require.config({
     paths: {
         mustache: 'libs/mustache',
         alice: 'libs/alice.min',
-        //text: 'libs/require/plugins/text',
+        text: 'libs/require/plugins/text',
         leaflet: 'libs/leaflet/leaflet',
         jquery: 'libs/jquery-2.0.3',
         templates: 'tpl'

@@ -34,8 +34,10 @@ body {
     width: 100%;
 }
 
-#station, #stationlist, #greeter, #legalNotice {
-    display: none;
+#app {
+    height: 480px; /* text area height */
+    width: 800px; /* text area width */
+    text-align: center;
 }
 
 #nav {
@@ -54,12 +56,6 @@ body {
 
 #nav img.rightarrow {
     right: .2em;
-}
-
-#app {
-    height: 480px; /* text area height */
-    width: 800px; /* text area width */
-    text-align: center;
 }
 
 h1 {

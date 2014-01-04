@@ -34,23 +34,30 @@
     <title>Schreibwerkapp - Frankfurter Stadtführung</title>
 </head>
 <body>
-<div id="app">
-    <div id="main">
-        <div id="map-canvas"/>
-        <p>
+<div id="nav" style="position: relative;">
+    <select>
+        <option>01. Karmeliterkloster / Institut für Stadtgeschichte</option>
+        <option>02. Börneplatz</option>
+        <option>03. Dominikanerkloster</option>
+        <option>04. Synagoge am Börneplatz</option>
+        <option>05. Dom</option>
+        <option>06. Städelmuseum</option>
+        <option>07. Römerberg</option>
+    </select>
+    <img src="img/leftarrow.png" class="leftarrow">
+    <img src="img/righttarrow.png" class="rightarrow">
+</div>
+<div id="app" style="background-color: blue;">
+
+    <div id="main" style="float: left; width: 600px; height: 444px; ">
+        <div id="map-canvas" style="height: 100%; "/>
+        <!--<p>
             Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
             <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
             , Imagery © <a href="http://cloudmade.com">CloudMade</a>
-        </p>
+        </p>-->
     </div>
-    <div id="nav" style="position: relative;">
-        <h1>
-            <a href="#stationlist">05/12 Stationstitel</a>
-        </h1>
-        <img src="img/leftarrow.png" class="leftarrow">
-        <img src="img/righttarrow.png" class="rightarrow">
-    </div>
-    <div id="greeter">
+    <div id="station" style="margin-right:-200px; float:right; width: 200px; height: 444px; background: rgba(54, 25, 25, 1.0); ">
         <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
             labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
@@ -60,38 +67,7 @@
             clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
         </p>
     </div>
-    <div id="station">
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-            labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-            ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-    </div>
-    <div id="stationlist">
-        <h1>Frankfurter Passionsspiel</h1>
-        <ul>
-            <li>01. Karmeliterkloster / Institut für Stadtgeschichte</li>
-            <li>02. Börneplatz</li>
-            <li>03. Dominikanerkloster</li>
-            <li>04. Synagoge am Börneplatz</li>
-            <li>05. Dom</li>
-            <li>06. Städelmuseum</li>
-            <li>07. Römerberg</li>
-        </ul>
-    </div>
-    <div id="legalNotice">
-        <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
-            labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
-            ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
-            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-        </p>
-    </div>
+    <!--<div style="clear: both;"></div>-->
 </div>
 <!--<script type="text/javascript">
     app.initialize();
