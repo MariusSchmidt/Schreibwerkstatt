@@ -72,7 +72,7 @@ define('index', [
     };
 
     var loadMap = function () {
-        var map = L.map('map-canvas').setView([50.111778, 8.70115], 14);
+        var map = L.map('map-canvas').setView([50.11372, 8.67909], 14);
         var southWest = new L.LatLng(50.02893, 8.525391);
         var northEast = new L.LatLng(50.169862, 8.860452);
         var restrictBounds = new L.LatLngBounds(southWest, northEast);
@@ -81,7 +81,7 @@ define('index', [
             minZoom: 14,
             maxZoom: 16
         }).addTo(map);
-        L.marker([50.111778, 8.70115]).addTo(map)
+        L.marker([50.11372, 8.67909]).addTo(map)
             .bindPopup("<b>Hello world!</b><br />I am a popup.").openPopup();
         var popup = L.popup();
         function onMapClick(e) {
