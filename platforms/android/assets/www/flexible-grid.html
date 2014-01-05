@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Demo: Flexible Grid Layout &ndash; YAML CSS Framework</title>
+
+    <!-- Mobile viewport optimisation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- (en) Add your meta data here -->
+    <!-- (de) Fuegen Sie hier ihre Meta-Daten ein -->
+
+    <link href="css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+    <!--[if lte IE 7]>
+    <link href="yaml/core/iehacks.css" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+    <script src="./lib/html5shiv/html5shiv.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="js/libs/leaflet/leaflet.css"/>
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+</head>
+<body>
+
+<nav id="nav" style="text-align: center; padding: 0.2em; margin: 0; border: none;">
+    <div class="ym-wrapper" style="text-align: center; padding: 0; margin: 0; border: none;">
+        <img src="img/leftarrow.png" class="leftarrow" style="height:28px; padding: 0; margin: 0; border: none;">
+        <select style="padding: 0 0.2em; height:2.3em; margin: 0; border:none; vertical-align: top; ">
+            <option>01. Karmeliterkloster / Institut für Stadtgeschichte</option>
+            <option>02. Börneplatz</option>
+            <option>03. Dominikanerkloster</option>
+            <option>04. Synagoge am Börneplatz</option>
+            <option>05. Dom</option>
+            <option>06. Städelmuseum</option>
+            <option>07. Römerberg</option>
+        </select>
+        <img src="img/righttarrow.png" class="rightarrow" style="height:28px; padding: 0; margin: 0; border: none;">
+    </div>
+</nav>
+<main>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <section class="ym-grid linearize-level-1">
+                <article class="ym-g66 ym-gl content">
+                    <div class="ym-gbox-left ym-clearfix">
+                        <div id="map-canvas" style="height: 300px;">Here goes the map</div>
+                    </div>
+                </article>
+                <aside class="ym-g33 ym-gr">
+                    <div class="ym-gbox-right ym-clearfix">
+                        <p>
+                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras
+                            ornare mattis nunc. Mauris venenatis, pede sed aliquet vehicula, lectus tellus pulvinar
+                            neque, non cursus sem nisi vel augue.
+                        </p>
+                        <p>
+                            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+                        </p>
+                    </div>
+                </aside>
+            </section>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <p>© Company 2012 &ndash; Layout based on <a href="http://www.yaml.de">YAML</a></p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

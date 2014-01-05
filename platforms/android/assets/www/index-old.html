@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+    <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index-neu.css"/>
+    <link rel="stylesheet" href="js/libs/leaflet/leaflet.css"/>
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <!--<script src="js/libs/leaflet/leaflet.js"></script>-->
+    <!--script type="text/javascript" src="phonegap.js"></script-->
+    <!--<script type="text/javascript" src="js/index.js"></script>-->
+    <title>Schreibwerkapp - Frankfurter Stadtführung</title>
+</head>
+<body>
+<div id="nav" style="position: relative;">
+    <select>
+        <option>01. Karmeliterkloster / Institut für Stadtgeschichte</option>
+        <option>02. Börneplatz</option>
+        <option>03. Dominikanerkloster</option>
+        <option>04. Synagoge am Börneplatz</option>
+        <option>05. Dom</option>
+        <option>06. Städelmuseum</option>
+        <option>07. Römerberg</option>
+    </select>
+    <img src="img/leftarrow.png" class="leftarrow">
+    <img src="img/righttarrow.png" class="rightarrow">
+</div>
+<div id="app" style="background-color: blue;">
+
+    <div id="main" style="float: left; width: 600px; height: 444px; ">
+        <div id="map-canvas" style="height: 100%; "/>
+        <!--<p>
+            Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors,
+            <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
+            , Imagery © <a href="http://cloudmade.com">CloudMade</a>
+        </p>-->
+    </div>
+    <div id="station" style="margin-right:-200px; float:right; width: 200px; height: 444px; background: rgba(54, 25, 25, 1.0); ">
+        <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+            labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et
+            ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
+            dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+            clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+    <!--<div style="clear: both;"></div>-->
+</div>
+<!--<script type="text/javascript">
+    app.initialize();
+</script>-->
+</body>
+</html>
