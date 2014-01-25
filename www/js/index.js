@@ -48,7 +48,7 @@ define('index', [
     var loadTemplates = function () {
 
         require([
-            'text!../tpl/splash-tpl.html'
+            'title!../tpl/splash-tpl.html'
         ], templatesReady);
 
 

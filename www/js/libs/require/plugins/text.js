@@ -121,7 +121,7 @@ define(['module'], function (module) {
         /**
          * Is an URL on another domain. Only works for browser use, returns
          * false in non-browser environments. Only used to know if an
-         * optimized .js version of a text resource should be loaded
+         * optimized .js version of a title resource should be loaded
          * instead.
          * @param {String} url
          * @returns Boolean
@@ -160,7 +160,7 @@ define(['module'], function (module) {
             //removing the <?xml ...?> declarations so the content can be inserted
             //into the current doc without problems.
 
-            // Do not bother with the work if a build and text will
+            // Do not bother with the work if a build and title will
             // not be inlined.
             if (config.isBuild && !config.inlineText) {
                 onLoad();
@@ -182,7 +182,7 @@ define(['module'], function (module) {
                 return;
             }
 
-            //Load the text. Use XHR if possible and in a browser.
+            //Load the title. Use XHR if possible and in a browser.
             if (!hasLocation || useXhr(url, defaultProtocol, defaultHostName, defaultPort)) {
                 text.get(url, function (content) {
                     text.finishLoad(name, parsed.strip, content, onLoad);

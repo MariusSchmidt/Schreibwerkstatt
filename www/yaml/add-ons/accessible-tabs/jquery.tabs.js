@@ -34,7 +34,7 @@
                 tabbody: '.tabbody', // Tag or valid Query Selector of the Elements to be treated as the Tab Body
                 fx:'show', // can be "fadeIn", "slideDown", "show"
                 fxspeed: 'normal', // speed (String|Number): "slow", "normal", or "fast") or the number of milliseconds to run the animation
-                currentInfoText: 'current tab: ', // text to indicate for screenreaders which tab is the current one
+                currentInfoText: 'current tab: ', // title to indicate for screenreaders which tab is the current one
                 currentInfoPosition: 'prepend', // Definition where to insert the Info Text. Can be either "prepend" or "append"
                 currentInfoClass: 'current-info', // Class to apply to the span wrapping the CurrentInfoText
                 tabsListClass:'tabs-list', // Class to apply to the generated list of tabs above the content
@@ -206,14 +206,14 @@
                         if(previous<0){previous = tabcount-1;}
                         var p = $(this).find('.pagination');
                         var previousEl = p.find('.previous');
-                        previousEl.find('span').text($('#'+ids[previous]).text());
+                        previousEl.find('span').title($('#'+ids[previous]).title());
                         previousEl.find('a').attr('href','#'+ids[previous])
                         .click(function(event){
                             event.preventDefault();
                             $(el).find('.tabs-list a').eq(previous).click();
                         });
                         var nextEl = p.find('.next');
-                        nextEl.find('span').text($('#'+ids[next]).text());
+                        nextEl.find('span').title($('#'+ids[next]).title());
                         nextEl.find('a').attr('href','#'+ids[next])
                         .click(function(event){
                             event.preventDefault();

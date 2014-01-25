@@ -1,0 +1,22 @@
+<!doctype html>
+<html ng-app="schreibwerkapp">
+<head>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-route.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <link rel="stylesheet" href="css/controllers.css">
+</head>
+<body>
+<h2>Todo</h2>
+<div ng-controller="PoiCtrl">
+    <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="leftarrow" style="height:28px; padding: 0; margin: 0; border: none;">
+    <select ng-model="poi" ng-options="c.title for c in pois"></select>
+    <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="rightarrow" style="height:28px; padding: 0; margin: 0; border: none;">
+    <p>
+        {{poi.shortDesc}}
+    </p>
+    <div ng-view></div>
+</div>
+</body>
+</html>

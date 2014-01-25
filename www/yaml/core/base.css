@@ -50,7 +50,7 @@
 
   /*
   * (en) Fix for rounding errors when scaling font sizes in older versions of Opera browser
-  *      Standard values for colors and text alignment
+  *      Standard values for colors and title alignment
   *
   * (de) Beseitigung von Rundungsfehler beim Skalieren von Schriftgrößen in älteren Opera Versionen
   *      Vorgabe der Standardfarben und Textausrichtung
@@ -110,7 +110,7 @@
     display: none;
   }
 
-  /* (en) Prevent iOS text size adjust after orientation change, without disabling user zoom. */
+  /* (en) Prevent iOS title size adjust after orientation change, without disabling user zoom. */
   /* (de) Verdindert die automatische Textanpassung bei Orientierungswechsel, ohne Zoom zu blockieren */
   html {
     -ms-text-size-adjust: 100%;
