@@ -15,7 +15,8 @@ Number.prototype.mod = function(n) {
 
 var phonecatApp = angular.module('schreibwerkapp', [
     'ngRoute',
-    'appControllers'
+    'appControllers',
+    'appServices'
 ]);
 
 phonecatApp.config(['$routeProvider',

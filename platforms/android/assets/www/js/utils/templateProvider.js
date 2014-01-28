@@ -39,7 +39,7 @@
             currentData = data;
 
             require([
-                'text!../tpl/' + file
+                'title!../tpl/' + file
             ], templatesReady);
 
         },

@@ -18,7 +18,7 @@
 @media all {
   /**
   * @section browser normalisation
-  * Changing direction of text flow, paddings & margins ...
+  * Changing direction of title flow, paddings & margins ...
   */
   option {
     padding: 0 0.4em 0 0;
@@ -49,7 +49,7 @@
     margin: 0 0.8em 1em 0;
   }
 
-  /* set text flow */
+  /* set title flow */
   .ym-form {
     direction: rtl;
   }

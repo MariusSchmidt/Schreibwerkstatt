@@ -85,11 +85,11 @@
    * A token is an array with at least 4 elements. The first element is the
    * mustache symbol that was used inside the tag, e.g. "#" or "&". If the tag
    * did not contain a symbol (i.e. {{myValue}}) this element is "name". For
-   * all template text that appears outside a symbol this element is "text".
+   * all template title that appears outside a symbol this element is "title".
    *
    * The second element of a token is its "value". For mustache tags this is
-   * whatever else was inside the tag besides the opening symbol. For text tokens
-   * this is the text itself.
+   * whatever else was inside the tag besides the opening symbol. For title tokens
+   * this is the title itself.
    *
    * The third and fourth elements of the token are the start and end indices
    * in the original template of the token, respectively.
@@ -134,7 +134,7 @@
     while (!scanner.eos()) {
       start = scanner.pos;
 
-      // Match any text between tags.
+      // Match any title between tags.
       value = scanner.scanUntil(tagRes[0]);
       if (value) {
         for (var i = 0, len = value.length; i < len; ++i) {
@@ -146,7 +146,7 @@
             nonSpace = true;
           }
 
-          tokens.push(['text', chr, start, start + 1]);
+          tokens.push(['title', chr, start, start + 1]);
           start += 1;
 
           // Check for whitespace on the current line.
@@ -216,7 +216,7 @@
   }
 
   /**
-   * Combines the values of consecutive text tokens in the given `tokens` array
+   * Combines the values of consecutive title tokens in the given `tokens` array
    * to a single token.
    */
   function squashTokens(tokens) {
@@ -227,7 +227,7 @@
       token = tokens[i];
 
       if (token) {
-        if (token[0] === 'text' && lastToken && lastToken[0] === 'text') {
+        if (token[0] === 'title' && lastToken && lastToken[0] === 'title') {
           lastToken[1] += token[1];
           lastToken[3] = token[3];
         } else {
@@ -294,7 +294,7 @@
 
   /**
    * Tries to match the given regular expression at the current position.
-   * Returns the matched text if it can match, the empty string otherwise.
+   * Returns the matched title if it can match, the empty string otherwise.
    */
   Scanner.prototype.scan = function (re) {
     var match = this.tail.match(re);
@@ -310,7 +310,7 @@
   };
 
   /**
-   * Skips all text until the given regular expression can be matched. Returns
+   * Skips all title until the given regular expression can be matched. Returns
    * the skipped string, which is the entire tail if no match can be made.
    */
   Scanner.prototype.scanUntil = function (re) {
@@ -507,7 +507,7 @@
         value = context.lookup(token[1]);
         if (value != null) buffer += mustache.escape(value);
         break;
-      case 'text':
+      case 'title':
         buffer += token[1];
         break;
       }

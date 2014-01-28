@@ -1015,7 +1015,7 @@ var requirejs, require, define;
                             moduleMap = makeModuleMap(moduleName),
                             hasInteractive = useInteractive;
 
-                        //As of 2.1.0, support just passing the text, to reinforce
+                        //As of 2.1.0, support just passing the title, to reinforce
                         //fromText only being called once per resource. Still
                         //support old style of passing moduleName but discard
                         //that moduleName in favor of the internal ref.
@@ -1024,7 +1024,7 @@ var requirejs, require, define;
                         }
 
                         //Turn off interactive script matching for IE for any define
-                        //calls in the text, then turn it back on at the end.
+                        //calls in the title, then turn it back on at the end.
                         if (hasInteractive) {
                             useInteractive = false;
                         }
@@ -1802,7 +1802,7 @@ var requirejs, require, define;
         var node = config.xhtml ?
                 document.createElementNS('http://www.w3.org/1999/xhtml', 'html:script') :
                 document.createElement('script');
-        node.type = config.scriptType || 'text/javascript';
+        node.type = config.scriptType || 'title/javascript';
         node.charset = 'utf-8';
         node.async = true;
         return node;
@@ -2039,10 +2039,10 @@ var requirejs, require, define;
 
 
     /**
-     * Executes the text. Normally just uses eval, but can be modified
+     * Executes the title. Normally just uses eval, but can be modified
      * to use a better, environment-specific call. Only used for transpiling
      * loader plugins, not for plain JS modules.
-     * @param {String} text the text to execute/evaluate.
+     * @param {String} text the title to execute/evaluate.
      */
     req.exec = function (text) {
         /*jslint evil: true */

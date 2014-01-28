@@ -511,7 +511,7 @@ jQuery.extend({
 		// Support: IE9
 		try {
 			tmp = new DOMParser();
-			xml = tmp.parseFromString( data , "text/xml" );
+			xml = tmp.parseFromString( data , "title/xml" );
 		} catch ( e ) {
 			xml = undefined;
 		}
@@ -1745,7 +1745,7 @@ Sizzle.uniqueSort = function( results ) {
 };
 
 /**
- * Utility function for retrieving the text value of an array of DOM nodes
+ * Utility function for retrieving the title value of an array of DOM nodes
  * @param {Array|Element} elem
  */
 getText = Sizzle.getText = function( elem ) {
@@ -2159,7 +2159,7 @@ Expr = Sizzle.selectors = {
 		// Contents
 		"empty": function( elem ) {
 			// http://www.w3.org/TR/selectors/#empty-pseudo
-			// :empty is only affected by element nodes and content nodes(including text(3), cdata(4)),
+			// :empty is only affected by element nodes and content nodes(including title(3), cdata(4)),
 			//   not comment, processing instructions, or others
 			// Thanks to Diego Perini for the nodeName shortcut
 			//   Greater than "@" means alpha characters (specifically not starting with "#" or "?")
@@ -2189,12 +2189,12 @@ Expr = Sizzle.selectors = {
 			return name === "input" && elem.type === "button" || name === "button";
 		},
 
-		"text": function( elem ) {
+		"title": function( elem ) {
 			var attr;
-			// IE6 and 7 will map elem.type to 'text' for new HTML5 types (search, etc)
+			// IE6 and 7 will map elem.type to 'title' for new HTML5 types (search, etc)
 			// use getAttribute instead to test this case
 			return elem.nodeName.toLowerCase() === "input" &&
-				elem.type === "text" &&
+				elem.type === "title" &&
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === elem.type );
 		},
 
@@ -2837,7 +2837,7 @@ jQuery.find = Sizzle;
 jQuery.expr = Sizzle.selectors;
 jQuery.expr[":"] = jQuery.expr.pseudos;
 jQuery.unique = Sizzle.uniqueSort;
-jQuery.text = Sizzle.getText;
+jQuery.title = Sizzle.getText;
 jQuery.isXMLDoc = Sizzle.isXML;
 jQuery.contains = Sizzle.contains;
 
@@ -4024,7 +4024,7 @@ jQuery.extend({
 				// attributes.value is undefined in Blackberry 4.7 but
 				// uses .value. See #6932
 				var val = elem.attributes.value;
-				return !val || val.specified ? elem.value : elem.text;
+				return !val || val.specified ? elem.value : elem.title;
 			}
 		},
 		select: {
@@ -4091,7 +4091,7 @@ jQuery.extend({
 		var hooks, ret,
 			nType = elem.nodeType;
 
-		// don't get/set attributes on text, comment and attribute nodes
+		// don't get/set attributes on title, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -4181,7 +4181,7 @@ jQuery.extend({
 		var ret, hooks, notxml,
 			nType = elem.nodeType;
 
-		// don't get/set properties on text, comment and attribute nodes
+		// don't get/set properties on title, comment and attribute nodes
 		if ( !elem || nType === 3 || nType === 8 || nType === 2 ) {
 			return;
 		}
@@ -4331,7 +4331,7 @@ jQuery.event = {
 			special, handlers, type, namespaces, origType,
 			elemData = data_priv.get( elem );
 
-		// Don't attach events to noData or text/comment nodes (but allow plain objects)
+		// Don't attach events to noData or title/comment nodes (but allow plain objects)
 		if ( !elemData ) {
 			return;
 		}
@@ -4514,7 +4514,7 @@ jQuery.event = {
 
 		cur = tmp = elem = elem || document;
 
-		// Don't do events on text and comment nodes
+		// Don't do events on title and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
 			return;
 		}
@@ -4817,7 +4817,7 @@ jQuery.event = {
 		}
 
 		// Support: Safari 6.0+, Chrome < 28
-		// Target should not be a text node (#504, #13143)
+		// Target should not be a title node (#504, #13143)
 		if ( event.target.nodeType === 3 ) {
 			event.target = event.target.parentNode;
 		}
@@ -5441,10 +5441,10 @@ wrapMap.tbody = wrapMap.tfoot = wrapMap.colgroup = wrapMap.caption = wrapMap.the
 wrapMap.th = wrapMap.td;
 
 jQuery.fn.extend({
-	text: function( value ) {
+	title: function( value ) {
 		return jQuery.access( this, function( value ) {
 			return value === undefined ?
-				jQuery.text( this ) :
+				jQuery.title( this ) :
 				this.empty().append( ( this[ 0 ] && this[ 0 ].ownerDocument || document ).createTextNode( value ) );
 		}, null, value, arguments.length );
 	},
@@ -5774,7 +5774,7 @@ jQuery.extend({
 					// jQuery.merge because core_push.apply(_, arraylike) throws
 					jQuery.merge( nodes, elem.nodeType ? [ elem ] : elem );
 
-				// Convert non-html into a text node
+				// Convert non-html into a title node
 				} else if ( !rhtml.test( elem ) ) {
 					nodes.push( context.createTextNode( elem ) );
 
@@ -6246,7 +6246,7 @@ jQuery.extend({
 
 	// Get and set the style property on a DOM Node
 	style: function( elem, name, value, extra ) {
-		// Don't set styles on text and comment nodes
+		// Don't set styles on title and comment nodes
 		if ( !elem || elem.nodeType === 3 || elem.nodeType === 8 || !elem.style ) {
 			return;
 		}
@@ -6976,10 +6976,10 @@ jQuery.extend({
 
 		accepts: {
 			"*": allTypes,
-			text: "text/plain",
-			html: "text/html",
-			xml: "application/xml, text/xml",
-			json: "application/json, text/javascript"
+			title: "title/plain",
+			html: "title/html",
+			xml: "application/xml, title/xml",
+			json: "application/json, title/javascript"
 		},
 
 		contents: {
@@ -6990,7 +6990,7 @@ jQuery.extend({
 
 		responseFields: {
 			xml: "responseXML",
-			text: "responseText",
+			title: "responseText",
 			json: "responseJSON"
 		},
 
@@ -6998,16 +6998,16 @@ jQuery.extend({
 		// Keys separate source (or catchall "*") and destination types with a single space
 		converters: {
 
-			// Convert anything to text
+			// Convert anything to title
 			"* text": String,
 
 			// Text to html (true = no transformation)
 			"text html": true,
 
-			// Evaluate text as a json expression
+			// Evaluate title as a json expression
 			"text json": jQuery.parseJSON,
 
-			// Parse text as xml
+			// Parse title as xml
 			"text xml": jQuery.parseXML
 		},
 
@@ -7607,7 +7607,7 @@ function ajaxConvert( s, response, jqXHR, isSuccess ) {
 // Install script dataType
 jQuery.ajaxSetup({
 	accepts: {
-		script: "text/javascript, application/javascript, application/ecmascript, application/x-ecmascript"
+		script: "title/javascript, application/javascript, application/ecmascript, application/x-ecmascript"
 	},
 	contents: {
 		script: /(?:java|ecma)script/
