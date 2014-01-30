@@ -49,3 +49,32 @@ appServices.factory('geolocation', function ($rootScope, cordovaReady) {
     })
   };
 });
+
+appServices.factory('media', function(){
+    return {
+        play: function(src, onSuccess, onError){
+            console.log('play')
+            media = new Media(src, onSuccess, onError);
+            
+            media.play();
+            if (mediaTimer == null) {
+                mediaTimer = setInterval(function() {
+                    // get my_media position
+                    my_media.getCurrentPosition(
+                        // success callback
+                        function(position) {
+                            if (position > -1) {
+                                setAudioPosition((position) + " sec");
+                            }
+                        },
+                        // error callback
+                        function(e) {
+                            console.log("Error getting pos=" + e);
+                            setAudioPosition("Error: " + e);
+                        }
+                    );
+                }, 1000);
+            }
+        }
+    };
+});

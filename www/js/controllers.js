@@ -18,7 +18,7 @@ appControllers.controller('PoiCtrl', function($scope) {
 });
 
 
-appControllers.controller('MainCtrl', function ($scope, geolocation) {
+appControllers.controller('MainCtrl', function ($scope, geolocation, media) {
   geolocation.getCurrentPosition(function (position) {
     var getDistance = function (lat1,lon1,lat2,lon2) {
         var deg2rad = function(deg) {
@@ -34,9 +34,15 @@ appControllers.controller('MainCtrl', function ($scope, geolocation) {
         ; 
         var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
         var d = R * c; // Distance in km
-        return d = Math.floor(d.toFixed(3) * 100); //Distance in m
+        return d = d.toFixed(3); //Distance in m
     };
     distance = getDistance(50.22513, 8.57191, position.coords.latitude, position.coords.longitude);
     $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy, distance: distance}
+  });
+});
+
+appControllers.controller('AudioCtrl', function ($scope, media){
+    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
+        console.log("playAudio():Audio Success");
     });
 });
