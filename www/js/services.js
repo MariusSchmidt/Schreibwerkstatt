@@ -9,6 +9,8 @@ appServices.factory('cordovaReady', function() {
       queue.push(Array.prototype.slice.call(arguments));
     };
 
+    Array.prototype.slic
+
     document.addEventListener('deviceready', function () {
       queue.forEach(function (args) {
         fn.apply(this, args);
