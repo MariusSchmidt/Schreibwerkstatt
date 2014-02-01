@@ -1,5 +1,8 @@
 var appServices = angular.module('appServices', []);
 
+/*
+ *      Phonegap Services
+ */
 appServices.factory('cordovaReady', function() {
   return function (fn) {
 
@@ -77,5 +80,36 @@ appServices.factory('media', function(){
                 }, 1000);
             }
         }
+    };
+});
+
+
+appServices.factory('distance', function(){
+    /*
+ * This Service calculates the distance between two points using
+ * Haversine formula
+ * Params:
+ *      - position 1 (phonegaps gelocation object)
+ *      - position 2 (phonegaps gelocation object)
+ * Return:
+ *      - distance (km.mmm)
+ */
+    return{
+    calculate: function(lat1,lon1,lat2,lon2){
+        var deg2rad = function(deg) {
+            return deg * (Math.PI/180);
+        };
+        var R = 6371; // Radius of the earth in km
+        var dLat = deg2rad(lat2-lat1);  // deg2rad below
+        var dLon = deg2rad(lon2-lon1); 
+        var a = 
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+        Math.sin(dLon/2) * Math.sin(dLon/2)
+        ; 
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+        var d = R * c; // Distance in km
+        return d = d.toFixed(3); //Distance in m
+   }
     };
 });

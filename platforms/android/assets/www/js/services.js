@@ -9,6 +9,8 @@ appServices.factory('cordovaReady', function() {
       queue.push(Array.prototype.slice.call(arguments));
     };
 
+    Array.prototype.slic
+
     document.addEventListener('deviceready', function () {
       queue.forEach(function (args) {
         fn.apply(this, args);
@@ -53,7 +55,6 @@ appServices.factory('geolocation', function ($rootScope, cordovaReady) {
 appServices.factory('media', function(){
     return {
         play: function(src, onSuccess, onError){
-            console.log('play')
             media = new Media(src, onSuccess, onError);
             
             media.play();

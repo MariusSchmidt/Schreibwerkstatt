@@ -38,14 +38,11 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, media) {
     };
     distance = getDistance(50.22513, 8.57191, position.coords.latitude, position.coords.longitude);
     $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy, distance: distance}
-    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
-        console.log("playAudio():Audio Success");
-    });
   });
 });
 
 appControllers.controller('AudioCtrl', function ($scope, media){
-    media.play(function(){
+    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
         console.log("playAudio():Audio Success");
     });
 });
