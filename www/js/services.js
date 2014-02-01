@@ -9,10 +9,19 @@ appServices.factory('cordovaReady', function() {
     var queue = [];
 
     var impl = function () {
+      /*
+      Siehe:
+       http://stackoverflow.com/questions/7056925/how-does-array-prototype-slice-call-work
+       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/arguments
+       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
+
+       arguments ist ein array like object, dass die dem function call übergebenen parameter enthält.
+       Durch Array.prototype.slice.call wird das 'this' in der slice Implementierung auf das arguments
+       objejt umgesetzt, dass sich wie ein array verhält. Slice gibt dieses nun in ein echte array konvertiert
+       zurück. Dieses wird per push an queue angehänt.
+       */
       queue.push(Array.prototype.slice.call(arguments));
     };
-
-    Array.prototype.slic
 
     document.addEventListener('deviceready', function () {
       queue.forEach(function (args) {
