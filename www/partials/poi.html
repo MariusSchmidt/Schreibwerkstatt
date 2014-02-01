@@ -1,0 +1,14 @@
+<div ng-controller="PoiCtrl">
+    <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="leftarrow" style="height:28px; padding: 0; margin: 0; border: none;">
+    <select ng-model="poi" ng-options="c.title for c in pois"></select>
+    <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="rightarrow" style="height:28px; padding: 0; margin: 0; border: none;">
+    <p>
+        {{poi.shortDesc}}
+    </p>
+</div>
+<div ng-controller="MainCtrl">
+    <p>{{pos.latitude }}
+        {{pos.longitude}}
+        {{pos.accuracy }}</p>
+    <p>{{pos.distance}}</p>
+</div>

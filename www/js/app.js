@@ -30,7 +30,11 @@ phonecatApp.config(['$routeProvider',
                 templateUrl: 'partials/terms.html',
                 controller: 'PoiCtrl'
             }).
+            when('/poi', {
+                templateUrl: 'partials/poi.html',
+                controller: 'PoiCtrl'
+            }).
             otherwise({
-                redirectTo: '/terms'
+                redirectTo: '/poi'
             });
     }]);
