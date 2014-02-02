@@ -24,11 +24,9 @@ phonecatApp.config(['$routeProvider',
         $routeProvider.
             when('/splash', {
                 templateUrl: 'partials/splash.html',
-                controller: 'PoiCtrl'
             }).
             when('/terms', {
                 templateUrl: 'partials/terms.html',
-                controller: 'PoiCtrl'
             }).
             when('/poi', {
                 templateUrl: 'partials/poi.html',
