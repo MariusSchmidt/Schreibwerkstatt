@@ -64,29 +64,37 @@ appServices.factory('geolocation', function ($rootScope, cordovaReady) {
     };
 });
 
-appServices.factory('media', function () {
+appServices.factory('media', function ($rootScope, cordovaReady) {
     return {
-        play: function (src, onSuccess, onError) {
-            media = new Media(src, onSuccess, onError);
+        play: cordovaReady(function (src, onSuccess, onError) {
+            var that = this,
+                args = arguments;
+                
+            media = new Media(src, function () {
+                    var that = this,
+                        args = arguments;
 
+                    if (onSuccess) {
+                        $rootScope.$apply(function () {
+                            onSuccess.apply(media, that, args);
+                        });
+                    }
+                }, function () {
+                    var that = this,
+                        args = arguments;
+
+                    if (onError) {
+                        $rootScope.$apply(function () {
+                            onError.apply(that, args);
+                        });
+                    }
+                });
+            
             media.play();
-            if (mediaTimer == null) {
-                mediaTimer = setInterval(function () {
-                    // get my_media position
-                    my_media.getCurrentPosition(
-                        // success callback
-                        function (position) {
-                            if (position > -1) {
-                                setAudioPosition((position) + " sec");
-                            }
-                        },
-                        // error callback
-                        function (e) {
-                            console.log("Error getting pos=" + e);
-                            setAudioPosition("Error: " + e);
-                        }
-                    );
-                }, 1000);
+        }),
+        stop: function(media){
+            if (media){
+                media.stop();
             }
         }
     };
@@ -102,6 +110,9 @@ appServices.factory('distance', function () {
      *      - position 2 (phonegaps gelocation object)
      * Return:
      *      - distance (km.mmm)
+     * ToDo:
+     *      - make this a controller
+     *      - lat1(2) lon1(2) should be a position object 
      */
     return{
         calculate: function (lat1, lon1, lat2, lon2) {

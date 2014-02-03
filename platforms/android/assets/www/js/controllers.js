@@ -18,15 +18,22 @@ appControllers.controller('PoiCtrl', function($scope) {
 });
 
 
-appControllers.controller('MainCtrl', function ($scope, geolocation, distance) {
+appControllers.controller('MainCtrl', function ($scope, geolocation, media) {
   geolocation.getCurrentPosition(function (position) {
     //distance = distance.calculate(50.22513, 8.57191, position.coords.latitude, position.coords.longitude);
-    $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy}
+    $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(media){
+        $scope.media=media;
+        console.log("playAudio():Audio Success");
+    });
   });
 });
 
 appControllers.controller('AudioCtrl', function ($scope, media){
-    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
-        console.log("playAudio():Audio Success");
-    });
+    $scope.stopMedia = function() {
+        media.stop($scope.media);
+    };
+// media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
+     //   console.log("playAudio():Audio Success");
+    //});
 });

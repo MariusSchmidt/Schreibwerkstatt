@@ -1,10 +1,10 @@
 /**
- * Created with IntelliJ IDEA.
- * User: marius
- * Date: 22.01.14
- * Time: 19:49
- * To change this template use File | Settings | File Templates.
- */
+* Created with IntelliJ IDEA.
+* User: marius
+* Date: 22.01.14
+* Time: 19:49
+* To change this template use File | Settings | File Templates.
+*/
 'use strict';
 
 Number.prototype.mod = function(n) {
