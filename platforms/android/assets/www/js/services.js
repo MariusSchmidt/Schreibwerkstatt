@@ -86,6 +86,40 @@ services.factory ('notification', function( deviceReadyService, $rootScope ){
     };
 });
 
+services.factory('media', function (deviceReadyService, $rootScope){
+    return {
+        play: function (src, onSuccess, onError){
+            deviceReadyService().then (function () {
+            var that = this,
+                args = arguments;
+                
+               
+               media = new Media(src, function(){
+                    var that = this,
+                        args = arguments;
+                        
+                   if(onSuccess) {
+                       
+                       $rootScope.$apply(function() {
+                            onSuccess.apply(that, args);
+                       });
+                   }
+               }, function(){
+                    var that = this,
+                        args = arguments;
+
+                    if (onError) {
+                        $rootScope.$apply(function () {
+                            onError.apply(that, args);
+                        });
+                    }
+               });
+                media.play();
+            });
+        }
+    };
+});
+
 services.factory('geolocation', function (deviceReadyService, $rootScope){
     /* This service provides Phonegaps watchPosition function.
      * It returns the devices current Position in a defined interval

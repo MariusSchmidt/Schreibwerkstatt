@@ -21,7 +21,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
             var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             var d = R * c; // Distance in km
             return d = d.toFixed(3); //Distance in m
-        }
+        };
 
 
 /*
@@ -40,7 +40,16 @@ appControllers.controller('PoiCtrl', function($scope, notification) {
         {title: "04. Dom", shortDesc: "Dicosum", lat: 50.115893706675315, lon: 8.69356466076514,
             media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"}
     ];
-    
+ 
+
+    $scope.poi = $scope.pois[1];
+
+    $scope.shiftPoi = function(shiftCount) {
+        var index = $scope.pois.indexOf($scope.poi) + shiftCount;
+        index = (index < 0)? $scope.pois.length-1 : (index >= $scope.pois.length)? 0 : index;
+        $scope.poi = $scope.pois[index];
+    };
+       
     /*
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
@@ -65,22 +74,18 @@ appControllers.controller('PoiCtrl', function($scope, notification) {
            },"Informationen verfügbar", ["Ja", "Nein"]);
         }
     });
-    
-    $scope.poi = $scope.pois[1];
-
-    $scope.shiftPoi = function(shiftCount) {
-        var index = $scope.pois.indexOf($scope.poi) + shiftCount;
-        index = (index < 0)? $scope.pois.length-1 : (index >= $scope.pois.length)? 0 : index;
-        $scope.poi = $scope.pois[index];
-    };
 });
 
 
-appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
+appControllers.controller('MainCtrl', function ($rootScope, geolocation, media) {
   geolocation.watchPosition(function (position) {
-    //distance = calculateDistance(50.22513, 8.57191, position.coords.latitude, position.coords.longitude);
       /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
       $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+      media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function(){
+      //$scope.media=media;
+      console.log("Success");
+    });
+    
 //    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(media){
 //        $scope.media=media;
 //        console.log("playAudio():Audio Success");

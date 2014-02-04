@@ -41,7 +41,7 @@ appControllers.controller('PoiCtrl', function($scope, notification) {
             media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"}
     ];
  
-    
+
     $scope.poi = $scope.pois[1];
 
     $scope.shiftPoi = function(shiftCount) {
@@ -77,10 +77,15 @@ appControllers.controller('PoiCtrl', function($scope, notification) {
 });
 
 
-appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
+appControllers.controller('MainCtrl', function ($rootScope, geolocation, media) {
   geolocation.watchPosition(function (position) {
       /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
       $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+      media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function(){
+      //$scope.media=media;
+      console.log("Success");
+    });
+    
 //    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(media){
 //        $scope.media=media;
 //        console.log("playAudio():Audio Success");
