@@ -24,7 +24,7 @@ services.factory ( 'deviceReadyService', function ($document, $q, $rootScope) {
         var readyHeader = function() {
             $rootScope.$apply (function () {
                 $rootScope.deviceready= true;
-                $document.off( 'deviceready', readyHeader)//Event was fired - unregister handler
+                $document.off( 'deviceready', readyHeader);//Event was fired - unregister handler
                 deferred.resolve();
             });
          };
@@ -97,9 +97,9 @@ services.factory('media', function (deviceReadyService, $rootScope){
                media = new Media(src, function(){
                     var that = this,
                         args = arguments;
-                        
+                   
+                   
                    if(onSuccess) {
-                       
                        $rootScope.$apply(function() {
                             onSuccess.apply(that, args);
                        });
@@ -114,8 +114,20 @@ services.factory('media', function (deviceReadyService, $rootScope){
                         });
                     }
                });
-                media.play();
+               if (media) {
+                    /* set mediaPlaying to true */
+                    /* add to $rootScope to be able to stop from everywhere */
+                    $rootScope.media=media; 
+                    media.play();                   
+               }
+
             });
+        },
+        stop: function(media){
+            if (media){
+                media.stop();
+                $rootScope.media=null;
+            }
         }
     };
 });

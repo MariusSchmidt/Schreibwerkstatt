@@ -28,7 +28,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
  *  CONTROLLER
  */
 
-appControllers.controller('PoiCtrl', function($scope, notification) {
+appControllers.controller('PoiCtrl', function($rootScope, $scope, notification, media) {
     
     $scope.pois = [
         {title: "01. Hauptwache", shortDesc: "Lorema", lat: 50.11473789901214, lon: 8.6785872056261,
@@ -42,7 +42,7 @@ appControllers.controller('PoiCtrl', function($scope, notification) {
     ];
  
 
-    $scope.poi = $scope.pois[1];
+    $scope.poi = $scope.pois[0];
 
     $scope.shiftPoi = function(shiftCount) {
         var index = $scope.pois.indexOf($scope.poi) + shiftCount;
@@ -53,51 +53,46 @@ appControllers.controller('PoiCtrl', function($scope, notification) {
     /*
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
-     */
+     */ 
     $scope.$watch ('pos', function() {
-        distance = calculateDistance($scope.pos.latitude, $scope.pos.longitude,
+        distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
             $scope.poi.lat, $scope.poi.lon);
-          $scope.pos.distance = distance;
-        if (distance <= 0.050) 
+          $rootScope.pos.distance = distance;
+        if (distance <= 0.050 && lastcheck !== $scope.poi) 
         {
            notification.confirm(nearInfoAlert, function(btnNos){
                if (btnNos [0] === 1)
                {
-                   //ToDo: Informationen abspielen 
-                   console.log("JA");
-               }
-               else
-               {
-                   //ToDo: else entfernen
-                   console.log("No");
+                   media.play($scope.poi.media, function() {
+                       console.log("JA");
+                   });
                }
            },"Informationen verfügbar", ["Ja", "Nein"]);
         }
+        var lastcheck = $scope.poi;
     });
 });
 
 
-appControllers.controller('MainCtrl', function ($rootScope, geolocation, media) {
+appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
   geolocation.watchPosition(function (position) {
       /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
       $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
-      media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function(){
-      //$scope.media=media;
-      console.log("Success");
-    });
-    
-//    media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(media){
-//        $scope.media=media;
-//        console.log("playAudio():Audio Success");
-//    });
   });
 });
 
-//appControllers.controller('AudioCtrl', function ($scope, media){
-//    $scope.stopMedia = function() {
-//        media.stop($scope.media);
-//    };
-//// media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
-//     //   console.log("playAudio():Audio Success");
-//    //});
-//});
+/* This is just a test controller - DELETE THIS! */
+appControllers.controller('AudioCtrl', function ($rootScope, $scope, media){
+    $scope.stopMedia = function() {
+        media.stop($rootScope.media);
+    };
+    $scope.playMedia = function () {
+        media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function(){
+        console.log("Success");
+        });  
+    };
+        
+// media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
+     //   console.log("playAudio():Audio Success");
+    //});
+});

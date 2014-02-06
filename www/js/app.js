@@ -41,13 +41,14 @@ schreibwerkApp.config(['$routeProvider',
 //     * first things todo:
 //     *  
 //     */
-//    deviceReadyService().then( function () {
-//       /* 
-//        * Not sure if needed but usefull to bradcast in lower DOM-Levels later. 
-//        * deviceReady Service returns a promise this function is a complete-handle
-//        * that broadcasts the deviceReadyEvent to all DOM-Levels
-//        */
-//       console.log( $rootScope.deviceready );
-//       $rootScope.$broadcast ('deviceReadyEvent', true);  
-//    });
+//    $rootScope.mediaPlaying = false; //If true: dont't run media.play()
+////    deviceReadyService().then( function () {
+////       /* 
+////        * Not sure if needed but usefull to bradcast in lower DOM-Levels later. 
+////        * deviceReady Service returns a promise this function is a complete-handle
+////        * that broadcasts the deviceReadyEvent to all DOM-Levels
+////        */
+////       console.log( $rootScope.deviceready );
+////       $rootScope.$broadcast ('deviceReadyEvent', true);  
+////    });
 //});
