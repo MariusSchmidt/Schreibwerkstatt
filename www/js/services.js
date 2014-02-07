@@ -28,7 +28,7 @@ services.factory ( 'deviceReadyService', function ($document, $q, $rootScope) {
                 deferred.resolve();
             });
          };
-     $document.on ('deviceready', readyHeader );
+        $document.on ('deviceready', readyHeader );
     }
     return deferred.promise;
     };
