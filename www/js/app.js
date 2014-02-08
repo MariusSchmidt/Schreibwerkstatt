@@ -32,11 +32,7 @@ schreibwerkApp.config(['$routeProvider',
                 templateUrl: 'partials/intro.html'
             }).
             otherwise({
-<<<<<<< HEAD
-                redirectTo: '/terms'
-=======
                 redirectTo: '/splash'
->>>>>>> port-to-yaml
             });
     }]);
 
