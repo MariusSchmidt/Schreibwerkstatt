@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 <nav id="nav" style="text-align: center; padding: 0.2em; margin: 0; border: none;">
     <div class="ym-wrapper" style="text-align: center; padding: 0; margin: 0; border: none;">
         <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="leftarrow" style="height:28px; padding: 0; margin: 0; border: none;">
         <select ng-model="poi" ng-options="c.title for c in pois"></select>
         <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="rightarrow" style="height:28px; padding: 0; margin: 0; border: none;">‚
+=======
+<nav id="nav">
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="float-left">
+            <select ng-model="poi" ng-options="c.title for c in pois"></select>
+            <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="float-right">
+        </div>
+>>>>>>> port-to-yaml
     </div>
 </nav>
 <main>
@@ -11,7 +21,11 @@
             <section class="ym-grid linearize-level-1">
                 <article class="ym-g66 ym-gl content">
                     <div class="ym-gbox-left ym-clearfix">
+<<<<<<< HEAD
                         <div id="map-canvas" style="height: 300px;">
+=======
+                        <div id="map-canvas" style="height: 300px;">Here goes the map
+>>>>>>> port-to-yaml
                             <p>{{pos.latitude }}
                                 {{pos.longitude}}
                                 {{pos.accuracy }}</p>
@@ -24,6 +38,13 @@
                         <p>
                             {{poi.shortDesc}}
                         </p>
+<<<<<<< HEAD
+=======
+                        <div>
+                            <a class="float-left" href="#/terms">Impressum</a>
+                            <a class="float-right" href="#/intro">Anleitung</a>
+                        </div>
+>>>>>>> port-to-yaml
                     </div>
                 </aside>
             </section>

@@ -23,15 +23,20 @@ schreibwerkApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/splash', {
-                templateUrl: 'partials/splash.html',
-                controller: 'PoiCtrl'
+                templateUrl: 'partials/splash.html'
             }).
             when('/terms', {
-                templateUrl: 'partials/terms.html',
-                controller: 'PoiCtrl'
+                templateUrl: 'partials/terms.html'
+            }).
+            when('/intro', {
+                templateUrl: 'partials/intro.html'
             }).
             otherwise({
+<<<<<<< HEAD
                 redirectTo: '/terms'
+=======
+                redirectTo: '/splash'
+>>>>>>> port-to-yaml
             });
     }]);
 
