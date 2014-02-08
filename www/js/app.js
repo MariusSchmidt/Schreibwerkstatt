@@ -40,6 +40,13 @@ schreibwerkApp.config(['$routeProvider',
             });
     }]);
 
+schreibwerkApp.run(function($rootScope, $http) {
+    $http.get('tour.json')
+        .then(function (res) {
+            $rootScope.tour = res.data;
+        });
+});
+
 
 //schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService) {
 //    /* 
