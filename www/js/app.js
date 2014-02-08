@@ -23,16 +23,19 @@ phonecatApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/splash', {
-                templateUrl: 'partials/splash.html',
+                templateUrl: 'partials/splash.html'
             }).
             when('/terms', {
-                templateUrl: 'partials/terms.html',
+                templateUrl: 'partials/terms.html'
+            }).
+            when('/intro', {
+                templateUrl: 'partials/intro.html'
             }).
             when('/poi', {
                 templateUrl: 'partials/poi.html',
                 controller: 'PoiCtrl'
             }).
             otherwise({
-                redirectTo: '/poi'
+                redirectTo: '/splash'
             });
     }]);

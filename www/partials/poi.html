@@ -1,14 +1,38 @@
-<div ng-controller="PoiCtrl">
-    <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="leftarrow" style="height:28px; padding: 0; margin: 0; border: none;">
-    <select ng-model="poi" ng-options="c.title for c in pois"></select>
-    <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="rightarrow" style="height:28px; padding: 0; margin: 0; border: none;">
-    <p>
-        {{poi.shortDesc}}
-    </p>
-</div>
-<div ng-controller="MainCtrl">
-    <p>{{pos.latitude }}
-        {{pos.longitude}}
-        {{pos.accuracy }}</p>
-    <p>{{pos.distance}}</p>
-</div>
+<nav id="nav">
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="float-left">
+            <select ng-model="poi" ng-options="c.title for c in pois"></select>
+            <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="float-right">
+        </div>
+    </div>
+</nav>
+<main>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <section class="ym-grid linearize-level-1">
+                <article class="ym-g66 ym-gl content">
+                    <div class="ym-gbox-left ym-clearfix">
+                        <div id="map-canvas" style="height: 300px;">Here goes the map
+                            <p>{{pos.latitude }}
+                                {{pos.longitude}}
+                                {{pos.accuracy }}</p>
+                            <p>{{pos.distance}}</p>
+                        </div>
+                    </div>
+                </article>
+                <aside class="ym-g33 ym-gr">
+                    <div class="ym-gbox-right ym-clearfix">
+                        <p>
+                            {{poi.shortDesc}}
+                        </p>
+                        <div>
+                            <a class="float-left" href="#/terms">Impressum</a>
+                            <a class="float-right" href="#/intro">Anleitung</a>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+        </div>
+    </div>
+</main>
