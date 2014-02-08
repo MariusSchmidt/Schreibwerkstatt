@@ -31,6 +31,10 @@ schreibwerkApp.config(['$routeProvider',
             when('/intro', {
                 templateUrl: 'partials/intro.html'
             }).
+            when('/poi', {
+                templateUrl: 'partials/poi.html',
+                controller: 'PoiCtrl'
+            }).
             otherwise({
                 redirectTo: '/splash'
             });
