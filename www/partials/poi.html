@@ -13,18 +13,19 @@
             <section class="ym-grid linearize-level-1">
                 <article class="ym-g66 ym-gl content">
                     <div class="ym-gbox-left ym-clearfix">
-                        <div id="map-canvas" style="height: 300px;">Here goes the map
-                            <p>{{pos.latitude }}
-                                {{pos.longitude}}
-                                {{pos.accuracy }}</p>
-                            <p>{{pos.distance}}</p>
-                        </div>
+                        <google-map center="map.center" zoom="map.zoom"
+                                draggable="false"
+                                options="{zoomControl: false, }"></google-map>
                     </div>
                 </article>
                 <aside class="ym-g33 ym-gr">
                     <div class="ym-gbox-right ym-clearfix">
                         <h1>{{poi.heading}}</h1>
                         <p>{{poi.teaser}}</p>
+                        <p>{{pos.latitude }}
+                            {{pos.longitude}}
+                            {{pos.accuracy }}</p>
+                        <p>{{pos.distance}}</p>
                         <div>
                             <a class="float-left" href="#/terms">Impressum</a>
                             <a class="float-right" href="#/intro">Anleitung</a>

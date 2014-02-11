@@ -51,6 +51,14 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         $scope.poi = $scope.pois[index];
     };
 
+    $scope.map = {
+        center: {
+            latitude: 45,
+            longitude: -73
+        },
+        zoom: 8
+    };
+
     /*
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information

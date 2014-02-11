@@ -16,7 +16,8 @@ Number.prototype.mod = function(n) {
 var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',
     'appControllers',
-    'phonegapServices'
+    'phonegapServices',
+    'google-maps'
 ]);
 
 schreibwerkApp.config(['$routeProvider',

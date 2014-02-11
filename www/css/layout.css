@@ -33,6 +33,8 @@ nav img.float-left, nav img.float-right {
     margin: 0;
 }
 
+.angular-google-map-container { height: 375px; }
+
 /*header h1, header h2, footer a {*/
 /*color: white;*/
 /*}*/
