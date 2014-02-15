@@ -30,19 +30,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 
 appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media) {
 
-    /*$scope.pois = [
-        {title: "01. Hauptwache", shortDesc: "Lorema", lat: 50.11473789901214, lon: 8.6785872056261,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"},
-        {title: "02. Judengasse", shortDesc: "Iosum", lat: 50.22513, lon: 8.57191,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"},
-        {title: "03. Konstablerwache", shortDesc: "Teyt", lat: 50.11572859300329, lon: 8.688672311522033,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"},
-        {title: "04. Dom", shortDesc: "Dicosum", lat: 50.115893706675315, lon: 8.69356466076514,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"}
-    ];*/
     $scope.pois = $rootScope.tour.pointsOfInterest;
-
-
     $scope.poi = $scope.pois[0];
 
     $scope.shiftPoi = function (shiftCount) {
@@ -53,10 +41,14 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
 
     $scope.map = {
         center: {
-            latitude: 45,
-            longitude: -73
+            latitude: 50.110290,
+            longitude: 8.682265
         },
-        zoom: 8
+        style: {
+            margin: "0 0 0 0"
+        },
+        draggable: true,
+        zoom: 15
     };
 
     /*

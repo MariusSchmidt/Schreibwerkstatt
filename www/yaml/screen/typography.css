@@ -45,7 +45,7 @@
     body {
         font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
         font-size: 87.5%;
-        color: #444444;
+        color: #DDDDDD;
     }
 
     /*--- Headings | Überschriften ------------------------------------------------------------------------*/
@@ -57,7 +57,7 @@
     h6 {
         font-family: "Droid Sans", Arial, Helvetica, sans-serif;
         font-weight: 400;
-        color: #161e21;
+        color: #FFFFFF;
         margin: 0;
     }
 
