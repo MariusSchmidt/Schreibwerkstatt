@@ -144,10 +144,12 @@ services.factory('geolocation', function (deviceReadyService, $rootScope){
      * Testable with Ripple: Yes
      */
     return{
-        watchPosition: function (onSuccess, onError, options, $rootScope) {
+        watchPosition: function (onSuccess, onError, options) {
             deviceReadyService().then (function(){
             /* Call Phonegap API */
-            $rootScope.watchID = navigator.geolocation.watchPosition(function () {
+                alert("watch");
+            navigator.geolocation.watchPosition(function () {
+
                     var that = this,
                         args = arguments;
 
@@ -169,12 +171,6 @@ services.factory('geolocation', function (deviceReadyService, $rootScope){
                 {enableHighAccuracy: true, timeout: 2000}); 
             });
 
-        },
-        clearWatch: function (watchID){
-            if (watchID != null){
-                navigator.clearWatch(watchID);
-                watchID = null;
-            }
         }
     };
 });
