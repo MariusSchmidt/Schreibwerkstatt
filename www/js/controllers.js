@@ -68,10 +68,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         alert("event y: " + event.y);
         alert("event offsetX: " + event.offsetX);
         alert("event offsetY: " + event.offsetY);*/
-
-        var container = angular.element('#map-container');
-        console.log(container);
-
         $scope.map.position.top = -event.offsetY + 160;
         $scope.map.position.left = -event.offsetX + 142;
     }
