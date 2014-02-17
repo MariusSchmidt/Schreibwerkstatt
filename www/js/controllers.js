@@ -64,10 +64,12 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         var parent = img.parent();
         console.log("img: " + img);
         console.log("parent: " + parent);
-        /*alert("event x: " + event.x);
+        alert("event x: " + event.x);
         alert("event y: " + event.y);
         alert("event offsetX: " + event.offsetX);
-        alert("event offsetY: " + event.offsetY);*/
+        alert("event offsetY: " + event.offsetY);
+        alert("event pageX: " + event.pageX);
+        alert("event pageY: " + event.pageY);
         $scope.map.position.top = -event.offsetY + 160;
         $scope.map.position.left = -event.offsetX + 142;
     }
