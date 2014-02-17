@@ -27,7 +27,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, geolocation) {
 
     $scope.pois = $rootScope.tour.pointsOfInterest;
     $scope.poi = $scope.pois[0];
@@ -80,6 +80,8 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
      */
+
+
     $scope.$watch('pos', function () {
         distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
             $scope.poi.lat, $scope.poi.lon);
@@ -95,6 +97,8 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         }
         var lastcheck = $scope.poi;
     });
+
+
 });
 
 
@@ -104,7 +108,7 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
         alert("done");
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
-    }, $rootScope);
+    });
 });
 
 /* This is just a test controller - DELETE THIS! */
