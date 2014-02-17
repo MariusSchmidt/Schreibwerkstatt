@@ -147,7 +147,6 @@ services.factory('geolocation', function (deviceReadyService, $rootScope){
         watchPosition: function (onSuccess, onError, options) {
             deviceReadyService().then (function(){
             /* Call Phonegap API */
-                alert("watch");
             navigator.geolocation.watchPosition(function () {
 
                     var that = this,
