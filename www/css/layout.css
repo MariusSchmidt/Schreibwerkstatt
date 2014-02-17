@@ -37,8 +37,6 @@ nav img.float-left, nav img.float-right {
 
 #map-container  {
     position: relative;
-    top: -500px;
-    left: -1500px;
 }
 
 /*header h1, header h2, footer a {*/

@@ -12,9 +12,9 @@
         <div class="ym-wbox">
             <section class="ym-grid linearize-level-1">
                 <article class="ym-g66 ym-gl content">
-                    <div class="ym-gbox-left ym-clearfix" style="overflow: hidden;">
-                        <div id="map-container">
-                            <img src="./img/map.png" ng-style="map.style" />
+                    <div class="ym-gbox-left ym-clearfix" style="overflow: hidden;" ng-click="mapClicked()">
+                        <div id="map-container" ng-style="mapStyle()">
+                            <img src="./img/map.png" />
                             <img src="./img/roemer-01.png" style="position: absolute; left:1680px; top:580px;" />
                         </div>
                     </div>
