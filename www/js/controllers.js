@@ -77,6 +77,11 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
      * If distance to poi <= 50 alert with media-information
      */
 
+    geolocation.watchPosition(function (position) {
+        /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
+        alert(position);
+        $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+    });
 
     $scope.$watch('pos', function () {
         distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
@@ -102,7 +107,6 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-        alert("done");
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
 });
