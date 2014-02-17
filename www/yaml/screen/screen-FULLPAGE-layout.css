@@ -13,13 +13,13 @@
 @media screen {
     /* force vertical scrollbar */
     body {
-        overflow-y: hidden;
+        overflow: visible;
         background-color: #19171a;
     }
 
     /* Layout Module Configuration */
     .ym-wrapper {
-        max-width: 30em;
+        max-width: 480px;
         margin: 0 auto;
         overflow: hidden;
     }
@@ -52,6 +52,8 @@
     }
 
     nav {
+        text-align: center;
+        padding: 0.2em;
         background: #222222;
     }
 
@@ -76,6 +78,14 @@
         padding: 0.1em 0.35em;
     }
 
+    header, footer {
+        background-color: #19171a;
+    }
+
+    #map-container  {
+        position: relative;
+    }
+
 }
 
 /* reset fallback values in modern browsers */
@@ -85,71 +95,3 @@
     }
 }
 
-@media screen and (max-width: 760px) {
-    /* Linearisation for Grid- and Column-Module, based on CSS class .linearize-level-1 */
-    .linearize-level-1, .linearize-level-1 > [class*="ym-c"], .linearize-level-1 > [class*="ym-g"] {
-        /* linearization for grids and columns module */
-        display: block;
-        float: none;
-        padding: 0;
-        margin: 0;
-        width: auto !important;
-    }
-
-    .linearize-level-1 > [class*="ym-c"] > [class*="ym-cbox"], .linearize-level-1 > [class*="ym-g"] > [class*="ym-gbox"] {
-        /* reset defined gutter values */
-        margin: 0;
-        padding: 0;
-        /* optional for containing floats */
-        overflow: hidden;
-    }
-
-    .secondary {
-        border-top: 1px #888 solid;
-        margin-top: 1.5em !important;
-        padding-top: 1.5em !important;
-    }
-
-    main aside .ym-gbox-right {
-        border: 0 none;
-    }
-
-}
-
-@media screen and (max-width: 480px) {
-    /* Linearisation for Grid- and Column-Module, based on CSS class .linearize-level-2 */
-    .linearize-level-2, .linearize-level-2 > [class*="ym-c"], .linearize-level-2 > [class*="ym-g"] {
-        /* linearization for grids and columns module */
-        display: block;
-        float: none;
-        padding: 0;
-        margin: 0;
-        width: auto !important;
-    }
-
-    .linearize-level-2 > [class*="ym-c"] > [class*="ym-cbox"], .linearize-level-2 > [class*="ym-g"] > [class*="ym-gbox"] {
-        /* reset defined gutter values */
-        margin: 0;
-        padding: 0;
-        /* optional for containing floats */
-        overflow: hidden;
-    }
-
-    header .ym-wbox {
-        padding: 0.75em 10px;
-    }
-
-    header h1 {
-        font-size: 1.5em;
-        line-height: 1em;
-        margin: 0;
-    }
-
-    footer .ym-wbox,
-    .ym-wbox,
-    nav .ym-hlist ul {
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-
-}

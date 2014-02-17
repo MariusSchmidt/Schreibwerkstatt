@@ -58,9 +58,22 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         }
     }
 
-    $scope.mapClicked = function() {
-        $scope.map.position.top += 15;
-        $scope.map.position.left += 20;
+    $scope.mapClicked = function(event) {
+        console.log(event);
+        var img = angular.element(event.target);
+        var parent = img.parent();
+        console.log("img: " + img);
+        console.log("parent: " + parent);
+        /*alert("event x: " + event.x);
+        alert("event y: " + event.y);
+        alert("event offsetX: " + event.offsetX);
+        alert("event offsetY: " + event.offsetY);*/
+
+        var container = angular.element('#map-container');
+        console.log(container);
+
+        $scope.map.position.top = -event.offsetY + 160;
+        $scope.map.position.left = -event.offsetX + 142;
     }
 
     /*

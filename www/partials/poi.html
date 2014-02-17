@@ -10,17 +10,17 @@
 <main>
     <div class="ym-wrapper" style="height: 285px;">
         <div class="ym-wbox">
-            <section class="ym-grid linearize-level-1">
-                <article class="ym-g66 ym-gl content">
-                    <div class="ym-gbox-left ym-clearfix" style="overflow: hidden;" ng-click="mapClicked()">
+            <section class="ym-grid">
+                <div class="ym-g66 ym-gl content">
+                    <div class="ym-gbox-left ym-clearfix" style="overflow: hidden; height: 285px; " ng-click="mapClicked($event);">
                         <div id="map-container" ng-style="mapStyle()">
                             <img src="./img/map.png" />
-                            <img src="./img/roemer-01.png" style="position: absolute; left:1680px; top:580px;" />
+                            <img src="./img/roemer-01.png" style="position: absolute; left:1680px; top:580px;" ng-click="$event.stopPropagation();" />
                         </div>
                     </div>
-                </article>
-                <aside class="ym-g33 ym-gr">
-                    <div class="ym-gbox-right ym-clearfix">
+                </div>
+                <div class="ym-g33 ym-gr" >
+                    <div class="ym-gbox-right ym-clearfix" >
                         <h1>{{poi.heading}}</h1>
 
                         <p>{{poi.teaser}}</p>
@@ -36,7 +36,7 @@
                             <a class="float-right" href="#/intro">Anleitung</a>
                         </div>
                     </div>
-                </aside>
+                </div>
             </section>
         </div>
     </div>
