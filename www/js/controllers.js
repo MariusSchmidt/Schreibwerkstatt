@@ -77,28 +77,28 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
 
         var viewportOffsetLeft = parent.parent().prop('offsetLeft');
         var viewportWidth = parent.prop('offsetWidth');
-        var shiftX = viewportOffsetLeft + viewportWidth/2 - event.pageX;
+        var clickX = event.clientX || event.changedTouches[0].clientX;
+        var shiftX = viewportOffsetLeft + viewportWidth/2 - clickX;
         console.log(shiftX);
 
         var viewportOffsetTop = parent.parent().prop('offsetTop');
         var viewportHeight = parent.prop('offsetHeight');
-        var shiftY = viewportOffsetTop + viewportHeight/2 - event.pageY;
+        var clickY = event.clientY || event.changedTouches[0].clientY;
+        var shiftY = viewportOffsetTop + viewportHeight/2 - clickY;
         console.log(shiftY);
 
-
-
-
         /*var centerX = par*/
-
-
-
-
-        /*alert("event x: " + event.x);
-        alert("event y: " + event.y);
-        alert("event offsetX: " + event.offsetX);
-        alert("event offsetY: " + event.offsetY);
-        alert("event pageX: " + event.pageX);
-        alert("event pageY: " + event.pageY);*/
+        /*alert("event: " + event);
+        alert("viewportOffsetLeft: " + viewportOffsetLeft);
+        alert("viewportWidth: " + viewportWidth);
+        alert("viewportOffsetTop: " + viewportOffsetTop);
+        alert("viewportHeight: " + viewportHeight);
+        alert("pageX: " + event.pageX);
+        alert("pageY: " + event.pageY);
+        alert("x: " + clickX);
+        alert("y: " + clickY);
+        alert("shiftX: " + shiftX);
+        alert("shiftY: " + shiftY);*/
         $scope.map.position.left += shiftX;
         $scope.map.position.top += shiftY;
     }
