@@ -131,6 +131,7 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
+        alert(position.coords.accuracy);
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
 });

@@ -147,7 +147,7 @@ services.factory('geolocation', function (deviceReadyService, $rootScope){
         watchPosition: function (onSuccess, onError, options) {
             deviceReadyService().then (function(){
             /* Call Phonegap API */
-            navigator.geolocation.watchPosition(function () {
+            $rootScope.watchID = navigator.geolocation.watchPosition(function () {
 
                     var that = this,
                         args = arguments;
@@ -170,6 +170,11 @@ services.factory('geolocation', function (deviceReadyService, $rootScope){
                 {enableHighAccuracy: true, timeout: 2000}); 
             });
 
+        },
+        clearWatch: function(watchID) {
+            alert(watchID);
+            watchID.clearWatch();
+            $rootScope.watchID = null;
         }
     };
 });
