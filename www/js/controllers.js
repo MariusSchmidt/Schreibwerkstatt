@@ -27,7 +27,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, geolocation) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media) {
 
     $scope.pois = $rootScope.tour.pointsOfInterest;
     $scope.poi = $scope.pois[0];
@@ -107,13 +107,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
      */
-
-    geolocation.watchPosition(function (position) {
-        /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-        alert(position);
-        $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
-    });
-
     $scope.$watch('pos', function () {
         distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
             $scope.poi.lat, $scope.poi.lon);
