@@ -54,7 +54,8 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
     $scope.mapStyle = function() {
         return {
             top: $scope.map.position.top + "px",
-            left: $scope.map.position.left + "px"
+            left: $scope.map.position.left + "px",
+            height: "285px"
         }
     }
 
@@ -64,14 +65,42 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         var parent = img.parent();
         console.log("img: " + img);
         console.log("parent: " + parent);
-        alert("event x: " + event.x);
+        console.log("img top: " + img.prop('offsetTop'));
+        console.log("img left: " + img.prop('offsetLeft'));
+        console.log("img width: " + img.prop('offsetWidth'));
+        console.log("img height: " + img.prop('offsetHeight'));
+        console.log("parent top: " + parent.prop('offsetTop'));
+        console.log("parent left: " + parent.prop('offsetLeft'));
+        console.log("parent width: " + parent.prop('offsetWidth'));
+        console.log("parent height: " + parent.prop('offsetHeight'));
+        console.log("parent marginLeft: " + parent.prop('offsetParent'));
+
+        var viewportOffsetLeft = parent.parent().prop('offsetLeft');
+        var viewportWidth = parent.prop('offsetWidth');
+        var shiftX = viewportOffsetLeft + viewportWidth/2 - event.pageX;
+        console.log(shiftX);
+
+        var viewportOffsetTop = parent.parent().prop('offsetTop');
+        var viewportHeight = parent.prop('offsetHeight');
+        var shiftY = viewportOffsetTop + viewportHeight/2 - event.pageY;
+        console.log(shiftY);
+
+
+
+
+        /*var centerX = par*/
+
+
+
+
+        /*alert("event x: " + event.x);
         alert("event y: " + event.y);
         alert("event offsetX: " + event.offsetX);
         alert("event offsetY: " + event.offsetY);
         alert("event pageX: " + event.pageX);
-        alert("event pageY: " + event.pageY);
-        $scope.map.position.top = -event.offsetY + 160;
-        $scope.map.position.left = -event.offsetX + 142;
+        alert("event pageY: " + event.pageY);*/
+        $scope.map.position.left += shiftX;
+        $scope.map.position.top += shiftY;
     }
 
     /*
