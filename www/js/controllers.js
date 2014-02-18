@@ -109,18 +109,18 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
      */
     $scope.$watch('pos', function () {
         distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
-            $scope.poi.lat, $scope.poi.lon);
+            $scope.poi.coords.latitude, $scope.poi.coords.longitude);
         $rootScope.pos.distance = distance;
-        if (distance <= 0.050 && lastcheck !== $scope.poi) {
+        if (distance <= 0.050 && $scope.lastcheck !== $scope.poi) {
             notification.confirm(nearInfoAlert, function (btnNos) {
                 if (btnNos [0] === 1) {
-                    media.play($scope.poi.media, function () {
+                    media.play($scope.poi.audio, function () {
                         console.log("JA");
                     });
                 }
             }, "Informationen verfügbar", ["Ja", "Nein"]);
         }
-        var lastcheck = $scope.poi;
+        $scope.lastcheck = $scope.poi;
     });
 
 
