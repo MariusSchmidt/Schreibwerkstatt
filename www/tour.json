@@ -42,6 +42,12 @@
                 }
             ],
             "audio": "02_nikolaikirche.mp3",
+            "icon": {
+                "src": "./img/nikolaikirche-01.png",
+                "srcActive": "./img/nikolaikirche-01-pink.png",
+                "top": 764,
+                "left": 260
+            },
             "coords": {
                 "latitude": 50.110290,
                 "longitude": 8.682265
@@ -62,6 +68,12 @@
                 }
             ],
             "audio": "03_roemer.mp3",
+            "icon": {
+                "src": "./img/roemer-01.png",
+                "srcActive": "./img/roemer-01-pink.png",
+                "top": 697,
+                "left":218
+            },
             "coords": {
                 "latitude": 50.110290,
                 "longitude": 8.682265
@@ -82,6 +94,10 @@
                 }
             ],
             "audio": "04_karmeliterkloster.mp3",
+            "icon": {
+                "top": 500,
+                "left": 394
+            },
             "coords": {
                 "latitude": 50.109618,
                 "longitude": 8.677803
@@ -102,6 +118,10 @@
                 }
             ],
             "audio": "05_weissfrauenkloster.mp3",
+            "icon": {
+                "top": 323,
+                "left": 300
+            },
             "coords": {
                 "latitude": 50.109510,
                 "longitude": 8.6770

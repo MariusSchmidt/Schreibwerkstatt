@@ -14,8 +14,12 @@
                 <div class="ym-g66 ym-gl content">
                     <div class="ym-gbox-left ym-clearfix" style="overflow: hidden; height: 285px; " ng-click="mapClicked($event); $event.stopPropagation();">
                         <div id="map-container" ng-style="mapStyle()">
-                            <img src="./img/map.png" />
-                            <img src="./img/roemer-01.png" style="position: absolute; left:1680px; top:580px;"  />
+                            <!--<img src="./img/map.png" />-->
+                            <img src="./img/nikolaikirche-01.png" style="position: absolute; left:764px; top:260px;"  />
+                            <img src="./img/roemer-01.png" style="position: absolute; left:697px; top:218px;"  />
+                            <img src="./img/karmeliterkloster-01.png" style="position: absolute; left:500px; top:394px;"  />
+                            <img src="./img/galluswarte-01.png" style="position: absolute; left:323px; top:300px;"  />
+                            <img src="./img/positionmarker.png" ng-style="positionMarkerStyle({'latitude': 50.110290, 'longitude': 8.682265})" />
                         </div>
                     </div>
                 </div>
@@ -24,6 +28,8 @@
                         <h1>{{poi.heading}}</h1>
 
                         <p>{{poi.teaser}}</p>
+
+                        <input type="button" value="Play" ng-click="toggleAudio()">
 
                         <p>{{pos.latitude }}
                             {{pos.longitude}}

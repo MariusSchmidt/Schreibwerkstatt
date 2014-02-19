@@ -38,14 +38,39 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         $scope.poi = $scope.pois[index];
     };
 
+    $scope.positionMarkerStyle = function(position) {
+        position = {
+            "latitude": 50.109906,
+            "longitude": 8.679641
+        }
+        var mapCorners = {
+            topLeft: {
+                latitude: 50.1142,
+                longitude: 8.6702
+            },
+            bottomRight: {
+                latitude: 50.1030,
+                longitude: 8.6920
+            }
+        }
+        var top = (mapCorners.topLeft.latitude - position.latitude) / (mapCorners.topLeft.latitude - mapCorners.bottomRight.latitude) * 991;
+        var left = (position.longitude - mapCorners.topLeft.longitude) / (mapCorners.bottomRight.longitude - mapCorners.topLeft.longitude) * 1251;
+        return  myPos =  {
+            position: "absolute",
+            top: Math.round(top - 17.5) + "px",
+            left: Math.round(left - 17.5) + "px"
+        }
+
+    }
+
     $scope.map = {
         center: {
             latitude: 50.110290,
             longitude: 8.682265
         },
         position: {
-            top: -500,
-            left: -1500
+            top: -180,
+            left: -600
         },
         draggable: true,
         zoom: 15
@@ -54,53 +79,53 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
     $scope.mapStyle = function() {
         return {
             top: $scope.map.position.top + "px",
-            left: $scope.map.position.left + "px",
-            height: "285px"
+            left: $scope.map.position.left + "px"
+            /*backgroundImage: "url('./img/map.png')"*/
         }
     }
 
     $scope.mapClicked = function(event) {
         console.log(event);
-        var img = angular.element(event.target);
-        var parent = img.parent();
-        console.log("img: " + img);
-        console.log("parent: " + parent);
-        console.log("img top: " + img.prop('offsetTop'));
-        console.log("img left: " + img.prop('offsetLeft'));
-        console.log("img width: " + img.prop('offsetWidth'));
-        console.log("img height: " + img.prop('offsetHeight'));
+        var target = angular.element(event.target);
+        var parent = target.parent();;
+        if (target.prop('localName') === 'img') {
+            parent = parent.parent();
+        }
+
+        console.log("img top: " + target.prop('offsetTop'));
+        console.log("img left: " + target.prop('offsetLeft'));
+        console.log("img width: " + target.prop('offsetWidth'));
+        console.log("img height: " + target.prop('offsetHeight'));
         console.log("parent top: " + parent.prop('offsetTop'));
         console.log("parent left: " + parent.prop('offsetLeft'));
         console.log("parent width: " + parent.prop('offsetWidth'));
         console.log("parent height: " + parent.prop('offsetHeight'));
         console.log("parent marginLeft: " + parent.prop('offsetParent'));
 
-        var viewportOffsetLeft = parent.parent().prop('offsetLeft');
+        var viewportOffsetLeft = parent.prop('offsetLeft');
         var viewportWidth = parent.prop('offsetWidth');
         var clickX = event.clientX || event.changedTouches[0].clientX;
         var shiftX = viewportOffsetLeft + viewportWidth/2 - clickX;
         console.log(shiftX);
 
-        var viewportOffsetTop = parent.parent().prop('offsetTop');
+        var viewportOffsetTop = parent.prop('offsetTop');
         var viewportHeight = parent.prop('offsetHeight');
         var clickY = event.clientY || event.changedTouches[0].clientY;
         var shiftY = viewportOffsetTop + viewportHeight/2 - clickY;
         console.log(shiftY);
 
-        /*var centerX = par*/
-        /*alert("event: " + event);
-        alert("viewportOffsetLeft: " + viewportOffsetLeft);
-        alert("viewportWidth: " + viewportWidth);
-        alert("viewportOffsetTop: " + viewportOffsetTop);
-        alert("viewportHeight: " + viewportHeight);
-        alert("pageX: " + event.pageX);
-        alert("pageY: " + event.pageY);
-        alert("x: " + clickX);
-        alert("y: " + clickY);
-        alert("shiftX: " + shiftX);
-        alert("shiftY: " + shiftY);*/
         $scope.map.position.left += shiftX;
         $scope.map.position.top += shiftY;
+    }
+
+    $scope.toogleAudio = function() {
+        if ($rootScope.media) {
+            media.stop($rootScope.media);
+        } else {
+            media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function () {
+                console.log("Success");
+            });
+        }
     }
 
     /*

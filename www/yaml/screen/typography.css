@@ -28,7 +28,7 @@
     /* font-size: 14px; */
     body {
         font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
-        font-size: 75%;
+        font-size: 62.5%;
         color: #DDDDDD;
     }
 
@@ -65,7 +65,7 @@
 
     /*--- Links ----------------------------------------------------------------------------------------- */
     a {
-        color: #4d87c7;
+        color: cornsilk;
         background: transparent;
         text-decoration: none;
     }

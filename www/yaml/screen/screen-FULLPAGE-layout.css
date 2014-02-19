@@ -84,6 +84,9 @@
 
     #map-container  {
         position: relative;
+        background-image: url('../../img/map.png');
+        width: 1251px;
+        height: 991px;
     }
 
 }
