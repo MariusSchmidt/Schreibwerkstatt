@@ -118,11 +118,11 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         $scope.map.position.top += shiftY;
     }
 
-    $scope.toogleAudio = function() {
+    $scope.toggleAudio = function(event) {
         if ($rootScope.media) {
             media.stop($rootScope.media);
         } else {
-            media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function () {
+            media.play($scope.poi.audio, function () {
                 console.log("Success");
             });
         }
@@ -156,7 +156,7 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-        alert(position.coords.accuracy);
+        /*alert(position.coords.accuracy);*/
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
 });
