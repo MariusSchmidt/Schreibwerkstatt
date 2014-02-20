@@ -1,5 +1,29 @@
 var services = angular.module('phonegapServices', []);
 
+/*
+ *  HELPER
+ */
+
+var getPhonegapPath = function (){
+    var path = window.location.pathname;
+    path = path.substr( path, path.length - 10 ); // 10 = length of index.html
+    return path;
+};
+
+var getPhonegapPathPrefix = function() {
+    if(device.platform === "Android"){
+        return "file:///android_asset/www/"
+    } else {
+        return ""
+    }
+};
+
+
+
+/*
+ *  Services
+ */
+
 services.factory ( 'deviceReadyService', function ($document, $q, $rootScope) {
     /*
      * This Angular service returns a promise (a function that returns a promise).
@@ -90,12 +114,14 @@ services.factory('media', function (deviceReadyService, $rootScope){
     return {
         play: function (src, onSuccess, onError){
             if(!$rootScope.media){
+                var phonegapPath = getPhonegapPathPrefix();
+                alert(phonegapPath + src + window.location.pathname);
                 deviceReadyService().then (function () {
                     var that = this,
                         args = arguments;
 
 
-                    media = new Media(src, function(){
+                    media = new Media(phonegapPath + src, function(){
                         var that = this,
                             args = arguments;
 
