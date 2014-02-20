@@ -89,39 +89,61 @@ services.factory ('notification', function( deviceReadyService, $rootScope ){
 services.factory('media', function (deviceReadyService, $rootScope){
     return {
         play: function (src, onSuccess, onError){
-            deviceReadyService().then (function () {
-            var that = this,
-                args = arguments;
-                
-               
-               media = new Media(src, function(){
-                    var that = this,
-                        args = arguments;
-                   
-                   
-                   if(onSuccess) {
-                       $rootScope.$apply(function() {
-                            onSuccess.apply(that, args);
-                       });
-                   }
-               }, function(){
+            if(!$rootScope.media){
+                deviceReadyService().then (function () {
                     var that = this,
                         args = arguments;
 
-                    if (onError) {
-                        $rootScope.$apply(function () {
-                            onError.apply(that, args);
-                        });
+
+                    media = new Media(src, function(){
+                        var that = this,
+                            args = arguments;
+
+
+                        if(onSuccess) {
+                            $rootScope.$apply(function() {
+                                onSuccess.apply(that, args);
+                            });
+                        }
+                    }, function(){
+                        var that = this,
+                            args = arguments;
+
+                        if (onError) {
+                            $rootScope.$apply(function () {
+                                onError.apply(that, args);
+                            });
+                        }
+                    });
+                    if (media) {
+                        /* set mediaPlaying to true */
+                        /* add to $rootScope to be able to stop from everywhere */
+                        $rootScope.media=media;
+                        media.play();
+                        if (mediaTimer == null) {
+                            mediaTimer = setInterval(function() {
+                                // get my_media position
+                                media.getCurrentPosition(
+                                    // success callback
+                                    function(position) {
+                                        if (position > -1) {
+                                            setAudioPosition((position) + " sec");
+                                        }
+                                        $rootScope.media = null
+                                    },
+                                    // error callback
+                                    function(e) {
+                                        console.log("Error getting pos=" + e);
+                                        setAudioPosition("Error: " + e);
+                                    }
+                                );
+                            }, 1000);
+                        }
                     }
-               });
-               if (media) {
-                    /* set mediaPlaying to true */
-                    /* add to $rootScope to be able to stop from everywhere */
-                    $rootScope.media=media; 
-                    media.play();                   
-               }
 
-            });
+                });
+            }
+
         },
         stop: function(media){
             if (media){
