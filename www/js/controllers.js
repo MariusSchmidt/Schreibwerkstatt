@@ -118,21 +118,32 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         $scope.map.position.top += shiftY;
     }
 
-    $scope.toggleAudio = function(event) {
+    $scope.mediaPlay = function() {
+        media.play($scope.poi.audio)
+    }
+
+    $scope.mediaStop = function() {
+        media.stop($scope.media)
+        show = false;
+    }
+
+    $scope.showButton = function(){
         if ($rootScope.media) {
-            media.stop($rootScope.media);
-        } else {
-            media.play($scope.poi.audio, function () {
-                console.log("Success");
-            });
-        }
+            return true;
+        } 
     }
 
     /*
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
      */
-    $scope.$watch('pos', function () {
+    $scope.$watch('pos', function (newValue, oldValue) {
+        if (!newValue) {
+            return;
+        }
+        if(newValue === oldValue) {
+            return;
+        }
         distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
             $scope.poi.coords.latitude, $scope.poi.coords.longitude);
         $rootScope.pos.distance = distance;

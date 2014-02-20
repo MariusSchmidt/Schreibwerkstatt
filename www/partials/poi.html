@@ -29,7 +29,8 @@
 
                         <p>{{poi.teaser}}</p>
 
-                        <input type="submit" ng-click="toggleAudio($event);" />
+                        <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png">
+                        <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png">
 
                         <p>{{pos.latitude }}
                             {{pos.longitude}}

@@ -25,7 +25,7 @@ appProviders.constant('TOUR', {
                     "caption": "Handschrift des Frankfurter Passionsspiels (1493)"
                 }
             ],
-            "audio": "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3",
+            "audio": "media/einfuehrung.mp3",
             "coords": {
                 "latitude": 50.110290,
                 "longitude": 8.682265
@@ -45,7 +45,7 @@ appProviders.constant('TOUR', {
                     "caption": "Hans Holbein d.Ä.: Abendmahl (1501)"
                 }
             ],
-            "audio": "./media/02_nikolaikirche.mp3",
+            "audio": "media/Nikolaikirche.mp3",
             "icon": {
                 "src": "./img/nikolaikirche-01.png",
                 "srcActive": "./img/nikolaikirche-01-pink.png",
@@ -71,7 +71,7 @@ appProviders.constant('TOUR', {
                     "caption": "Hans Holbein d.Ä.: Gefangennahme (1501) "
                 }
             ],
-            "audio": "./media/03_roemer.mp3",
+            "audio": "media/roemer.mp3",
             "icon": {
                 "src": "./img/roemer-01.png",
                 "srcActive": "./img/roemer-01-pink.png",
@@ -97,7 +97,7 @@ appProviders.constant('TOUR', {
                     "caption": "Jörg Ratgeb: Geißelung Jesu (1515-1521)"
                 }
             ],
-            "audio": "04_karmeliterkloster.mp3",
+            "audio": "media/Karmeliterkloster.mp3",
             "icon": {
                 "top": 500,
                 "left": 394
@@ -121,7 +121,7 @@ appProviders.constant('TOUR', {
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
-            "audio": "05_weissfrauenkloster.mp3",
+            "audio": "media/weissfrauenkloster.mp3",
             "icon": {
                 "top": 323,
                 "left": 300
@@ -145,7 +145,7 @@ appProviders.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
                 }
             ],
-            "audio": "06_judengasse.mp3",
+            "audio": "media/Judengasse.mp3",
             "coords": {
                 "latitude": 50.113542,
                 "longitude": 8.686668
