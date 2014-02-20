@@ -29,6 +29,8 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
  */
 appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media) {
 
+    var show = false;
+
     $scope.pois = $rootScope.tour.pointsOfInterest;
     $scope.poi = $scope.pois[0];
 
@@ -118,13 +120,21 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         $scope.map.position.top += shiftY;
     }
 
-    $scope.toggleAudio = function(event) {
+    $scope.mediaPlay = function() {
+        media.play($scope.poi.audio)
+        show = true;
+    }
+
+    $scope.mediaStop = function() {
+        media.stop($scope.media)
+        show = false;
+    }
+
+    $scope.showButton = function(){
         if ($rootScope.media) {
-            media.stop($rootScope.media);
+            return true;
         } else {
-            media.play($scope.poi.audio, function () {
-                console.log("Success");
-            });
+            return false;
         }
     }
 

@@ -4,12 +4,6 @@ var services = angular.module('phonegapServices', []);
  *  HELPER
  */
 
-var getPhonegapPath = function (){
-    var path = window.location.pathname;
-    path = path.substr( path, path.length - 10 ); // 10 = length of index.html
-    return path;
-};
-
 var getPhonegapPathPrefix = function() {
     if(device.platform === "Android"){
         return "file:///android_asset/www/"
@@ -115,11 +109,11 @@ services.factory('media', function (deviceReadyService, $rootScope){
         play: function (src, onSuccess, onError){
             if(!$rootScope.media){
                 var phonegapPath = getPhonegapPathPrefix();
-                alert(phonegapPath + src + window.location.pathname);
                 deviceReadyService().then (function () {
                     var that = this,
                         args = arguments;
 
+                    var mediaTimer = null;
 
                     media = new Media(phonegapPath + src, function(){
                         var that = this,
@@ -128,6 +122,7 @@ services.factory('media', function (deviceReadyService, $rootScope){
 
                         if(onSuccess) {
                             $rootScope.$apply(function() {
+                                $rootScope.media = null;
                                 onSuccess.apply(that, args);
                             });
                         }
@@ -146,25 +141,7 @@ services.factory('media', function (deviceReadyService, $rootScope){
                         /* add to $rootScope to be able to stop from everywhere */
                         $rootScope.media=media;
                         media.play();
-                        if (mediaTimer == null) {
-                            mediaTimer = setInterval(function() {
-                                // get my_media position
-                                media.getCurrentPosition(
-                                    // success callback
-                                    function(position) {
-                                        if (position > -1) {
-                                            setAudioPosition((position) + " sec");
-                                        }
-                                        $rootScope.media = null
-                                    },
-                                    // error callback
-                                    function(e) {
-                                        console.log("Error getting pos=" + e);
-                                        setAudioPosition("Error: " + e);
-                                    }
-                                );
-                            }, 1000);
-                        }
+
                     }
 
                 });
