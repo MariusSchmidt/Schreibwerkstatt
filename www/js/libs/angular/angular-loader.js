@@ -122,7 +122,7 @@ function setupModuleLoader(window) {
      *
      * # Module
      *
-     * A module is a collection of services, directives, filters, and configuration information.
+     * A module is a collection of schreibwerkApp, directives, filters, and configuration information.
      * `angular.module` is used to configure the {@link AUTO.$injector $injector}.
      *
      * <pre>
@@ -132,7 +132,7 @@ function setupModuleLoader(window) {
      * // register a new service
      * myModule.value('appName', 'MyCoolApp');
      *
-     * // configure existing services inside initialization blocks.
+     * // configure existing schreibwerkApp inside initialization blocks.
      * myModule.config(function($locationProvider) {
      *   // Configure existing providers
      *   $locationProvider.hashPrefix('!');

@@ -17,7 +17,7 @@ var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',
     'ngTouch',
     'appControllers',
-    'phonegapServices',
+    'phonegapServices'
 ]);
 
 schreibwerkApp.config(['$routeProvider',
@@ -41,12 +41,6 @@ schreibwerkApp.config(['$routeProvider',
             });
     }]);
 
-schreibwerkApp.run(function($rootScope, $http) {
-    $http.get('tour.json')
-        .then(function (res) {
-            $rootScope.tour = res.data;
-        });
-});
 
 
 //schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService) {

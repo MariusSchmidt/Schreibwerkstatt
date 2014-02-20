@@ -55,7 +55,7 @@ function shallowClearAndCopy(src, dst) {
  *
  * # ngResource
  *
- * The `ngResource` module provides interaction support with RESTful services
+ * The `ngResource` module provides interaction support with RESTful schreibwerkApp
  * via the $resource service.
  *
  * {@installModule resource}

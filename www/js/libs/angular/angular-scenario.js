@@ -11271,7 +11271,7 @@ function setupModuleLoader(window) {
      *
      * # Module
      *
-     * A module is a collection of services, directives, filters, and configuration information.
+     * A module is a collection of schreibwerkApp, directives, filters, and configuration information.
      * `angular.module` is used to configure the {@link AUTO.$injector $injector}.
      *
      * <pre>
@@ -11281,7 +11281,7 @@ function setupModuleLoader(window) {
      * // register a new service
      * myModule.value('appName', 'MyCoolApp');
      *
-     * // configure existing services inside initialization blocks.
+     * // configure existing schreibwerkApp inside initialization blocks.
      * myModule.config(function($locationProvider) {
      *   // Configure existing providers
      *   $locationProvider.hashPrefix('!');
@@ -12724,7 +12724,7 @@ HashMap.prototype = {
  * @function
  *
  * @description
- * Creates an injector function that can be used for retrieving services as well as for
+ * Creates an injector function that can be used for retrieving schreibwerkApp as well as for
  * dependency injection (see {@link guide/di dependency injection}).
  *
 
@@ -12929,7 +12929,7 @@ function annotate(fn) {
  *
  * @description
  * Returns an array of service names which the function is requesting for injection. This API is
- * used by the injector to determine which services need to be injected into the function when the
+ * used by the injector to determine which schreibwerkApp need to be injected into the function when the
  * function is invoked. There are three ways in which the function can be annotated with the needed
  * dependencies.
  *
@@ -12954,7 +12954,7 @@ function annotate(fn) {
  * # The `$inject` property
  *
  * If a function has an `$inject` property and its value is an array of strings, then the strings
- * represent names of services to be injected into the function.
+ * represent names of schreibwerkApp to be injected into the function.
  * <pre>
  *   // Given
  *   var MyController = function(obfuscatedScope, obfuscatedRoute) {
@@ -13000,7 +13000,7 @@ function annotate(fn) {
  * @param {function|Array.<string|Function>} fn Function for which dependent service names need to
  * be retrieved as described above.
  *
- * @returns {Array.<string>} The names of the services which the function requires.
+ * @returns {Array.<string>} The names of the schreibwerkApp which the function requires.
  */
 
 
@@ -13025,17 +13025,17 @@ function annotate(fn) {
  * correct **service provider**, instantiating it and then calling its `$get` **service factory**
  * function to get the instance of the **service**.
  *
- * Often services have no configuration options and there is no need to add methods to the service
+ * Often schreibwerkApp have no configuration options and there is no need to add methods to the service
  * provider.  The provider will be no more than a constructor function with a `$get` property. For
  * these cases the {@link AUTO.$provide $provide} service has additional helper methods to register
- * services without specifying a provider.
+ * schreibwerkApp without specifying a provider.
  *
  * * {@link AUTO.$provide#methods_provider provider(provider)} - registers a **service provider** with the
  *     {@link AUTO.$injector $injector}
  * * {@link AUTO.$provide#methods_constant constant(obj)} - registers a value/object that can be accessed by
- *     providers and services.
+ *     providers and schreibwerkApp.
  * * {@link AUTO.$provide#methods_value value(obj)} - registers a value/object that can only be accessed by
- *     services, not providers.
+ *     schreibwerkApp, not providers.
  * * {@link AUTO.$provide#methods_factory factory(fn)} - registers a service **factory function**, `fn`,
  *     that will be wrapped in a **service provider** object, whose `$get` property will contain the
  *     given factory function.
@@ -13232,7 +13232,7 @@ function annotate(fn) {
  * provider's `$get` property is a factory function that takes no arguments and returns the **value
  * service**.
  *
- * Value services are similar to constant services, except that they cannot be injected into a
+ * Value schreibwerkApp are similar to constant schreibwerkApp, except that they cannot be injected into a
  * module configuration function (see {@link angular.Module#config}) but they can be overridden by
  * an Angular
  * {@link AUTO.$provide#decorator decorator}.
@@ -13242,7 +13242,7 @@ function annotate(fn) {
  * @returns {Object} registered provider instance
  *
  * @example
- * Here are some examples of creating value services.
+ * Here are some examples of creating value schreibwerkApp.
  * <pre>
  *   $provide.value('ADMIN_USER', 'admin');
  *
@@ -16938,7 +16938,7 @@ function $HttpProvider() {
      * also decide to completely override any default transformations by assigning your
      * transformation functions to these properties directly without the array wrapper.  These defaults
      * are again available on the $http factory at run-time, which may be useful if you have run-time
-     * services you wish to be involved in your transformations.
+     * schreibwerkApp you wish to be involved in your transformations.
      *
      * Similarly, to locally override the request/response transforms, augment the
      * `transformRequest` and/or `transformResponse` properties of the configuration object passed
@@ -21099,8 +21099,8 @@ function $RootScopeProvider(){
      *
      * @param {Object.<string, function()>=} providers Map of service factory which need to be
      *                                       provided for the current scope. Defaults to {@link ng}.
-     * @param {Object.<string, *>=} instanceCache Provides pre-instantiated services which should
-     *                              append/override services provided by `providers`. This is handy
+     * @param {Object.<string, *>=} instanceCache Provides pre-instantiated schreibwerkApp which should
+     *                              append/override schreibwerkApp provided by `providers`. This is handy
      *                              when unit-testing and having the need to override a default
      *                              service.
      * @returns {Object} Newly created scope.
@@ -22215,7 +22215,7 @@ function adjustMatchers(matchers) {
  * @description
  *
  * `$sceDelegate` is a service that is used by the `$sce` service to provide {@link ng.$sce Strict
- * Contextual Escaping (SCE)} services to AngularJS.
+ * Contextual Escaping (SCE)} schreibwerkApp to AngularJS.
  *
  * Typically, you would configure or override the {@link ng.$sceDelegate $sceDelegate} instead of
  * the `$sce` service to customize the way Strict Contextual Escaping works in AngularJS.  This is
@@ -22547,7 +22547,7 @@ function $SceDelegateProvider() {
  *
  * @description
  *
- * `$sce` is a service that provides Strict Contextual Escaping services to AngularJS.
+ * `$sce` is a service that provides Strict Contextual Escaping schreibwerkApp to AngularJS.
  *
  * # Strict Contextual Escaping
  *
@@ -26231,7 +26231,7 @@ var VALID_CLASS = 'ng-valid',
  * @description
  *
  * `NgModelController` provides API for the `ng-model` directive. The controller contains
- * services for data-binding, validation, CSS updates, and value formatting and parsing. It
+ * schreibwerkApp for data-binding, validation, CSS updates, and value formatting and parsing. It
  * purposefully does not contain any logic which deals with DOM rendering or listening to
  * DOM events. Such DOM related logic should be provided by other directives which make use of
  * `NgModelController` for data-binding.
