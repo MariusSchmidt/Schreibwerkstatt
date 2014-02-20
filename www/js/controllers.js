@@ -137,12 +137,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
      * If distance to poi <= 50 alert with media-information
      */
     $scope.$watch('pos', function (newValue, oldValue) {
-        if (!newValue) {
-            return;
-        }
-        if(newValue === oldValue) {
-            return;
-        }
         distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
             $scope.poi.coords.latitude, $scope.poi.coords.longitude);
         $rootScope.pos.distance = distance;
