@@ -42,7 +42,6 @@ schreibwerkApp.config(['$routeProvider',
     }]);
 
 
-
 //schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService) {
 //    /* 
 //     * first things todo:

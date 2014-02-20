@@ -3,8 +3,7 @@ var appControllers = angular.module('appControllers', ['appProviders']);
 /*
  *  HELPER
  */
-var nearInfoAlert = "Ihr Ziel ist in unmittelbarer Nähe,\n\
-                    möchten sie nun Informationen dazu erhalten?";
+var nearInfoAlert = "Ihr Ziel ist in unmittelbarer N%E4he%2C m%F6chten sie nun Informationen dazu erhalten%3F";
 
 var calculateDistance = function (lat1, lon1, lat2, lon2) {
     var deg2rad = function (deg) {
@@ -148,15 +147,15 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
             $scope.poi.coords.latitude, $scope.poi.coords.longitude);
         $rootScope.pos.distance = distance;
         if (distance <= 0.050 && $scope.lastcheck !== $scope.poi) {
-            notification.confirm(nearInfoAlert, function (btnNos) {
+            notification.confirm(unescape(nearInfoAlert), function (btnNos) {
                 if (btnNos [0] === 1) {
                     media.play($scope.poi.audio, function () {
                         console.log("JA");
                     });
                 }
-            }, "Informationen verfügbar", ["Ja", "Nein"]);
+            }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
+            $scope.lastcheck = $scope.poi;
         }
-        $scope.lastcheck = $scope.poi;
     });
 
 
