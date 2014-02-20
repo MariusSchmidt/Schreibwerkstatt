@@ -1,4 +1,4 @@
-var appControllers = angular.module('appControllers', ['appProviders']);
+var appControllers = angular.module('appControllers', ['appProviders', 'appDirectives']);
 
 /*
  *  HELPER
@@ -170,6 +170,39 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
         /*alert(position.coords.accuracy);*/
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
+});
+
+appControllers.controller('MapCtrl', function($scope) {
+
+    $scope.mapconfig =  {
+        imageSource: './img/map.png',
+        container: {
+            width: 480,
+            height: 400
+        },
+        bounds: {
+            height: 991,
+            width: 1251,
+            topLeft: {
+                latitude: 50.1142,
+                longitude: 8.6702
+            },
+            bottomRight: {
+                latitude: 50.1030,
+                longitude: 8.6920
+            }
+        },
+        center: {
+            latitude: 50.110290,
+            longitude: 8.682265
+        }
+    }
+
+    $scope.userposition = {
+        latitude: 50.111290,
+        longitude: 8.682265
+    }
+
 });
 
 /* This is just a test controller - DELETE THIS! */
