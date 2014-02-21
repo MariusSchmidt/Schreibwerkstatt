@@ -185,6 +185,7 @@ appControllers.controller('MapCtrl', function($scope, TOUR) {
             .value();
     }
 
+
     $scope.mapconfig =  {
         imageSource: './img/map.png',
         container: {
@@ -214,6 +215,11 @@ appControllers.controller('MapCtrl', function($scope, TOUR) {
         latitude: 50.111290,
         longitude: 8.681265
     }
+
+    $scope.watch('pos', function (){
+        $scope.userposition.latitude = $rootScope.pos.latitude
+        $scope.userposition.longitude = $rootScope.pos.longitude
+    });
 
 });
 
