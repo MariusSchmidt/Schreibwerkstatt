@@ -165,7 +165,25 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
     });
 });
 
-appControllers.controller('MapCtrl', function($scope) {
+appControllers.controller('MapCtrl', function($scope, TOUR) {
+
+
+    function extractIcons() {
+        return _.chain(TOUR.pointsOfInterest)
+            .filter(function(poi) {
+                return poi.icon;
+            })
+            .map(function(poi) {
+                return {
+                    station: poi.title,
+                    src: poi.icon.src,
+                    srcActive: poi.icon.srcActive,
+                    top: poi.icon.top,
+                    left: poi.icon.left
+                }
+            })
+            .value();
+    }
 
     $scope.mapconfig =  {
         imageSource: './img/map.png',
@@ -188,12 +206,13 @@ appControllers.controller('MapCtrl', function($scope) {
         center: {
             latitude: 50.110290,
             longitude: 8.682265
-        }
+        },
+        icons: extractIcons()
     }
 
     $scope.userposition = {
         latitude: 50.111290,
-        longitude: 8.682265
+        longitude: 8.681265
     }
 
 });

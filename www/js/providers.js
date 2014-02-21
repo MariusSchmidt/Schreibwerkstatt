@@ -47,10 +47,10 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/Nikolaikirche.mp3",
             "icon": {
-                "src": "./img/nikolaikirche-01.png",
-                "srcActive": "./img/nikolaikirche-01-pink.png",
-                "top": 764,
-                "left": 260
+                "src": "./img/02-nikolaikirche1.png",
+                "srcActive": "./img/02-nikolaikirche2.png",
+                "top": 260,
+                "left": 764
             },
             "coords": {
                 "latitude": 50.110290,
@@ -73,10 +73,10 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/roemer.mp3",
             "icon": {
-                "src": "./img/roemer-01.png",
-                "srcActive": "./img/roemer-01-pink.png",
-                "top": 697,
-                "left":218
+                "src": "./img/03-roemer1.png",
+                "srcActive": "./img/03-roemer2.png",
+                "top": 218,
+                "left": 697
             },
             "coords": {
                 "latitude": 50.110290,
@@ -99,8 +99,10 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/Karmeliterkloster.mp3",
             "icon": {
-                "top": 500,
-                "left": 394
+                "src": "./img/04-karmeliterkloster2.png",
+                "srcActive": "./img/04-karmeliterkloster2.png",
+                "top": 265,
+                "left": 485
             },
             "coords": {
                 "latitude": 50.109618,
@@ -123,8 +125,10 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/weissfrauenkloster.mp3",
             "icon": {
-                "top": 323,
-                "left": 300
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 305,
+                "left": 295
             },
             "coords": {
                 "latitude": 50.109510,
