@@ -41,7 +41,7 @@ schreibwerkApp.config(['$routeProvider',
                 controller: 'MapCtrl'
             }).
             otherwise({
-                redirectTo: '/directive'
+                redirectTo: '/splash'
             });
     }]);
 

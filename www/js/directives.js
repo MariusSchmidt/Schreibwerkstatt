@@ -23,7 +23,7 @@ appDirectives.directive('angularmap', function() {
             var initialOffset = positionToPixel(scope.mapconfig.center);
             scope.mapOffsetTop = -Math.floor(initialOffset.top - scope.containerHeight / 2.0);
             scope.mapOffsetLeft = -Math.floor(initialOffset.left - scope.containerWidth / 2.0);
-
+            scope.markers = scope.mapconfig.icons;
         };
 
         function positionToPixel(position) {
@@ -107,7 +107,7 @@ appDirectives.directive('angularmap', function() {
         template:
             '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
                 '<div ng-style="mapStyle()">' +
-                    '<img src="./img/nikolaikirche-01.png" style="position: absolute; left:764px; top:260px;"  />' +
+                    '<img ng-repeat="marker in markers" ng-src="{{marker.src}}" style="position: absolute; left:{{marker.left}}px; top:{{marker.top}}px;"  />' +
                     '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
                 '</div>' +
             '</div>'
