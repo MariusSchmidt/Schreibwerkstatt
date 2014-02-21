@@ -49,8 +49,8 @@ appProviders.constant('TOUR', {
             "icon": {
                 "src": "./img/02-nikolaikirche1.png",
                 "srcActive": "./img/02-nikolaikirche2.png",
-                "top": 260,
-                "left": 764
+                "top": 255,
+                "left": 770
             },
             "coords": {
                 "latitude": 50.110290,
@@ -76,7 +76,7 @@ appProviders.constant('TOUR', {
                 "src": "./img/03-roemer1.png",
                 "srcActive": "./img/03-roemer2.png",
                 "top": 218,
-                "left": 697
+                "left": 692
             },
             "coords": {
                 "latitude": 50.110290,
