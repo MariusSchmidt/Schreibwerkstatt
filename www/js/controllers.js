@@ -165,7 +165,7 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
     });
 });
 
-appControllers.controller('MapCtrl', function($rootScope, $scope, TOUR) {
+appControllers.controller('MapCtrl', function($scope, TOUR) {
 
 
     function extractIcons() {
@@ -216,18 +216,9 @@ appControllers.controller('MapCtrl', function($rootScope, $scope, TOUR) {
         longitude: 8.681265
     }
 
-    $scope.$watch('pos', function (newValue) {
-
-        if(!newValue) {
-            $scope.userposition = null;
-            return;
-        }
-
-        $scope.userposition = {
-            latitude: newValue.latitude,
-            longitude: newValue.longitude
-        };
-
+    $scope.watch('pos', function (){
+        $scope.userposition.latitude = $rootScope.pos.latitude
+        $scope.userposition.longitude = $rootScope.pos.longitude
     });
 
 });
