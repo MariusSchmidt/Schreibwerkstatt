@@ -144,6 +144,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
             notification.confirm(unescape(nearInfoAlert), function (btnNos) {
                 if (btnNos [0] === 1) {
                     media.play($scope.poi.audio, function () {
+                        window.alert("Ende!");
                         console.log("JA");
                     });
                 }

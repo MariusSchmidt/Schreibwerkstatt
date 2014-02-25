@@ -119,6 +119,7 @@ services.factory('media', function (deviceReadyService, $rootScope){
                         var that = this,
                             args = arguments;
 
+                        $rootScope.media=null;
 
                         if(onSuccess) {
                             $rootScope.$apply(function() {
