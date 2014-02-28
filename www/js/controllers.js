@@ -27,7 +27,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
  *  CONTROLLER
  */
 appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR) {
-
+    this.message = "test";
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[0];
 
