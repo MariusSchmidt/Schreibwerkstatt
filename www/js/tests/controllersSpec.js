@@ -1,42 +1,41 @@
+'use strict'
 
-describe('controllers', function(){
-    var poiCtrl, $scope;
+describe('PoiCtrl', function(){
+    var $scope;
+    var geolocationMock
+    var mediaMock
+    var notificationMock
 
-    var notificationMock;
-    var mediaMock;
+    beforeEach(angular.mock.module('appControllers'));
 
-    beforeEach(function(){
-        //load Module
-        module('appControllers');
-        //Service Mocks
-        mediaMock = jasmine.createSpyObj('media', ['play', 'stop']);
+    beforeEach(angular.mock.inject(function($rootScope, $controller){
+        $scope = $rootScope.$new();
+        $rootScope = $rootScope.$new();
+
+        //Mock all Services
         notificationMock = jasmine.createSpyObj('notification', ['confirm']);
-        inject(function ($controller, $rootScope){
-            var btnNos = new Array();
-            var mediaObj = {};
-            //Scope
-            $scope = $rootScope.$new();
-            notificationMock.confirm.andReturn(btnNos[0] = 1);
-            mediaMock.play.andReturn(mediaObj);
-            mediaMock.stop.andCallFake(function(){
-                console.log('media Stop!')
-            });
-            //Controller
-            poiCtrl = $controller("PoiCtrl", {
-                $scope: $scope,
-                notification: notificationMock});
-        })
+        mediaMock = jasmine.createSpyObj('media', ['play', 'stop']);
+        geolocationMock = jasmine.createSpyObj('geolocation', ['watchPosition', 'clearWatch']);
+
+        //setup returns for Mocks
+        notificationMock.confirm.andReturn('notification');
+
+        $controller('PoiCtrl', {
+            $scope: $scope,
+            $rootScope: $rootScope,
+            geolocation: geolocationMock,
+            media: mediaMock,
+            notification: notificationMock
+        });
+    }));
+    it('should have a variable message = test', function(){
+        expect($scope.message).toBe('test');
     })
 
-    describe("PoiCtrl", function (){
-        it("should be defined", function(){
-            expect(poiCtrl.message).toBe("test")
-        })
-    })
+    it('should have variable poi of type = array', function(){
+       expect($scope.poi).toBeDefined();
+    });
 
-
-})
-
-
+});
 
 
