@@ -1,6 +1,6 @@
 
 describe('controllers', function(){
-    var poiCtrl;
+    var poiCtrl, $scope;
 
     var notificationMock;
     var mediaMock;
@@ -9,12 +9,22 @@ describe('controllers', function(){
         //load Module
         module('appControllers');
         //Service Mocks
+        mediaMock = jasmine.createSpyObj('media', ['play', 'stop']);
         notificationMock = jasmine.createSpyObj('notification', ['confirm']);
         inject(function ($controller, $rootScope){
+            var btnNos = new Array();
+            var mediaObj = {};
             //Scope
-            scope = $rootScope.$new();
+            $scope = $rootScope.$new();
+            notificationMock.confirm.andReturn(btnNos[0] = 1);
+            mediaMock.play.andReturn(mediaObj);
+            mediaMock.stop.andCallFake(function(){
+                console.log('media Stop!')
+            });
             //Controller
-            poiCtrl = $controller("PoiCtrl",$rootScope, {$scope: scope});
+            poiCtrl = $controller("PoiCtrl", {
+                $scope: $scope,
+                notification: notificationMock});
         })
     })
 
