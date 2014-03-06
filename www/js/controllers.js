@@ -154,21 +154,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
     });
 
 
-});
-
-
-appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
-
-    geolocation.watchPosition(function (position) {
-        /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-        /*alert(position.coords.accuracy);*/
-        $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
-    });
-});
-
-appControllers.controller('MapCtrl', function($rootScope, $scope, TOUR) {
-
-
     function extractIcons() {
         return _.chain(TOUR.pointsOfInterest)
             .filter(function(poi) {
@@ -225,13 +210,24 @@ appControllers.controller('MapCtrl', function($rootScope, $scope, TOUR) {
         }
 
         $scope.userposition = {
-            latitude: newValue.latitude,
-            longitude: newValue.longitude
+            latitude: $scope.pos.latitude,
+            longitude: $scope.pos.longitude
         };
 
     });
 
 });
+
+
+appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
+
+    geolocation.watchPosition(function (position) {
+        /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
+        /*alert(position.coords.accuracy);*/
+        $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+    });
+});
+
 
 /* This is just a test controller - DELETE THIS! */
 appControllers.controller('AudioCtrl', function ($rootScope, $scope, media) {

@@ -27,8 +27,8 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/einfuehrung.mp3",
             "coords": {
-                "latitude":50.213748,
-                "longitude": 8.567932
+                "latitude": 50.110290,
+                "longitude": 8.682265
             }
         },
         {

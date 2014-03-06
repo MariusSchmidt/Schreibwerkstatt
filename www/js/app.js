@@ -38,7 +38,7 @@ schreibwerkApp.config(['$routeProvider',
             }).
             when('/directive', {
                 templateUrl: 'partials/directive.html',
-                controller: 'MapCtrl'
+                controller: 'PoiCtrl'
             }).
             otherwise({
                 redirectTo: '/splash'

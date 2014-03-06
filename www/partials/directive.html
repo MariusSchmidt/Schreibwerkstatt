@@ -1,7 +1,20 @@
+<nav id="nav">
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="float-left">
+            <select ng-model="poi" ng-options="c.title for c in pois"></select>
+            <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="float-right">
+        </div>
+    </div>
+</nav>
 <main>
     <div class="ym-wrapper">
         <div class="ym-wbox">
             <angularmap mapconfig="mapconfig" userposition="userposition"></angularmap>
+            <img ng-click="goToPosition()" src="img/position.png">
+
+            <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
+            <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png" style="float: right">
         </div>
     </div>
 </main>
