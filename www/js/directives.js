@@ -56,6 +56,9 @@ appDirectives.directive('angularmap', function() {
             console.log(shiftX);
             console.log(shiftY);
 
+
+            console.log(scope.mapOffsetLeft);
+            console.log(scope.mapOffsetTop);
             scope.mapOffsetLeft += shiftX;
             scope.mapOffsetTop += shiftY;
 

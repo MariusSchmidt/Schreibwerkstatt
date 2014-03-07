@@ -46,19 +46,24 @@ schreibwerkApp.config(['$routeProvider',
     }]);
 
 
-//schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService) {
-//    /* 
-//     * first things todo:
-//     *  
-//     */
-//    $rootScope.mediaPlaying = false; //If true: dont't run media.play()
-////    deviceReadyService().then( function () {
-////       /* 
-////        * Not sure if needed but usefull to bradcast in lower DOM-Levels later. 
-////        * deviceReady Service returns a promise this function is a complete-handle
-////        * that broadcasts the deviceReadyEvent to all DOM-Levels
-////        */
-////       console.log( $rootScope.deviceready );
-////       $rootScope.$broadcast ('deviceReadyEvent', true);  
-////    });
-//});
+schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService) {
+
+    $document.on('deviceready', function(){
+
+        //Listen to these events in every scope with
+        //$scope.$on('eventname' , functionToHandle)
+        document.addEventListener('resume', function(){
+            $rootScope.$broadcast('resume', true);
+        }, false);
+        document.addEventListener('pause', function(){
+            $rootScope.$broadcast('pause', true);
+        }, false);
+        document.addEventListener('menubutton', function(){
+            $rootScope.$broadcast('menubutton', true);
+        }, false);
+        document.addEventListener('backbutton', function(){
+            $rootScope.$broadcast('backbutton', true);
+
+        }, false);
+    });
+});
