@@ -18,7 +18,9 @@ describe('PoiCtrl', function(){
         geolocationMock = jasmine.createSpyObj('geolocation', ['watchPosition', 'clearWatch']);
 
         //setup returns for Mocks
-        notificationMock.confirm.andReturn('notification');
+        notificationMock.confirm.andReturn(true);
+        mediaMock.play.andReturn(true);
+        mediaMock.stop.andReturn(true);
 
 
         //declaration of the controller and mock injection
@@ -31,12 +33,8 @@ describe('PoiCtrl', function(){
         });
     }));
 
-    it('should have a variable message = test', function(){
-       expect($scope.message).toBe('test');
-    })
-
     it('should have variable poi[0].title = Einfuehrung', function(){
-       expect($scope.poi.title).toBe("Einführung");
+       expect($scope.poi.title).toBe('Einführung');
     });
 
     it('should shift the poi to Position 3', function(){
@@ -44,6 +42,18 @@ describe('PoiCtrl', function(){
         $scope.shiftPoi(3);
         expect($scope.poi.title).toBe("Römer");
     });
+
+    it('should call phonegaps media API', function(){
+        //this test needs a media Object mock to pass
+        $scope.mediaPlay();
+        expect(media.play()).toHaveBeenCalled;
+    });
+
+//    it('should call phonegaps media API', function(){
+//        $rootScope.media = {};
+//        var show = true;
+//        $scope.mediaStop();
+//    });
 
 });
 
