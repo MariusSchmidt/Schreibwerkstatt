@@ -46,7 +46,7 @@ describe('PoiCtrl', function(){
     it('should call phonegaps media API', function(){
         //this test needs a media Object mock to pass
         $scope.mediaPlay();
-        expect(media.play()).toHaveBeenCalled;
+        expect(mediaMock.play()).toHaveBeenCalled;
     });
 
 //    it('should call phonegaps media API', function(){

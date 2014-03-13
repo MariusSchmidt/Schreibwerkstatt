@@ -6,6 +6,21 @@ appProviders.constant('TOUR', {
     "legalNotice": {
 
     },
+    "mapconfig": {
+        imageSource: './img/map.png',
+        bounds: {
+            height: 991,
+            width: 1251,
+            topLeft: {
+                latitude: 50.1142,
+                longitude: 8.6702
+            },
+            bottomRight: {
+                latitude: 50.1030,
+                longitude: 8.6920
+            }
+        }
+    },
     "pointsOfInterest": [
         {
             "title": "Einführung",
@@ -26,6 +41,10 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/einfuehrung.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
             "coords": {
                 "latitude": 50.110290,
                 "longitude": 8.682265
@@ -51,6 +70,10 @@ appProviders.constant('TOUR', {
                 "srcActive": "./img/02-nikolaikirche2.png",
                 "top": 255,
                 "left": 770
+            },
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
             },
             "coords": {
                 "latitude": 50.110290,
@@ -78,6 +101,10 @@ appProviders.constant('TOUR', {
                 "top": 218,
                 "left": 692
             },
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
             "coords": {
                 "latitude": 50.110290,
                 "longitude": 8.682265
@@ -103,6 +130,10 @@ appProviders.constant('TOUR', {
                 "srcActive": "./img/04-karmeliterkloster2.png",
                 "top": 265,
                 "left": 485
+            },
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
             },
             "coords": {
                 "latitude": 50.109618,
@@ -130,6 +161,10 @@ appProviders.constant('TOUR', {
                 "top": 305,
                 "left": 295
             },
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
             "coords": {
                 "latitude": 50.109510,
                 "longitude": 8.6770
@@ -150,6 +185,10 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Judengasse.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
             "coords": {
                 "latitude": 50.113542,
                 "longitude": 8.686668
