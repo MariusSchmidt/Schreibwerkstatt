@@ -52,7 +52,49 @@ describe('Map', function() {
         expect(Map.waypoints.length).toBe(6);
     }));
 
-    it('should contain four markers', inject(function(Map) {
+    it('should contain four icons', inject(function(Map) {
         expect(Map.icons.length).toBe(4);
     }));
+
+    it('should have first icon return default image src', inject(function(Map) {
+        expect(Map.icons[0].getImage()).toBe('./img/02-nikolaikirche1.png');
+    }));
+
+    it('should have first icon return active image src after being activated', inject(function(Map) {
+        Map.icons[0].isActive = true;
+        expect(Map.icons[0].getImage()).toBe('./img/02-nikolaikirche2.png');
+    }));
+
+    it('should have last be equal to weissfrauenkloster', inject(function(Map) {
+        var actual = Map.icons[3];
+        expect(actual.id).toBe('Weißfrauenkloster');
+        expect(actual.src).toBe('./img/05-weissfrauenkloster1.png');
+        expect(actual.srcActive).toBe('./img/05-weissfrauenkloster2.png');
+        expect(actual.top).toBe(305);
+        expect(actual.left).toBe(295);
+        expect(actual.isActive).toBeFalsy();
+    }));
+
+    it('should have third waypoint with defined clickarea', inject(function(Map) {
+        var actual = Map.waypoints[2];
+        expect(actual.id).toBe('Römer');
+        expect(actual.topLeft).toEqual({"x": 0, "y": 0});
+        expect(actual.bottomRight).toEqual({x: 50, y: 50});
+    }));
+
+    it('should have third waypoint hit at 25, 25', inject(function(Map) {
+        var actual = Map.waypoints[2];
+        expect(actual.isHit(25, 25)).toBeTruthy();
+    }));
+
+    it('should have third waypoint not hit at 55, 25', inject(function(Map) {
+        var actual = Map.waypoints[2];
+        expect(actual.isHit(55, 25)).toBeFalsy();
+    }));
+
+    it('should have third waypoint not hit at 25, 55', inject(function(Map) {
+        var actual = Map.waypoints[2];
+        expect(actual.isHit(25, 55)).toBeFalsy();
+    }));
+
 });

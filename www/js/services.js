@@ -224,7 +224,7 @@ services.service('Map', function (TOUR) {
                 left: poi.icon.left,
                 isActive: false,
                 getImage: function () {
-                    return this.isActive ? this.src : this.srcActive;
+                    return this.isActive ? this.srcActive : this.src;
                 }
             }
         })
