@@ -1,7 +1,7 @@
 
 'use strict'
 
-describe('PoiCtrl', function(){
+describe('MapCtrl', function(){
 
     var $scope;
 
@@ -12,14 +12,14 @@ describe('PoiCtrl', function(){
 
         //declaration of the controller and mock injection
         $controller('PoiCtrl', {
-            $scope: $scope,
+            $scope: $scope
         });
     }));
 
-    it('should call phonegaps media API', function(){
+    /*it('should call phonegaps media API', function(){
         //this test needs a media Object mock to pass
         //$scope.mediaPlay();
         //expect(mediaMock.play).toHaveBeenCalled();
-    });
+    });*/
 
 });

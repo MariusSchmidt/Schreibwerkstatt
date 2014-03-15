@@ -34,7 +34,7 @@ describe('PoiCtrl', function(){
     });
 
     it('should have variable poi[0].title = Einfuehrung', function(){
-       expect($scope.poi.title).toBe('Einführung');
+       expect($scope.pois[0].title).toBe('Einführung');
     });
 
     it('should shift the poi to Position 3', function(){
@@ -44,16 +44,9 @@ describe('PoiCtrl', function(){
     });
 
     it('should call phonegaps media API', function(){
-        //this test needs a media Object mock to pass
         $scope.mediaPlay();
         expect(mediaMock.play).toHaveBeenCalled();
     });
-
-//    it('should call phonegaps media API', function(){
-//        $rootScope.media = {};
-//        var show = true;
-//        $scope.mediaStop();
-//    });
 
 });
 

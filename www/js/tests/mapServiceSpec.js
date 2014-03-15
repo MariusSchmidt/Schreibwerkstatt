@@ -48,8 +48,8 @@ describe('Map', function() {
             });
     }));
 
-    it('should contain six waypoints', inject(function(Map) {
-        expect(Map.waypoints.length).toBe(6);
+    it('should contain 12 waypoints', inject(function(Map) {
+        expect(Map.waypoints.length).toBe(12);
     }));
 
     it('should contain four icons', inject(function(Map) {

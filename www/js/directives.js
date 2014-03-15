@@ -2,7 +2,67 @@
 
 var appDirectives = angular.module('appDirectives', []);
 
-appDirectives.directive('angularmap', function() {
+appDirectives.directive('angularmap', function () {
+
+    function link(scope, element, attrs) {
+
+        element.css({
+            cursor: 'pointer'
+        });
+
+        scope.containerStyle = function () {
+            return {
+                overflow: 'hidden',
+                width: scope.containerWidth + 'px',
+                height: scope.containerHeight + 'px'
+            }
+        };
+
+        scope.mapStyle = function () {
+            return {
+                position: 'relative',
+                top: scope.mapOffsetTop + 'px',
+                left: scope.mapOffsetLeft + 'px',
+                width: scope.mapWidth + 'px',
+                height: scope.mapHeight + 'px',
+                "background-image": 'url("./img/map.png")'
+            }
+        }
+
+        scope.positionMarkerStyle = function () {
+            if (scope.userposition) {
+                var offset = positionToPixel(scope.userposition);
+                return {
+                    position: 'absolute',
+                    left: offset.left + 'px',
+                    top: offset.top + 'px'
+                }
+            } else {
+                return {
+                    display: 'none'
+                }
+            }
+        }
+
+        return {
+            link: link,
+            restrict: 'E',
+            scope: {
+                state: '='
+            },
+            template: '<div ng-style="containerStyle()">' +
+                '<div ng-style="mapStyle()">' +
+                '<img ng-repeat="icon in scope.icons" ng-src="icon.getImage()" style="position: absolute; left:{{icon.left}}px; top:{{icon.top}}px;"  />' +
+                '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
+                '</div>' +
+                '</div>'
+        };
+
+    }
+})
+
+/*
+appDirectives.directive('angularmap', function () {
 
     function link(scope, element, attrs) {
 
@@ -36,7 +96,7 @@ appDirectives.directive('angularmap', function() {
             }
         };
 
-        scope.mapClicked = function(event) {
+        scope.mapClicked = function (event) {
             var wrapper = angular.element(element.children());
             var offsetLeft = wrapper.prop('offsetLeft');
             var offsetTop = wrapper.prop('offsetTop');
@@ -44,8 +104,8 @@ appDirectives.directive('angularmap', function() {
             var clickY = event.clientY || event.changedTouches[0].clientY;
             var relativeX = clickX - offsetLeft;
             var relativeY = clickY - offsetTop;
-            var shiftX = scope.containerWidth/2.0 - relativeX;
-            var shiftY = scope.containerHeight/2.0 - relativeY;
+            var shiftX = scope.containerWidth / 2.0 - relativeX;
+            var shiftY = scope.containerHeight / 2.0 - relativeY;
 
             console.log(offsetLeft);
             console.log(offsetTop);
@@ -64,7 +124,7 @@ appDirectives.directive('angularmap', function() {
 
         }
 
-        scope.containerStyle = function() {
+        scope.containerStyle = function () {
             return {
                 overflow: 'hidden',
                 width: scope.containerWidth + 'px',
@@ -72,7 +132,7 @@ appDirectives.directive('angularmap', function() {
             }
         };
 
-        scope.mapStyle = function() {
+        scope.mapStyle = function () {
             return {
                 position: 'relative',
                 top: scope.mapOffsetTop + 'px',
@@ -83,7 +143,7 @@ appDirectives.directive('angularmap', function() {
             }
         }
 
-        scope.positionMarkerStyle = function() {
+        scope.positionMarkerStyle = function () {
             if (scope.userposition) {
                 var offset = positionToPixel(scope.userposition);
                 return {
@@ -107,12 +167,12 @@ appDirectives.directive('angularmap', function() {
             mapconfig: '=',
             userposition: '='
         },
-        template:
-            '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
-                '<div ng-style="mapStyle()">' +
-                    '<img ng-repeat="marker in markers" ng-src="{{marker.src}}" style="position: absolute; left:{{marker.left}}px; top:{{marker.top}}px;"  />' +
-                    '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
-                '</div>' +
+        template: '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
+            '<div ng-style="mapStyle()">' +
+            '<img ng-repeat="marker in markers" ng-src="{{marker.src}}" style="position: absolute; left:{{marker.left}}px; top:{{marker.top}}px;"  />' +
+            '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
+            '</div>' +
             '</div>'
     };
 });
+*/

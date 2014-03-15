@@ -226,12 +226,29 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
 
 });
 
-appControllers.controller('MapController', function($scope, Map, angularmap) {
+appControllers.controller('MapController', function($scope, Map) {
+
+    $scope.containerDimension = {width: 100, height: 100};
+    $scope.mapOffset = {top: 0, left: 0};
+    $scope.userPosition = null;
 
 
+    $scope.$watch('pos', function (newValue) {
+        if(!newValue) {
+            $scope.userPosition = null;
+            return;
+        }
+        $scope.userPosition = {
+            latitude: $scope.pos.latitude,
+            longitude: $scope.pos.longitude
+        };
+    });
 
-    $scope.mapView = {
-
+    $scope.mapState = {
+        containerDimension: $scope.containerDimension,
+        userPosition: Map.geoToPixels($scope.userPosition),
+        offset: $scope.mapOffset,
+        icons: Map.icons
     };
 
 
