@@ -17,8 +17,7 @@ var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',
     'ngTouch',
     'appControllers',
-    'phonegapServices',
-    'FBAngular'
+    'phonegapServices'
 ]);
 
 schreibwerkApp.config(['$routeProvider',
@@ -39,6 +38,10 @@ schreibwerkApp.config(['$routeProvider',
             }).
             when('/directive', {
                 templateUrl: 'partials/directive.html',
+                controller: 'PoiCtrl'
+            }).
+            when('/imgview', {
+                templateUrl: 'partials/imgview.html',
                 controller: 'PoiCtrl'
             }).
             otherwise({

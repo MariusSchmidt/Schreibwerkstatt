@@ -26,7 +26,7 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR, Fullscreen) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR) {
     $scope.message = "test";
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[3];
@@ -202,6 +202,13 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         longitude: 8.681265
     }
 
+    $scope.getDeviceSize = function() {
+        $scope.deviceSize = device.size();
+    }
+
+    $scope.goFullscreen = function() {
+        
+    }
 
     $scope.$watch('pos', function (newValue) {
 
