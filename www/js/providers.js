@@ -193,6 +193,150 @@ appProviders.constant('TOUR', {
                 "latitude": 50.113542,
                 "longitude": 8.686668
             }
+        },
+        {
+            "title": "Judengasse",
+            "heading": "Juden im Ghetto und im Passionsspiel",
+            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "images": [
+                {
+                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                },
+                {
+                    "name": "06_fettmilchaufstand_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                }
+            ],
+            "audio": "media/Station06.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
+            "coords": {
+                "latitude": 50.113542,
+                "longitude": 8.686668
+            }
+        },
+        {
+            "title": "Judengasse",
+            "heading": "Juden im Ghetto und im Passionsspiel",
+            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "images": [
+                {
+                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                },
+                {
+                    "name": "06_fettmilchaufstand_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                }
+            ],
+            "audio": "media/Station06.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
+            "coords": {
+                "latitude": 50.113542,
+                "longitude": 8.686668
+            }
+        },
+        {
+            "title": "Judengasse",
+            "heading": "Juden im Ghetto und im Passionsspiel",
+            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "images": [
+                {
+                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                },
+                {
+                    "name": "06_fettmilchaufstand_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                }
+            ],
+            "audio": "media/Station06.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
+            "coords": {
+                "latitude": 50.113542,
+                "longitude": 8.686668
+            }
+        },
+        {
+            "title": "Judengasse",
+            "heading": "Juden im Ghetto und im Passionsspiel",
+            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "images": [
+                {
+                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                },
+                {
+                    "name": "06_fettmilchaufstand_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                }
+            ],
+            "audio": "media/Station06.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
+            "coords": {
+                "latitude": 50.113542,
+                "longitude": 8.686668
+            }
+        },
+        {
+            "title": "Judengasse",
+            "heading": "Juden im Ghetto und im Passionsspiel",
+            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "images": [
+                {
+                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                },
+                {
+                    "name": "06_fettmilchaufstand_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                }
+            ],
+            "audio": "media/Station06.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
+            "coords": {
+                "latitude": 50.113542,
+                "longitude": 8.686668
+            }
+        },
+        {
+            "title": "Judengasse",
+            "heading": "Juden im Ghetto und im Passionsspiel",
+            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "images": [
+                {
+                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                },
+                {
+                    "name": "06_fettmilchaufstand_merian_1628.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                }
+            ],
+            "audio": "media/Station06.mp3",
+            "clickarea": {
+                "topLeft": {"x": 0, "y": 0},
+                "bottomRight": {"x": 50, "y": 50}
+            },
+            "coords": {
+                "latitude": 50.113542,
+                "longitude": 8.686668
+            }
         }
     ]
 });
