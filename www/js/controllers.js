@@ -218,6 +218,13 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
 
 });
 
+appControllers.controller('MapController', function($scope, Map, angularmap) {
+
+    
+
+
+});
+
 
 appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
 
