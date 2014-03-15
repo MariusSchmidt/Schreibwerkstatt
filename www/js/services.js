@@ -202,6 +202,14 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
     };
 });
 
+services.factory('device', function(){
+    return{
+        size: function(){
+            return window.screen
+        }
+    }
+})
+
 services.service('Map', function (TOUR) {
 
     this.imageSource = TOUR.mapconfig.imageSource;
@@ -240,6 +248,7 @@ services.service('Map', function (TOUR) {
             }
         }
     });
+
 
     this.distance = function (lat1, lon1, lat2, lon2) {
         var deg2rad = function (deg) {
