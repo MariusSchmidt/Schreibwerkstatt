@@ -38,7 +38,7 @@ schreibwerkApp.config(['$routeProvider',
             }).
             when('/directive', {
                 templateUrl: 'partials/directive.html',
-                controller: 'PoiCtrl'
+                controller: 'MapCtrl'
             }).
             when('/imgview', {
                 templateUrl: 'partials/imgview.html',

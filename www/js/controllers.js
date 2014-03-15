@@ -229,30 +229,19 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
 
 });
 
-appControllers.controller('MapController', function($scope, Map) {
+appControllers.controller('MapCtrl', function($scope, Map) {
 
-    $scope.containerDimension = {width: 100, height: 100};
-    $scope.mapOffset = {top: 0, left: 0};
-    $scope.userPosition = null;
-
-
-    $scope.$watch('pos', function (newValue) {
+    /*$scope.$watch('pos', function (newValue) {
         if(!newValue) {
             $scope.userPosition = null;
-            return;
+        } else {
+            $scope.userPosition = Map.geoToPixels(newValue);
         }
-        $scope.userPosition = {
-            latitude: $scope.pos.latitude,
-            longitude: $scope.pos.longitude
-        };
-    });
+    });*/
 
-    $scope.mapState = {
-        containerDimension: $scope.containerDimension,
-        userPosition: Map.geoToPixels($scope.userPosition),
-        offset: $scope.mapOffset,
-        icons: Map.icons
-    };
+    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
+
+    console.log($scope);
 
 
 });

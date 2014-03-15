@@ -19,7 +19,8 @@
 
     /* Layout Module Configuration */
     .ym-wrapper {
-        max-width: 480px;
+        min-width: 320px;
+        max-width: 1024px;
         margin: 0 auto;
         overflow: hidden;
     }
@@ -32,7 +33,7 @@
 
     /* fallback for missing media queries support*/
     body > header, body > nav, body > main, body > footer {
-        min-width: 480px;
+        min-width: 320px;
     }
 
     /* Basic Element Styling */

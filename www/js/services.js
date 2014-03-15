@@ -204,7 +204,7 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
 
 services.factory('device', function(){
     return{
-        size: function(){
+        size: function() {
             return window.screen
         }
     }
@@ -233,6 +233,9 @@ services.service('Map', function (TOUR) {
                 isActive: false,
                 getImage: function () {
                     return this.isActive ? this.srcActive : this.src;
+                },
+                toggleActive: function() {
+                    this.isActive = !this.isActive
                 }
             }
         })
@@ -281,6 +284,11 @@ services.service('Map', function (TOUR) {
             top: Math.floor(top),
             left: Math.floor(left)
         }
+    }
+
+    this.size = {
+        width: width,
+        height: height
     }
 
 });
