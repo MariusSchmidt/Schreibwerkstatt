@@ -15,7 +15,7 @@
 
         <div class="ym-wbox" style="height: auto">
             <p ng-repeat="image in poi.images">
-                <img id="poiImage" ng-src="{{image.name}}" style="height: 150px; display: block; margin: 0 auto" ng-click="goFullscreen()"/>
+               <a ng-href="#/imageview/{{image.name}}"><img id="poiImage" ng-src="{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
             </p>
 
             <p>

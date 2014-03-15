@@ -31,6 +31,9 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[3];
 
+//    $scope.imgUrl = $routeParams.imgUrl;
+//    alert($scope.imgUrl);
+
     $scope.shiftPoi = function (shiftCount) {
         var index = $scope.pois.indexOf($scope.poi) + shiftCount;
         index = (index < 0) ? $scope.pois.length - 1 : (index >= $scope.pois.length) ? 0 : index;
