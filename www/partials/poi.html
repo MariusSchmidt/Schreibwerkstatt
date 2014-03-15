@@ -1,46 +1,18 @@
-<nav id="nav">
-    <div class="ym-wrapper">
-        <div class="ym-wbox">
-            <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="float-left">
-            <select ng-model="poi" ng-options="c.title for c in pois"></select>
-            <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="float-right">
-        </div>
-    </div>
-</nav>
 <main>
     <div class="ym-wrapper" style="height: 285px;">
+        <div class="ym-wbox" style="height: 140px">
+            <img ng-src="{{poi.icon.srcActive}}" style="float: right"/>
+            <h1>{{poi.heading}}</h1>
+        </div>
+
+        <div class="ym-wbox" style="height: 32px">
+            <a class="float-left" href="#/directive">zurück</a>
+            <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
+            <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png" style="float: right">
+        </div>
+
         <div class="ym-wbox">
-            <section class="ym-grid">
-                <div class="ym-g66 ym-gl content">
-                    <div class="ym-gbox-left ym-clearfix" style="overflow: hidden; height: 285px; " ng-click="mapClicked($event); $event.stopPropagation();">
-                        <div id="map-container" ng-style="mapStyle()">
-                            <!--<img src="./img/map.png" />-->
-                            <img src="./img/nikolaikirche-01.png" style="position: absolute; left:764px; top:260px;"  />
-                            <img src="./img/roemer-01.png" style="position: absolute; left:697px; top:218px;"  />
-                            <img src="./img/karmeliterkloster-01.png" style="position: absolute; left:500px; top:394px;"  />
-                            <img src="./img/galluswarte-01.png" style="position: absolute; left:323px; top:300px;"  />
-                            <img src="./img/positionmarker.png" ng-style="positionMarkerStyle({'latitude': 50.110290, 'longitude': 8.682265})" />
-                        </div>
-                    </div>
-                </div>
-                <div class="ym-g33 ym-gr" >
-                    <div class="ym-gbox-right ym-clearfix">
-                        <p>{{pos.distance}}</p>
-                        <h1>{{poi.heading}}</h1>
 
-                        <p>{{poi.teaser}}</p>
-
-                        <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png">
-                        <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png">
-
-
-                        <div>
-                            <a class="float-left" href="#/terms">Impressum</a>
-                            <a class="float-right" href="#/intro">Anleitung</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
     </div>
 </main>

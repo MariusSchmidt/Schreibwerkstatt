@@ -40,7 +40,7 @@ appProviders.constant('TOUR', {
                     "caption": "Handschrift des Frankfurter Passionsspiels (1493)"
                 }
             ],
-            "audio": "media/einfuehrung.mp3",
+            "audio": "media/Station01.mp3",
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -64,7 +64,7 @@ appProviders.constant('TOUR', {
                     "caption": "Hans Holbein d.Ä.: Abendmahl (1501)"
                 }
             ],
-            "audio": "media/Nikolaikirche.mp3",
+            "audio": "media/Station02.mp3",
             "icon": {
                 "src": "./img/02-nikolaikirche1.png",
                 "srcActive": "./img/02-nikolaikirche2.png",
@@ -94,7 +94,7 @@ appProviders.constant('TOUR', {
                     "caption": "Hans Holbein d.Ä.: Gefangennahme (1501) "
                 }
             ],
-            "audio": "media/roemer.mp3",
+            "audio": "media/Station03.mp3",
             "icon": {
                 "src": "./img/03-roemer1.png",
                 "srcActive": "./img/03-roemer2.png",
@@ -124,9 +124,9 @@ appProviders.constant('TOUR', {
                     "caption": "Jörg Ratgeb: Geißelung Jesu (1515-1521)"
                 }
             ],
-            "audio": "media/Karmeliterkloster.mp3",
+            "audio": "media/Station04.mp3",
             "icon": {
-                "src": "./img/04-karmeliterkloster2.png",
+                "src": "./img/04-karmeliterkloster1.png",
                 "srcActive": "./img/04-karmeliterkloster2.png",
                 "top": 265,
                 "left": 485
@@ -154,7 +154,7 @@ appProviders.constant('TOUR', {
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
-            "audio": "media/weissfrauenkloster.mp3",
+            "audio": "media/Station05.mp3",
             "icon": {
                 "src": "./img/05-weissfrauenkloster1.png",
                 "srcActive": "./img/05-weissfrauenkloster2.png",
@@ -184,7 +184,7 @@ appProviders.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
                 }
             ],
-            "audio": "media/Judengasse.mp3",
+            "audio": "media/Station06.mp3",
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
