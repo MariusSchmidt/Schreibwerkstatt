@@ -1,8 +1,8 @@
 <main>
-    <div class="ym-wrapper" style="height: 285px;">
-        <div class="ym-wbox" style="height: 140px">
-            <img ng-src="{{poi.icon.srcActive}}" style="float: right"/>
-            <h1>{{poi.heading}}</h1>
+    <div class="ym-wrapper" style="height: auto;">
+        <div class="ym-wbox">
+            <!--<img ng-src="{{poi.icon.srcActive}}" style="float: right"/>-->
+            <h1 style="text-align: center">{{poi.heading}}</h1>
         </div>
 
         <div class="ym-wbox" style="height: 32px">
@@ -11,8 +11,22 @@
             <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png" style="float: right">
         </div>
 
-        <div class="ym-wbox">
+        <div class="ym-wbox" style="height: auto">
+            <p ng-repeat="image in poi.images">
+                <img ng-src="{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/>
+            </p>
 
+            <p>
+                {{poi.teaser}}
+            </p>
         </div>
     </div>
 </main>
+<footer>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <a class="float-left" href="#/directive">zurück</a>
+            <div class="ym-clearfix ym-ie-clearing"></div>
+        </div>
+    </div>
+</footer>
