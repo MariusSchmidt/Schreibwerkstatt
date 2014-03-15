@@ -17,7 +17,8 @@ var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',
     'ngTouch',
     'appControllers',
-    'phonegapServices'
+    'phonegapServices',
+    'FBAngular'
 ]);
 
 schreibwerkApp.config(['$routeProvider',
