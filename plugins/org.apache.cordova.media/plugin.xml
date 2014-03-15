@@ -3,7 +3,8 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
 xmlns:android="http://schemas.android.com/apk/res/android"
 id="org.apache.cordova.media"
-    version="0.2.6">
+    version="0.2.9">
+
     <name>Media</name>
     <description>Cordova Media Plugin</description>
     <license>Apache 2.0</license>
@@ -31,6 +32,7 @@ id="org.apache.cordova.media"
             <uses-permission android:name="android.permission.RECORD_AUDIO" />
             <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />
         </config-file>
         
         <source-file src="src/android/AudioHandler.java" target-dir="src/org/apache/cordova/media" />
@@ -130,6 +132,11 @@ id="org.apache.cordova.media"
             <merges target="" />
         </js-module>
     </platform>
-    
-            
+
+    <!-- tizen -->
+    <platform name="tizen">
+        <js-module src="src/tizen/MediaProxy.js" name="MediaProxy">
+            <runs/>
+        </js-module>
+    </platform>
 </plugin>

@@ -10,18 +10,10 @@ describe('PoiCtrl', function(){
 
     beforeEach(angular.mock.inject(function($rootScope, $controller){
         $scope = $rootScope.$new();
-        $rootScope = $rootScope.$new();
 
-        //Mock all Services
         notificationMock = jasmine.createSpyObj('notification', ['confirm']);
         mediaMock = jasmine.createSpyObj('media', ['play', 'stop']);
         geolocationMock = jasmine.createSpyObj('geolocation', ['watchPosition', 'clearWatch']);
-
-        //setup returns for Mocks
-        notificationMock.confirm.andReturn(true);
-        mediaMock.play.andReturn(true);
-        mediaMock.stop.andReturn(true);
-
 
         //declaration of the controller and mock injection
         $controller('PoiCtrl', {
@@ -32,6 +24,14 @@ describe('PoiCtrl', function(){
             notification: notificationMock
         });
     }));
+
+    it('creates spies for each requested function', function(){
+        expect(notificationMock.confirm).toBeDefined();
+        expect(mediaMock.play).toBeDefined();
+        expect(mediaMock.stop).toBeDefined();
+        expect(geolocationMock.watchPosition).toBeDefined();
+        expect(geolocationMock.clearWatch).toBeDefined();
+    });
 
     it('should have variable poi[0].title = Einfuehrung', function(){
        expect($scope.poi.title).toBe('Einführung');
@@ -46,7 +46,7 @@ describe('PoiCtrl', function(){
     it('should call phonegaps media API', function(){
         //this test needs a media Object mock to pass
         $scope.mediaPlay();
-        expect(mediaMock.play()).toHaveBeenCalled;
+        expect(mediaMock.play).toHaveBeenCalled();
     });
 
 //    it('should call phonegaps media API', function(){

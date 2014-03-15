@@ -1,76 +1,82 @@
 // Karma configuration
 // Generated on Fri Feb 28 2014 05:45:36 GMT-0800 (PST)
 
-module.exports = function(config) {
-  config.set({
+module.exports = function (config) {
+    config.set({
 
-    // base path, that will be used to resolve files and exclude
-    basePath: '../../',
-
-
-    // frameworks to use
-    frameworks: ['jasmine'],
+        // base path, that will be used to resolve files and exclude
+        basePath: '../../',
 
 
-    // list of files / patterns to load in the browser
-    files: [
-        'js/libs/angular/angular.js',
-        'js/libs/angular/angular-*.js',
-        'js/libs/angular/angular-mocks.js',
-        'js/**/*.js',
-        'js/*.js',
-        'js/tests/*.js'
-    ],
+        // frameworks to use
+        frameworks: ['jasmine'],
 
 
-    // list of files to exclude
-    exclude: [
-        'js/libs/angular/angular-loader.js',
-        'js/libs/angular/*.min.js',
-        'js/libs/angular/angular-scenario.js'
-    ],
+        // list of files / patterns to load in the browser
+        files: [
+            'js/libs/angular/angular.js',
+            'js/libs/angular/angular-mocks.js',
+            'js/libs/angular/angular-*.js',
+            'js/**/*.js',
+            'js/*.js',
+            'js/tests/*.js'
+        ],
 
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['progress'],
+        // list of files to exclude
+        exclude: [
+            'js/libs/angular/angular-loader.js',
+            'js/libs/angular/*.min.js',
+            'js/libs/angular/angular-scenario.js'
+        ],
+
+        plugins: [
+            'karma-chrome-launcher',
+            'karma-firefox-launcher',
+            'karma-jasmine'
+        ],
 
 
-    // web server port
-    port: 9876,
+        // test results reporter to use
+        // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
+        reporters: ['progress'],
 
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+        // web server port
+        port: 9876,
 
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+        // enable / disable colors in the output (reporters and logs)
+        colors: true,
 
 
-    // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: true,
+        // level of logging
+        // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+        logLevel: config.LOG_INFO,
 
 
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera (has to be installed with `npm install karma-opera-launcher`)
-    // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
-    // - PhantomJS
-    // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
-    browsers: ['Chrome'],
+        // enable / disable watching file and executing tests whenever any file changes
+        autoWatch: true,
 
 
-    // If browser does not capture in given timeout [ms], kill it
-    captureTimeout: 60000,
+        // Start these browsers, currently available:
+        // - Chrome
+        // - ChromeCanary
+        // - Firefox
+        // - Opera (has to be installed with `npm install karma-opera-launcher`)
+        // - Safari (only Mac; has to be installed with `npm install karma-safari-launcher`)
+        // - PhantomJS
+        // - IE (only Windows; has to be installed with `npm install karma-ie-launcher`)
+        browsers: ['Chrome'],
 
 
-    // Continuous Integration mode
-    // if true, it capture browsers, run tests and exit
-    singleRun: false
+        // If browser does not capture in given timeout [ms], kill it
+        captureTimeout: 60000,
 
-  });
+
+        // Continuous Integration mode
+        // if true, it capture browsers, run tests and exit
+        singleRun: false
+
+    });
 };
