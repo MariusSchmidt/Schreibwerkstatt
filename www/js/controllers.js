@@ -222,6 +222,10 @@ appControllers.controller('MapController', function($scope, Map, angularmap) {
 
 
 
+    $scope.mapView = {
+
+    };
+
 
 });
 
