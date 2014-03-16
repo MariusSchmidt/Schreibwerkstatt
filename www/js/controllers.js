@@ -26,11 +26,18 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media, device) {
 
     $rootScope.poi = $rootScope.pois[$routeParams.stationID];
-    $rootScope.stationID = $routeParams.stationID
+    $rootScope.stationID = $routeParams.stationID;
 
+
+    $scope.getImageWidth = function(){
+        if(device.width >= 500){
+            return { width: '460px'};
+        }
+        return { width: '230px'};
+    }
 
     $scope.stopAndRedirect = function(path){
         $location.path(path);
@@ -52,6 +59,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
             return true;
         } 
     }
+
 
     /*
      * Watch position for changes.
@@ -98,13 +106,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
 });
 
 appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, device){
-
-    $scope.getImageHeight = function(){
-        if(device.width >= 500){
-            return { "width": "460px"}
-        }
-        return { "width": "230px"}
-    }
 
     $scope.getWidth = {
         "width" : device.width + 'px'
