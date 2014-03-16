@@ -23,6 +23,7 @@ appProviders.constant('TOUR', {
     },
     "pointsOfInterest": [
         {
+            "id": 1,
             "title": "Einführung",
             "heading": "Passionsspiele im mittelalterlichen Frankfurt",
             "teaser": "Frankfurt war im späten Mittelalter nicht nur bedeutende Messestadt, sondern auch Schauplatz für die Aufführung von Passionsspielen. Fast die ganze Stadt war an diesen religiösen Massenveranstaltungen beteiligt.",
@@ -51,6 +52,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 2,
             "title": "Nikolaikirche",
             "heading": "Die Ratsherren und das letzte Abendmahl",
             "teaser": "Der Römerberg ist heute ein Touristenmagnet. Bereits im Mittelalter fanden hier wichtige öffentliche Ereignisse statt. Pfingsten 1492 wurde mitten im Herzen der Messestadt ein Passionsspiel aufgeführt. Selbst die Ratsherren nahmen an diesem Spektakel teil und sicherten sich die besten Plätze.",
@@ -81,6 +83,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 3,
             "title": "Römer",
             "heading": "Verrat des Juden",
             "teaser": "Der Judaskuss gilt als größter Vertrauensbruch der christlichen Geschichte und ist ein wichtiges Motiv im Frankfurter Passionsspiel. Was geschieht im Mittelalter, wenn Judas’ Verrat öffentlich aufgeführt wird? Die emotionale Anteilnahme der Zuschauer ist so groß, dass der Frankfurter Rat Ausschreitungen befürchtet.",
@@ -111,6 +114,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 4,
             "title": "Karmeliterkloster",
             "heading": "Die Geißelung Jesu",
             "teaser": "Das Karmeliterkloster ist die einzige mittelalterliche Klosteranlage, die heute noch in Frankfurt erhalten ist. Im Kreuzgang des Klosters wird die Leidensgeschichte Jesu anschaulich dargestellt. Mehrere Jahre arbeitete der Maler Jörg Ratgeb an dem beeindruckenden Wandfresko.",
@@ -141,6 +145,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 5,
             "title": "Weißfrauenkloster",
             "heading": "Der Tanz Maria Magdalenas und der Nonnen",
             "teaser": "Das Weißfrauenkloster war der Frankfurter Stadtpatronin Maria Magdalena geweiht und diente früheren Prostituierten als neues Heim. Im Passionsspiel vergnügt sich Maria Magdalena mit ihrem Verehrer beim Tanz, und auch die Nonnen erhielten im 15. Jahrhundert männlichen Besuch.",
@@ -171,6 +176,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 6,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
@@ -195,6 +201,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 7,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
@@ -219,6 +226,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 8,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
@@ -243,6 +251,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 9,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
@@ -267,6 +276,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 10,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
@@ -291,6 +301,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 11,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
@@ -315,6 +326,7 @@ appProviders.constant('TOUR', {
             }
         },
         {
+            "id": 12,
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",

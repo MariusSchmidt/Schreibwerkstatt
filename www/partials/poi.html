@@ -15,7 +15,7 @@
 
         <div class="ym-wbox" style="height: auto">
             <p ng-repeat="image in poi.images">
-               <a href="/www/#/imgview/{{image.name}}"><img id="poiImage" ng-src="./media/{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
+               <a ng-href="/www/#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
             </p>
 
             <p>

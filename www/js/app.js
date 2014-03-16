@@ -40,9 +40,9 @@ schreibwerkApp.config(['$routeProvider',
                 templateUrl: 'partials/directive.html',
                 controller: 'MapCtrl'
             }).
-            when('/imgview/:imgUrl', {
+            when('/imgview/:stationID/:imgID', {
                 templateUrl: 'partials/imgview.html',
-                controller: 'PoiCtrl'
+                controller: 'ImgCtrl'
             }).
             otherwise({
                 redirectTo: '/splash'

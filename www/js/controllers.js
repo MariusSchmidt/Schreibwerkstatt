@@ -26,12 +26,8 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR, $routeParams) {
-    $scope.message = "test";
-    $scope.pois = TOUR.pointsOfInterest;
-    $scope.poi = $scope.pois[3];
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR) {
 
-    $scope.imgUrl = $routeParams.imgUrl;
 
     $scope.shiftPoi = function (shiftCount) {
         var index = $scope.pois.indexOf($scope.poi) + shiftCount;
@@ -227,6 +223,11 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
     });*/
 
 });
+appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams){
+
+    $scope.imgID = $routeParams.imgID;
+});
+
 
 appControllers.controller('MapCtrl', function($scope, Map) {
 
@@ -246,7 +247,10 @@ appControllers.controller('MapCtrl', function($scope, Map) {
 });
 
 
-appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
+appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
+
+    $rootScope.pois = TOUR.pointsOfInterest;
+    $rootScope.poi = $rootScope.pois[3];
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */

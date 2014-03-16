@@ -8,7 +8,7 @@
 <main>
     <div class="ym-wrapper">
         <div class="ym-wbox">
-            <img id="poiImage" ng-src="./media/{{imgUrl}}"/>
+            <img ng-src="./media/{{poi.images[imgID].name}}"/>
         </div>
     </div>
 </main>
@@ -16,7 +16,7 @@
     <div class="ym-wrapper">
         <div class="ym-wbox">
         <p>
-            {{poi.teaser}}
+            {{poi.images[0].caption}}
         </p>
         </div>
     </div>
