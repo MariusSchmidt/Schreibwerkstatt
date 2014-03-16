@@ -213,10 +213,15 @@ services.service('Map', function (TOUR) {
 
     this.imageSource = TOUR.mapconfig.imageSource;
 
-    var width = TOUR.mapconfig.bounds.width;
-    var height = TOUR.mapconfig.bounds.height;
-    var topLeft = TOUR.mapconfig.bounds.topLeft;
-    var bottomRight = TOUR.mapconfig.bounds.bottomRight;
+    this.size = {
+        width: TOUR.mapconfig.bounds.width,
+        height: TOUR.mapconfig.bounds.height
+    }
+
+    this.bounds = {
+        topLeft: TOUR.mapconfig.bounds.topLeft,
+        bottomRight: TOUR.mapconfig.bounds.bottomRight
+    }
 
     this.icons = _.chain(TOUR.pointsOfInterest)
         .filter(function (poi) {
@@ -277,17 +282,14 @@ services.service('Map', function (TOUR) {
     }
 
     this.geoToPixels = function(position) {
-        var top = (topLeft.latitude - position.latitude) / (topLeft.latitude - bottomRight.latitude) * height;
-        var left = (position.longitude - topLeft.longitude) / (bottomRight.longitude - topLeft.longitude) * width;
+        var topLeft = this.bounds.topLeft;
+        var bottomRight = this.bounds.bottomRight;
+        var top = (topLeft.latitude - position.latitude) / (topLeft.latitude - bottomRight.latitude) * this.size.height;
+        var left = (position.longitude - topLeft.longitude) / (bottomRight.longitude - topLeft.longitude) * this.size.width;
         return {
             top: Math.floor(top),
             left: Math.floor(left)
         }
-    }
-
-    this.size = {
-        width: width,
-        height: height
     }
 
 });

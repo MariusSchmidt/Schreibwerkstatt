@@ -213,7 +213,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
         
     }
 
-    $scope.$watch('pos', function (newValue) {
+  /*  $scope.$watch('pos', function (newValue) {
 
         if(!newValue) {
             $scope.userposition = null;
@@ -225,7 +225,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
             longitude: $scope.pos.longitude
         };
 
-    });
+    });*/
 
 });
 
