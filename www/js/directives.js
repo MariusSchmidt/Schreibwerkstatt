@@ -52,7 +52,7 @@ appDirectives.directive('angularmap', function (Map, device) {
             if (offset.top + shiftY > 0) {
                 offset.top = 0;
             } else if (Math.abs(offset.top + shiftY) + scope.canvas.height > Map.size.height) {
-                offset.height = scope.canvas.height - Map.size.height;
+                offset.top = scope.canvas.height - Map.size.height;
             } else {
                 offset.top += shiftY;
             }
