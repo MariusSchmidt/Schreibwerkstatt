@@ -26,10 +26,10 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams, notification, media, $location, TOUR) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media) {
 
     $rootScope.poi = $rootScope.pois[$routeParams.stationID];
-
+    $rootScope.stationID = $routeParams.stationID
 
 
     $scope.stopAndRedirect = function(path){
@@ -81,7 +81,22 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams,
     }
 
 
+  /*  $scope.$watch('pos', function (newValue) {
+
+        if(!newValue) {
+            $scope.userposition = null;
+            return;
+        }
+
+        $scope.userposition = {
+            latitude: $scope.pos.latitude,
+            longitude: $scope.pos.longitude
+        };
+
+    });*/
+
 });
+
 appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, device){
 
     $scope.getImageHeight = function(){
@@ -121,5 +136,3 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
 });
-
-
