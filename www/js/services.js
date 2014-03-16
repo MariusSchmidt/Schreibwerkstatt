@@ -204,7 +204,7 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
     };
 });
 
-services.factory('device', function($window, Map) {
+services.factory('device', function ($window, Map) {
     return {
         width: Math.min($window.innerWidth, Map.size.width),
         height: Math.min($window.innerHeight, Map.size.height)
@@ -238,7 +238,7 @@ services.service('Map', function (TOUR) {
             getImage: function () {
                 return this.isActive ? this.srcActive : this.src;
             },
-            toggleActive: function() {
+            toggleActive: function () {
                 this.isActive = !this.isActive
             }
         }
@@ -254,7 +254,6 @@ services.service('Map', function (TOUR) {
             }
         }
     });
-
 
     this.distance = function (lat1, lon1, lat2, lon2) {
         var deg2rad = function (deg) {
@@ -273,14 +272,14 @@ services.service('Map', function (TOUR) {
         return d.toFixed(3); //Distance in m
     };
 
-    this.euclideanDistance = function(lat1, lon1, lat2, lon2) {
+    this.euclideanDistance = function (lat1, lon1, lat2, lon2) {
         lat = (lat1 + lat2) / 2 * 0.01745;
         dx = 111.3 * Math.cos(lat) * (lon1 - lon2);
         dy = 111.3 * (lat1 - lat2);
         return Math.sqrt(dx * dx + dy * dy);
     }
 
-    this.geoToPixels = function(position) {
+    this.geoToPixels = function (position) {
         var topLeft = this.bounds.topLeft;
         var bottomRight = this.bounds.bottomRight;
         var top = (topLeft.latitude - position.latitude) / (topLeft.latitude - bottomRight.latitude) * this.size.height;
