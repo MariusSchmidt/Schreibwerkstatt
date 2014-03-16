@@ -252,7 +252,7 @@ appControllers.controller('MapCtrl', function($scope, Map) {
         }
     });*/
 
-//    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
+    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
 
     console.log($scope);
 

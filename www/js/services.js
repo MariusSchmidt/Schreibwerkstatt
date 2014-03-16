@@ -224,27 +224,22 @@ services.service('Map', function (TOUR) {
         bottomRight: TOUR.mapconfig.bounds.bottomRight
     }
 
-    this.icons = _.chain(TOUR.pointsOfInterest)
-        .filter(function (poi) {
-            return poi.icon;
-        })
-        .map(function (poi) {
-            return {
-                id: poi.title,
-                src: poi.icon.src,
-                srcActive: poi.icon.srcActive,
-                top: poi.icon.top,
-                left: poi.icon.left,
-                isActive: false,
-                getImage: function () {
-                    return this.isActive ? this.srcActive : this.src;
-                },
-                toggleActive: function() {
-                    this.isActive = !this.isActive
-                }
+    this.icons = _.map(TOUR.icons, function (icon) {
+        return {
+            src: icon.src,
+            srcActive: icon.srcActive,
+            top: icon.top,
+            left: icon.left,
+            isActive: false,
+            coords: icon.coords,
+            getImage: function () {
+                return this.isActive ? this.srcActive : this.src;
+            },
+            toggleActive: function() {
+                this.isActive = !this.isActive
             }
-        })
-        .value();
+        }
+    });
 
     this.waypoints = _.map(TOUR.pointsOfInterest, function (poi) {
         return {

@@ -132,8 +132,8 @@ appProviders.constant('TOUR', {
             "icon": {
                 "src": "./img/04-karmeliterkloster1.png",
                 "srcActive": "./img/04-karmeliterkloster2.png",
-                "top": 265,
-                "left": 485
+                "top": 252,
+                "left": 487
             },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
@@ -163,8 +163,8 @@ appProviders.constant('TOUR', {
             "icon": {
                 "src": "./img/05-weissfrauenkloster1.png",
                 "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 305,
-                "left": 295
+                "top": 303,
+                "left": 287
             },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
@@ -216,6 +216,12 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Station06.mp3",
+            "icon": {
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 186,
+                "left": 838
+            },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -241,6 +247,12 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Station06.mp3",
+            "icon": {
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 349,
+                "left": 874
+            },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -266,6 +278,12 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Station06.mp3",
+            "icon": {
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 327,
+                "left": 1007
+            },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -291,6 +309,12 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Station06.mp3",
+            "icon": {
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 512,
+                "left": 1026
+            },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -316,6 +340,12 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Station06.mp3",
+            "icon": {
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 678,
+                "left": 1130
+            },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -341,6 +371,12 @@ appProviders.constant('TOUR', {
                 }
             ],
             "audio": "media/Station06.mp3",
+            "icon": {
+                "src": "./img/05-weissfrauenkloster1.png",
+                "srcActive": "./img/05-weissfrauenkloster2.png",
+                "top": 132,
+                "left": 134
+            },
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -348,6 +384,152 @@ appProviders.constant('TOUR', {
             "coords": {
                 "latitude": 50.113542,
                 "longitude": 8.686668
+            }
+        }
+    ],
+    "icons": [
+        {
+            "src": "./img/02-nikolaikirche1.png",
+            "srcActive": "./img/02-nikolaikirche2.png",
+            "top": 255,
+            "left": 770,
+            "coords": {
+                "latitude": 50.110290,
+                "longitude": 8.682265
+            }
+        },
+
+
+        {
+            "src": "./img/03-roemer1.png",
+            "srcActive": "./img/03-roemer2.png",
+            "top": 210,
+            "left": 700,
+            "coords": {
+                "latitude": 50.110290,
+                "longitude": 8.682265
+            }
+        },
+
+        {
+            "src": "./img/04-karmeliterkloster1.png",
+            "srcActive": "./img/04-karmeliterkloster2.png",
+            "top": 252,
+            "left": 487,
+            "coords": {
+                "latitude": 50.109618,
+                "longitude": 8.677803
+            }
+        },
+
+
+        {
+            "src": "./img/05-weissfrauenkloster1.png",
+            "srcActive": "./img/05-weissfrauenkloster2.png",
+            "top": 303,
+            "left": 287,
+            "coords": {
+                "latitude": 50.109510,
+                "longitude": 8.6770
+            }
+        },
+
+        {
+            "src": "./img/07-dom1.png",
+            "srcActive": "./img/07-dom2.png",
+            "top": 186,
+            "left": 838,
+            "coords": {
+                "latitude": 50.110843,
+                "longitude": 8.684892
+            }
+        },
+
+        {
+            "src": "./img/08-alte-synagoge1.png",
+            "srcActive": "./img/08-alte-synagoge2.png",
+            "top": 349,
+            "left": 874,
+            "coords": {
+                "latitude": 50.110405,
+                "longitude": 8.685357
+            }
+        },
+
+        {
+            "src": "./img/09-briggegiggel1.png",
+            "srcActive": "./img/09-briggegiggel2.png",
+            "top": 327,
+            "left": 1007,
+            "coords": {
+                "latitude": 50.109340,
+                "longitude": 8.687811
+            }
+        },
+
+        {
+            "src": "./img/10-brueckenturm1.png",
+            "srcActive": "./img/10-brueckenturm2.png",
+            "top": 512,
+            "left": 1026,
+            "coords": {
+                "latitude": 50.109340,
+                "longitude": 8.687811
+            }
+        },
+
+        {
+            "src": "./img/11-affentor1.png",
+            "srcActive": "./img/11-affentor2.png",
+            "top": 678,
+            "left": 1130,
+            "coords": {
+                "latitude": 50.104778,
+                "longitude": 8.690161
+            }
+        },
+
+        {
+            "src": "./img/12-galgentor1.png",
+            "srcActive": "./img/12-galgentor2.png",
+            "top": 132,
+            "left": 134,
+            "coords": {
+                "latitude": 50.109870,
+                "longitude": 8.670244
+            }
+        },
+
+        {
+            "src": "./img/m-jued-museum1.png",
+            "srcActive": "./img/m-jued-museum2.png",
+            "top": 162,
+            "left": 1042,
+            "coords": {
+                "latitude": 50.107396,
+                "longitude": 8.674520
+            }
+        },
+
+        {
+            "src": "./img/m-staedelmusem1.png",
+            "srcActive": "./img/m-staedelmusem2.png",
+            "top": 860,
+            "left": 160,
+            "coords": {
+                "latitude": 50.102903,
+                "longitude": 8.673608
+            }
+        },
+
+        {
+            "src": "./img/alte-bruecke1.png",
+            "srcActive": "./img/alte-bruecke2.png",
+            "top": 455,
+            "left": 1014,
+            "coords": {
+                "latitude": 50.108483,
+                "longitude": 8.687759
             }
         }
     ]

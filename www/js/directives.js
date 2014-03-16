@@ -114,14 +114,6 @@ appDirectives.directive('angularmap', function (Map, device) {
         scope: {
             userPosition: '='
         },
-        /*template: '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
-            '<div ng-style="mapStyle()">' +
-            '<img ng-repeat="icon in icons" ng-click="icon.toggleActive(); $event.stopPropagation();" ng-src="{{icon.getImage()}}" ng-style="iconStyle(icon)"  />' +
-            '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
-            '<img ng-click="goToPosition()" src="img/position.png" style="">' +
-            '<a ng-href="#/poi" ><img src="img/info.png" style="float: right"></a>' +
-            '</div>' +
-            '</div>'*/
         templateUrl: './templates/angularmap.html'
     };
 })
