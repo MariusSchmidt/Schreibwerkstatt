@@ -315,7 +315,7 @@ appProviders.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
                 }
             ],
-            "audio": "media/Station06.mp3",
+            "audio": "media/weissfrauenkloster.mp3",
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}
@@ -340,7 +340,7 @@ appProviders.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
                 }
             ],
-            "audio": "media/Station06.mp3",
+            "audio": "media/weissfrauenkloster.mp3",
             "clickarea": {
                 "topLeft": {"x": 0, "y": 0},
                 "bottomRight": {"x": 50, "y": 50}

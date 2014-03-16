@@ -131,6 +131,7 @@ services.factory('media', function (deviceReadyService, $rootScope) {
 
                         if (onError) {
                             $rootScope.$apply(function () {
+                                $rootScope.media = null;
                                 onError.apply(that, args);
                             });
                         }
