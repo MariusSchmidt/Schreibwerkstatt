@@ -202,11 +202,10 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
     };
 });
 
-services.factory('device', function(){
-    return{
-        size: function() {
-            return window.screen
-        }
+services.factory('device', function($window, Map) {
+    return {
+        width: Math.min($window.innerWidth, Map.size.width),
+        height: Math.min($window.innerHeight, Map.size.height)
     }
 })
 
