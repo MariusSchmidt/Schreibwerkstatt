@@ -5,11 +5,12 @@ var services = angular.module('phonegapServices', []);
  */
 
 var getPhonegapPathPrefix = function () {
-    if (device.platform === "Android") {
-        return "file:///android_asset/www/"
-    } else {
-        return ""
-    }
+//    if (device.platform === "Android") {
+//        return "file:///android_asset/www/"
+//    } else {
+//        return ""
+//    }
+    return ""
 };
 
 
