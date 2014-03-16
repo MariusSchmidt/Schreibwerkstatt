@@ -228,8 +228,6 @@ appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, 
     $scope.getWidth = {
         "width" : device.width + 'px'
     }
-    $scope.width = device.width;
-    $scope.height = device.height;
 
     $scope.imgID = $routeParams.imgID;
 });
@@ -256,7 +254,7 @@ appControllers.controller('MapCtrl', function($scope, Map) {
 appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
 
     $rootScope.pois = TOUR.pointsOfInterest;
-    $rootScope.poi = $rootScope.pois[3];
+    $rootScope.poi = $rootScope.pois[0];
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */

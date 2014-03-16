@@ -14,12 +14,14 @@
         </div>
 
         <div class="ym-wbox" style="height: auto">
-            <p ng-repeat="image in poi.images">
-               <a ng-href="/www/#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
+            <p>
+                <a ng-href="/www/#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
             </p>
-
             <p>
                 {{poi.teaser}}
+            </p>
+            <p ng-repeat="image in poi.images" ng-if="$index != 0">
+                <a ng-href="/www/#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
             </p>
         </div>
     </div>
