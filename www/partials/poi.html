@@ -8,7 +8,7 @@
     <div class="ym-wrapper" style="height: auto;">
 
         <div class="ym-wbox" style="height: 32px">
-            <a class="float-left" href="#/directive">zurück</a>
+            <a class="float-left" style="font-size: 12px" href="#/directive">zurück</a>
             <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
             <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png" style="float: right">
         </div>
@@ -17,11 +17,11 @@
             <p>
                 <a ng-href="/www/#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
             </p>
-            <p>
+            <p style="font-size: 12px; margin-right: 5px; margin-left: 5px;">
                 {{poi.teaser}}
             </p>
             <p ng-repeat="image in poi.images" ng-if="$index != 0">
-                <a ng-href="/www/#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
+                <a ng-href="/www/#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
             </p>
         </div>
     </div>
@@ -29,7 +29,7 @@
 <footer>
     <div class="ym-wrapper">
         <div class="ym-wbox">
-            <a class="float-left" href="#/directive">zurück</a>
+            <a class="float-left" style="font-size: 12px" href="#/directive">zurück</a>
             <div class="ym-clearfix ym-ie-clearing"></div>
         </div>
     </div>
