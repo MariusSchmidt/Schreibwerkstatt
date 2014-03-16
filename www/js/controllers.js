@@ -26,9 +26,10 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams, notification, media, TOUR) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams, notification, media, $location, TOUR) {
 
     $rootScope.poi = $rootScope.pois[$routeParams.stationID];
+
 
 
     $scope.shiftPoi = function (shiftCount) {
@@ -115,6 +116,12 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams,
 
         $scope.map.position.left += shiftX;
         $scope.map.position.top += shiftY;
+    }
+
+    $scope.stopAndRedirect = function(path){
+        $location.path(path);
+        media.stop($scope.media);
+        show = false;
     }
 
     $scope.mediaPlay = function() {
