@@ -28,15 +28,15 @@ appProviders.constant('TOUR', {
             "teaser": "Frankfurt war im späten Mittelalter nicht nur bedeutende Messestadt, sondern auch Schauplatz für die Aufführung von Passionsspielen. Fast die ganze Stadt war an diesen religiösen Massenveranstaltungen beteiligt.",
             "images": [
                 {
-                    "name": "./media/01_start_gesamtansicht_frankfurt_faber.jpg",
+                    "name": "01_start_gesamtansicht_frankfurt_faber.jpg",
                     "caption": "Conrad Faber: Stadt Frankfurt (1552)"
                 },
                 {
-                    "name": "./media/01_dirigierrolle_ub.jpg",
+                    "name": "01_dirigierrolle_ub.jpg",
                     "caption": "Dirigierrolle des Passionsspiels (Anfang 14. Jh.)"
                 },
                 {
-                    "name": "./media/01_passionsspiel.jpg",
+                    "name": "01_passionsspiel.jpg",
                     "caption": "Handschrift des Frankfurter Passionsspiels (1493)"
                 }
             ],
@@ -56,11 +56,11 @@ appProviders.constant('TOUR', {
             "teaser": "Der Römerberg ist heute ein Touristenmagnet. Bereits im Mittelalter fanden hier wichtige öffentliche Ereignisse statt. Pfingsten 1492 wurde mitten im Herzen der Messestadt ein Passionsspiel aufgeführt. Selbst die Ratsherren nahmen an diesem Spektakel teil und sicherten sich die besten Plätze.",
             "images": [
                 {
-                    "name": "./media/02_start_nikolaikirche.jpg",
+                    "name": "02_start_nikolaikirche.jpg",
                     "caption": "Matthäus Merian d.Ä.: Nikolaikirche (1628)"
                 },
                 {
-                    "name": "./media/02_abendmahl_holbein.jpg",
+                    "name": "02_abendmahl_holbein.jpg",
                     "caption": "Hans Holbein d.Ä.: Abendmahl (1501)"
                 }
             ],
@@ -86,11 +86,11 @@ appProviders.constant('TOUR', {
             "teaser": "Der Judaskuss gilt als größter Vertrauensbruch der christlichen Geschichte und ist ein wichtiges Motiv im Frankfurter Passionsspiel. Was geschieht im Mittelalter, wenn Judas’ Verrat öffentlich aufgeführt wird? Die emotionale Anteilnahme der Zuschauer ist so groß, dass der Frankfurter Rat Ausschreitungen befürchtet.",
             "images": [
                 {
-                    "name": "./media/03_start_ruemerberg_und_nikolaikirche_merian_1628.jpg",
+                    "name": "03_start_ruemerberg_und_nikolaikirche_merian_1628.jpg",
                     "caption": "Matthäus Merian d.Ä.: Römerberg (1628)"
                 },
                 {
-                    "name": "./media/03_judaskuss_holbein.jpg",
+                    "name": "03_judaskuss_holbein.jpg",
                     "caption": "Hans Holbein d.Ä.: Gefangennahme (1501) "
                 }
             ],
@@ -116,11 +116,11 @@ appProviders.constant('TOUR', {
             "teaser": "Das Karmeliterkloster ist die einzige mittelalterliche Klosteranlage, die heute noch in Frankfurt erhalten ist. Im Kreuzgang des Klosters wird die Leidensgeschichte Jesu anschaulich dargestellt. Mehrere Jahre arbeitete der Maler Jörg Ratgeb an dem beeindruckenden Wandfresko.",
             "images": [
                 {
-                    "name": "./media/04_start_karmeliterkloster_merian.jpg",
+                    "name": "04_start_karmeliterkloster_merian.jpg",
                     "caption": "Matthäus Merian d.Ä.: Karmeliterkloster (1628)"
                 },
                 {
-                    "name": "./media/05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
+                    "name": "05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
                     "caption": "Jörg Ratgeb: Geißelung Jesu (1515-1521)"
                 }
             ],
@@ -146,11 +146,11 @@ appProviders.constant('TOUR', {
             "teaser": "Das Weißfrauenkloster war der Frankfurter Stadtpatronin Maria Magdalena geweiht und diente früheren Prostituierten als neues Heim. Im Passionsspiel vergnügt sich Maria Magdalena mit ihrem Verehrer beim Tanz, und auch die Nonnen erhielten im 15. Jahrhundert männlichen Besuch.",
             "images": [
                 {
-                    "name": "./media/05_start_weissfrauenkloster_merian_1628.jpg",
+                    "name": "05_start_weissfrauenkloster_merian_1628.jpg",
                     "caption": "Matthäus Merian d.Ä.: Weißfrauenkloster  (1628)"
                 },
                 {
-                    "name": "./media/04_karmeliterkloster_geisselung_ratgeb.jpg",
+                    "name": "04_karmeliterkloster_geisselung_ratgeb.jpg",
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],

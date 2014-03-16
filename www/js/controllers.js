@@ -26,13 +26,12 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR, $routeParams) {
     $scope.message = "test";
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[3];
 
-//    $scope.imgUrl = $routeParams.imgUrl;
-//    alert($scope.imgUrl);
+    $scope.imgUrl = $routeParams.imgUrl;
 
     $scope.shiftPoi = function (shiftCount) {
         var index = $scope.pois.indexOf($scope.poi) + shiftCount;
