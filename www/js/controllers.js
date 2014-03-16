@@ -100,13 +100,14 @@ appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, 
 
 
 appControllers.controller('MapCtrl', function($scope, Map) {
-
     $scope.$watch('pos', function (newValue) {
-        $scope.userPosition = (!newValue)? null : newValue;
+        $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
+        angular.forEach(Map.icons, function(icon, index) {
+            var distance = Map.euclideanDistance(icon.coords, $scope.userPosition);
+            icon.isActive = (distance <= 0.1);
+        });
     });
-
     console.log($scope);
-
 });
 
 

@@ -477,8 +477,8 @@ appProviders.constant('TOUR', {
             "top": 512,
             "left": 1026,
             "coords": {
-                "latitude": 50.109340,
-                "longitude": 8.687811
+                "latitude": 50.107203,
+                "longitude": 8.687787
             }
         },
 

@@ -31,21 +31,11 @@ appDirectives.directive('angularmap', function (Map, device) {
             this.shiftX = scope.canvas.width / 2.0 - this.relativeX;
             this.shiftY = scope.canvas.height / 2.0 - this.relativeY;
 
-            if (scope.offset.left + this.shiftX > 0) {
-                scope.offset.left = 0;
-            } else if (Math.abs(scope.offset.left + this.shiftX) + scope.canvas.width > Map.size.width) {
-                scope.offset.left = scope.canvas.width - Map.size.width;
-            } else {
-                scope.offset.left += this.shiftX;
+            var newOffset = {
+                left: scope.offset.left + this.shiftX,
+                top: scope.offset.top + this.shiftY
             }
-
-            if (scope.offset.top + this.shiftY > 0) {
-                scope.offset.top = 0;
-            } else if (Math.abs(scope.offset.top + this.shiftY) + scope.canvas.height > Map.size.height) {
-                scope.offset.top = scope.canvas.height - Map.size.height;
-            } else {
-                scope.offset.top += this.shiftY;
-            }
+            this.setMapOffset(newOffset);
 
             console.log('offsetLeft: ' + this.offsetLeft);
             console.log('offsetTop: ' + this.offsetTop);
@@ -60,10 +50,37 @@ appDirectives.directive('angularmap', function (Map, device) {
 
         }
 
+        scope.setMapOffset = function(offset) {
+            if (offset.left > 0) {
+                scope.offset.left = 0;
+            } else if (Math.abs(offset.left) + scope.canvas.width > Map.size.width) {
+                scope.offset.left = scope.canvas.width - Map.size.width;
+            } else {
+                scope.offset.left = offset.left;
+            }
+
+            if (offset.top > 0) {
+                scope.offset.top = 0;
+            } else if (Math.abs(offset.top) + scope.canvas.height > Map.size.height) {
+                scope.offset.top = scope.canvas.height - Map.size.height;
+            } else {
+                scope.offset.top = offset.top;
+            }
+        }
+
+        scope.goToUserPosition = function(event) {
+            if(!scope.userPosition) {
+                return;
+            }
+            var pixelCoords = Map.geoToPixels(scope.userPosition);
+            var newOffset = {
+                left: scope.canvas.width / 2 - pixelCoords.left,
+                top: scope.canvas.height / 2 - pixelCoords.top
+            }
+            this.setMapOffset(newOffset);
+        }
+
         scope.containerStyle = function () {
-            console.log(scope);
-            console.log(scope.canvas.width);
-            console.log(scope.canvas.height);
             return {
                 position: 'relative',
                 overflow: 'hidden',

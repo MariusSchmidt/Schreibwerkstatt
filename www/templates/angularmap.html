@@ -20,5 +20,5 @@
             </map>
         </div>
     </div>
-    <img ng-click="goToPosition()" src="img/position.png" style="position: absolute; top:0; left:0;">
+    <img ng-click="goToUserPosition($event); $event.stopPropagation();" src="img/position.png" style="position: absolute; top:0; left:0;">
 </div>

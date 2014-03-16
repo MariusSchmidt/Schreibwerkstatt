@@ -255,7 +255,12 @@ services.service('Map', function (TOUR) {
         }
     });
 
-    this.distance = function (lat1, lon1, lat2, lon2) {
+    this.distance = function (pos1, pos2) {
+        var lat1 = pos1.latitude;
+        var lon1 = pos1.longitude;
+        var lat2 = pos2.latitude;
+        var lon2 = pos2.longitude;
+
         var deg2rad = function (deg) {
             return deg * (Math.PI / 180);
         };
@@ -272,7 +277,11 @@ services.service('Map', function (TOUR) {
         return d.toFixed(3); //Distance in m
     };
 
-    this.euclideanDistance = function (lat1, lon1, lat2, lon2) {
+    this.euclideanDistance = function (pos1, pos2) {
+        var lat1 = pos1.latitude;
+        var lon1 = pos1.longitude;
+        var lat2 = pos2.latitude;
+        var lon2 = pos2.longitude;
         lat = (lat1 + lat2) / 2 * 0.01745;
         dx = 111.3 * Math.cos(lat) * (lon1 - lon2);
         dy = 111.3 * (lat1 - lat2);

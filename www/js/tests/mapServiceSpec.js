@@ -11,11 +11,27 @@ describe('Map', function() {
     }));
 
     it('should calculate distance', inject(function(Map) {
-        expect(Map.distance(50.1142, 8.6702, 50.1030, 8.6920)).toBeCloseTo(1.99, 2);
+        var pos1 = {
+            latitude: 50.1142,
+            longitude: 8.6702
+        }
+        var pos2 = {
+            latitude: 50.1030,
+            longitude: 8.6920
+        }
+        expect(Map.distance(pos1, pos2)).toBeCloseTo(1.99, 2);
     }));
 
     it('should calculate euclidean distance', inject(function(Map) {
-        expect(Map.euclideanDistance(50.1142, 8.6702, 50.1030, 8.6920)).toBeCloseTo(1.99, 2);
+        var pos1 = {
+            latitude: 50.1142,
+            longitude: 8.6702
+        }
+        var pos2 = {
+            latitude: 50.1030,
+            longitude: 8.6920
+        }
+        expect(Map.euclideanDistance(pos1, pos2)).toBeCloseTo(1.99, 2);
     }));
 
     it('should calculate offset 0,0 for topLeft Position', inject(function(Map) {
@@ -52,8 +68,8 @@ describe('Map', function() {
         expect(Map.waypoints.length).toBe(12);
     }));
 
-    it('should contain four icons', inject(function(Map) {
-        expect(Map.icons.length).toBe(4);
+    it('should contain 13 icons', inject(function(Map) {
+        expect(Map.icons.length).toBe(13);
     }));
 
     it('should have first icon return default image src', inject(function(Map) {
@@ -65,13 +81,12 @@ describe('Map', function() {
         expect(Map.icons[0].getImage()).toBe('./img/02-nikolaikirche2.png');
     }));
 
-    it('should have last be equal to weissfrauenkloster', inject(function(Map) {
-        var actual = Map.icons[3];
-        expect(actual.id).toBe('Weißfrauenkloster');
-        expect(actual.src).toBe('./img/05-weissfrauenkloster1.png');
-        expect(actual.srcActive).toBe('./img/05-weissfrauenkloster2.png');
-        expect(actual.top).toBe(305);
-        expect(actual.left).toBe(295);
+    it('should have third be equal to weissfrauenkloster', inject(function(Map) {
+        var actual = Map.icons[12];
+        expect(actual.src).toBe('./img/alte-bruecke1.png');
+        expect(actual.srcActive).toBe('./img/alte-bruecke2.png');
+        expect(actual.top).toBe(455);
+        expect(actual.left).toBe(1014);
         expect(actual.isActive).toBeFalsy();
     }));
 
