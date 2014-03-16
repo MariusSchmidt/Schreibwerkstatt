@@ -118,7 +118,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams,
     }
 
     $scope.mediaPlay = function() {
-        media.play($scope.poi.audio)
+        media.play($rootScope.poi.audio)
     }
 
     $scope.mediaStop = function() {
@@ -136,22 +136,22 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams,
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
      */
-    $scope.$watch('pos', function (newValue, oldValue) {
-        distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
-            $scope.poi.coords.latitude, $scope.poi.coords.longitude);
-        $rootScope.pos.distance = distance;
-        if (distance <= 0.050 && $scope.lastcheck !== $scope.poi) {
-            notification.confirm(unescape(nearInfoAlert), function (btnNos) {
-                if (btnNos [0] === 1) {
-                    media.play($scope.poi.audio, function () {
-                        window.alert("Ende!");
-                        console.log("JA");
-                    });
-                }
-            }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
-            $scope.lastcheck = $scope.poi;
-        }
-    });
+//    $scope.$watch('pos', function (newValue, oldValue) {
+//        distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
+//            $scope.poi.coords.latitude, $scope.poi.coords.longitude);
+//        $rootScope.pos.distance = distance;
+//        if (distance <= 0.050 && $scope.lastcheck !== $scope.poi) {
+//            notification.confirm(unescape(nearInfoAlert), function (btnNos) {
+//                if (btnNos [0] === 1) {
+//                    media.play($scope.poi.audio, function () {
+//                        window.alert("Ende!");
+//                        console.log("JA");
+//                    });
+//                }
+//            }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
+//            $scope.lastcheck = $scope.poi;
+//        }
+//    });
 
 
     function extractIcons() {
@@ -261,7 +261,6 @@ appControllers.controller('MapCtrl', function($scope, Map) {
 
 
 appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
-
     $rootScope.pois = TOUR.pointsOfInterest;
     $rootScope.poi = $rootScope.pois[0];
 
