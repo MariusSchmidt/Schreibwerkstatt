@@ -31,6 +31,11 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
     $rootScope.poi = $rootScope.pois[$routeParams.stationID];
     $rootScope.stationID = $routeParams.stationID;
 
+    $scope.getMargin = function(){
+        if(device.width >= 500){
+            return {margin: '50px'};
+        }
+    }
 
     $scope.getImageWidth = function(){
         if(device.width >= 500){
