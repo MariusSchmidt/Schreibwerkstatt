@@ -6,7 +6,7 @@ appDirectives.directive('angularmap', function (Map, device) {
 
     function link(scope, element, attrs) {
 
-        scope.offset = {top: 0, left: 0};
+        /*scope.mapOffset = {top: 0, left: 0};*/
         scope.icons = Map.icons;
 
         element.css({
@@ -32,8 +32,8 @@ appDirectives.directive('angularmap', function (Map, device) {
             this.shiftY = scope.canvas.height / 2.0 - this.relativeY;
 
             var newOffset = {
-                left: scope.offset.left + this.shiftX,
-                top: scope.offset.top + this.shiftY
+                left: scope.mapOffset.left + this.shiftX,
+                top: scope.mapOffset.top + this.shiftY
             }
             this.setMapOffset(newOffset);
 
@@ -45,26 +45,26 @@ appDirectives.directive('angularmap', function (Map, device) {
             console.log('relativeY: ' + this.relativeY);
             console.log('shiftX: ' + this.shiftX);
             console.log('shiftY: ' + this.shiftY);
-            console.log('map.offset.left: ' + scope.offset.left);
-            console.log('map.offset.top: ' + scope.offset.top);
+            console.log('map.offset.left: ' + scope.mapOffset.left);
+            console.log('map.offset.top: ' + scope.mapOffset.top);
 
         }
 
         scope.setMapOffset = function(offset) {
             if (offset.left > 0) {
-                scope.offset.left = 0;
+                scope.mapOffset.left = 0;
             } else if (Math.abs(offset.left) + scope.canvas.width > Map.size.width) {
-                scope.offset.left = scope.canvas.width - Map.size.width;
+                scope.mapOffset.left = scope.canvas.width - Map.size.width;
             } else {
-                scope.offset.left = offset.left;
+                scope.mapOffset.left = offset.left;
             }
 
             if (offset.top > 0) {
-                scope.offset.top = 0;
+                scope.mapOffset.top = 0;
             } else if (Math.abs(offset.top) + scope.canvas.height > Map.size.height) {
-                scope.offset.top = scope.canvas.height - Map.size.height;
+                scope.mapOffset.top = scope.canvas.height - Map.size.height;
             } else {
-                scope.offset.top = offset.top;
+                scope.mapOffset.top = offset.top;
             }
         }
 
@@ -92,8 +92,8 @@ appDirectives.directive('angularmap', function (Map, device) {
         scope.mapStyle = function () {
             return {
                 position: 'relative',
-                top: scope.offset.top + 'px',
-                left: scope.offset.left + 'px',
+                top: scope.mapOffset.top + 'px',
+                left: scope.mapOffset.left + 'px',
                 width: Map.size.width + 'px',
                 height: Map.size.height + 'px',
                 "background-image": 'url("./img/map.png")'
@@ -131,7 +131,8 @@ appDirectives.directive('angularmap', function (Map, device) {
         link: link,
         restrict: 'E',
         scope: {
-            userPosition: '='
+            userPosition: '=',
+            mapOffset: '='
         },
         templateUrl: './templates/angularmap.html'
     };

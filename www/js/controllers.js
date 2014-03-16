@@ -114,7 +114,8 @@ appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, 
 });
 
 
-appControllers.controller('MapCtrl', function($scope, Map) {
+appControllers.controller('MapCtrl', function($rootScope, $scope, Map) {
+
     $scope.$watch('pos', function (newValue) {
         $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
         angular.forEach(Map.icons, function(icon, index) {
@@ -127,6 +128,8 @@ appControllers.controller('MapCtrl', function($scope, Map) {
 
 
 appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
+
+    $rootScope.mapOffset = {top: 0, left: 0};
     $rootScope.pois = TOUR.pointsOfInterest;
     $rootScope.poi = $rootScope.pois[0];
 
