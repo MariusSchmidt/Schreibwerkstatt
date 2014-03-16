@@ -260,28 +260,6 @@ services.service('Map', function (TOUR) {
         var lon1 = pos1.longitude;
         var lat2 = pos2.latitude;
         var lon2 = pos2.longitude;
-
-        var deg2rad = function (deg) {
-            return deg * (Math.PI / 180);
-        };
-        var R = 6371; // Radius of the earth in km
-        var dLat = deg2rad(lat2 - lat1); // deg2rad below
-        var dLon = deg2rad(lon2 - lon1);
-        var a =
-                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                    Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                        Math.sin(dLon / 2) * Math.sin(dLon / 2)
-            ;
-        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        var d = R * c; // Distance in km
-        return d.toFixed(3); //Distance in m
-    };
-
-    this.euclideanDistance = function (pos1, pos2) {
-        var lat1 = pos1.latitude;
-        var lon1 = pos1.longitude;
-        var lat2 = pos2.latitude;
-        var lon2 = pos2.longitude;
         lat = (lat1 + lat2) / 2 * 0.01745;
         dx = 111.3 * Math.cos(lat) * (lon1 - lon2);
         dy = 111.3 * (lat1 - lat2);

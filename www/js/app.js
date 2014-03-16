@@ -12,7 +12,6 @@ Number.prototype.mod = function (n) {
 };
 
 /* App Module */
-
 var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',
     'ngTouch',
@@ -21,7 +20,7 @@ var schreibwerkApp = angular.module('schreibwerkapp', [
 ]);
 
 schreibwerkApp.config(['$routeProvider',
-    function($routeProvider) {
+    function ($routeProvider) {
         $routeProvider.
             when('/splash', {
                 templateUrl: 'partials/splash.html'
@@ -37,8 +36,7 @@ schreibwerkApp.config(['$routeProvider',
                 controller: 'PoiCtrl'
             }).
             when('/directive', {
-                templateUrl: 'partials/directive.html',
-                controller: 'MapCtrl'
+                templateUrl: 'partials/directive.html'
             }).
             when('/imgview/:stationID/:imgID', {
                 templateUrl: 'partials/imgview.html',
@@ -47,25 +45,23 @@ schreibwerkApp.config(['$routeProvider',
             otherwise({
                 redirectTo: '/splash'
             });
-    }]);
+}]);
 
 
-schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService, device) {
-
-
-    $document.on('deviceready', function(){
+schreibwerkApp.run(function ($document, $rootScope) {
+    $document.on('deviceready', function () {
         //Listen to these events in every scope with
         //$scope.$on('eventname' , functionToHandle)
-        document.addEventListener('resume', function(){
+        document.addEventListener('resume', function () {
             $rootScope.$broadcast('resume', true);
         }, false);
-        document.addEventListener('pause', function(){
+        document.addEventListener('pause', function () {
             $rootScope.$broadcast('pause', true);
         }, false);
-        document.addEventListener('menubutton', function(){
+        document.addEventListener('menubutton', function () {
             $rootScope.$broadcast('menubutton', true);
         }, false);
-        document.addEventListener('backbutton', function(){
+        document.addEventListener('backbutton', function () {
             $rootScope.$broadcast('backbutton', true);
 
         }, false);

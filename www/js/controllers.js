@@ -5,24 +5,6 @@ var appControllers = angular.module('appControllers', ['appProviders', 'appDirec
  */
 var nearInfoAlert = "Ihr Ziel ist in unmittelbarer N%E4he%2C m%F6chten sie nun Informationen dazu erhalten%3F";
 
-var calculateDistance = function (lat1, lon1, lat2, lon2) {
-    var deg2rad = function (deg) {
-        return deg * (Math.PI / 180);
-    };
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(lat2 - lat1); // deg2rad below
-    var dLon = deg2rad(lon2 - lon1);
-    var a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                    Math.sin(dLon / 2) * Math.sin(dLon / 2)
-        ;
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c; // Distance in km
-    return d = d.toFixed(3); //Distance in m
-};
-
-
 /*
  *  CONTROLLER
  */
@@ -59,7 +41,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
             return true;
         } 
     }
-
 
     /*
      * Watch position for changes.
@@ -115,20 +96,7 @@ appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, 
 });
 
 
-appControllers.controller('MapCtrl', function($rootScope, $scope, Map) {
-
-    $scope.$watch('pos', function (newValue) {
-        $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
-        angular.forEach(Map.icons, function(icon, index) {
-            var distance = Map.euclideanDistance(icon.coords, $scope.userPosition);
-            icon.isActive = (distance <= 0.1);
-        });
-    });
-    console.log($scope);
-});
-
-
-appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
+appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR, Map) {
 
     $rootScope.mapOffset = {top: 0, left: 0};
     $rootScope.pois = TOUR.pointsOfInterest;
@@ -139,4 +107,14 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
         /*alert(position.coords.accuracy);*/
         $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
+
+    $rootScope.$watch('pos', function (newValue) {
+        $rootScope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
+        angular.forEach(Map.icons, function(icon, index) {
+            var distance = Map.distance(icon.coords, $rootScope.userPosition);
+            icon.isActive = (distance <= 0.1);
+        });
+    });
+
+    /*console.log($scope);*/
 });
