@@ -17,7 +17,7 @@
             <p>
                 <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
             </p>
-            <p style="font-size: 12px; margin-right: 12px; margin-left: 12px;">
+            <p ng-style="getMargin()" style="font-size: 12px; margin-right: 12px; margin-left: 12px;">
                 {{poi.teaser}}
             </p>
             <p ng-repeat="image in poi.images" ng-if="$index != 0">
