@@ -15,9 +15,9 @@
 
         <div class="ym-wbox" style="height: auto">
             <p>
-                <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" style="height: 150px; display: block; margin: 0 auto"/></a>
+                <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
             </p>
-            <p style="font-size: 12px; margin-right: 5px; margin-left: 5px;">
+            <p style="font-size: 12px; margin-right: 12px; margin-left: 12px;">
                 {{poi.teaser}}
             </p>
             <p ng-repeat="image in poi.images" ng-if="$index != 0">
