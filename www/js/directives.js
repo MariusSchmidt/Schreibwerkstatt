@@ -31,15 +31,6 @@ appDirectives.directive('angularmap', function (Map, device) {
             this.shiftX = scope.canvas.width / 2.0 - this.relativeX;
             this.shiftY = scope.canvas.height / 2.0 - this.relativeY;
 
-            console.log('offsetLeft: ' + this.offsetLeft);
-            console.log('offsetTop: ' + this.offsetTop);
-            console.log('clickX: ' + this.clickX);
-            console.log('clickY: ' + this.clickY);
-            console.log('relativeX: ' + this.relativeX);
-            console.log('relativeY: ' + this.relativeY);
-            console.log('shiftX: ' + this.shiftX);
-            console.log('shiftY: ' + this.shiftY);
-
             if (scope.offset.left + this.shiftX > 0) {
                 scope.offset.left = 0;
             } else if (Math.abs(scope.offset.left + this.shiftX) + scope.canvas.width > Map.size.width) {
@@ -56,6 +47,14 @@ appDirectives.directive('angularmap', function (Map, device) {
                 scope.offset.top += this.shiftY;
             }
 
+            console.log('offsetLeft: ' + this.offsetLeft);
+            console.log('offsetTop: ' + this.offsetTop);
+            console.log('clickX: ' + this.clickX);
+            console.log('clickY: ' + this.clickY);
+            console.log('relativeX: ' + this.relativeX);
+            console.log('relativeY: ' + this.relativeY);
+            console.log('shiftX: ' + this.shiftX);
+            console.log('shiftY: ' + this.shiftY);
             console.log('map.offset.left: ' + scope.offset.left);
             console.log('map.offset.top: ' + scope.offset.top);
 
@@ -66,6 +65,7 @@ appDirectives.directive('angularmap', function (Map, device) {
             console.log(scope.canvas.width);
             console.log(scope.canvas.height);
             return {
+                position: 'relative',
                 overflow: 'hidden',
                 width: scope.canvas.width + 'px',
                 height: scope.canvas.height + 'px'
@@ -114,13 +114,14 @@ appDirectives.directive('angularmap', function (Map, device) {
         scope: {
             userPosition: '='
         },
-        template: '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
+        /*template: '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
             '<div ng-style="mapStyle()">' +
             '<img ng-repeat="icon in icons" ng-click="icon.toggleActive(); $event.stopPropagation();" ng-src="{{icon.getImage()}}" ng-style="iconStyle(icon)"  />' +
             '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
             '<img ng-click="goToPosition()" src="img/position.png" style="">' +
             '<a ng-href="#/poi" ><img src="img/info.png" style="float: right"></a>' +
             '</div>' +
-            '</div>'
+            '</div>'*/
+        templateUrl: './templates/angularmap.html'
     };
 })

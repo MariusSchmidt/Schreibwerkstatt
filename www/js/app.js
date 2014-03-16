@@ -32,7 +32,7 @@ schreibwerkApp.config(['$routeProvider',
             when('/intro', {
                 templateUrl: 'partials/intro.html'
             }).
-            when('/poi', {
+            when('/poi/:stationID', {
                 templateUrl: 'partials/poi.html',
                 controller: 'PoiCtrl'
             }).

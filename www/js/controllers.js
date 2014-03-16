@@ -26,7 +26,9 @@ var calculateDistance = function (lat1, lon1, lat2, lon2) {
 /*
  *  CONTROLLER
  */
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media, TOUR) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams, notification, media, TOUR) {
+
+    $rootScope.poi = $rootScope.pois[$routeParams.stationID];
 
 
     $scope.shiftPoi = function (shiftCount) {
