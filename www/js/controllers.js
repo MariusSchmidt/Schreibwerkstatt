@@ -225,6 +225,13 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
 });
 appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, device){
 
+    $scope.getImageHeight = function(){
+        if(device.width >= 500){
+            return { "width": "460px"}
+        }
+        return { "width": "230px"}
+    }
+
     $scope.getWidth = {
         "width" : device.width + 'px'
     }
@@ -243,7 +250,7 @@ appControllers.controller('MapCtrl', function($scope, Map) {
         }
     });*/
 
-    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
+//    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
 
     console.log($scope);
 
