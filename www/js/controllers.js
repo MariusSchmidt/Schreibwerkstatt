@@ -34,7 +34,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
     }
 
     $scope.mediaPlay = function() {
-        media.play($rootScope.poi.audio)
+        media.play($scope.poi.audio)
     }
 
     $scope.mediaStop = function() {
