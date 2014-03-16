@@ -32,6 +32,92 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams,
 
 
 
+    $scope.shiftPoi = function (shiftCount) {
+        var index = $scope.pois.indexOf($scope.poi) + shiftCount;
+        index = (index < 0) ? $scope.pois.length - 1 : (index >= $scope.pois.length) ? 0 : index;
+        $scope.poi = $scope.pois[index];
+    };
+
+    $scope.positionMarkerStyle = function(position) {
+        position = {
+            "latitude": 50.109906,
+            "longitude": 8.679641
+        }
+        var mapCorners = {
+            topLeft: {
+                latitude: 50.1142,
+                longitude: 8.6702
+            },
+            bottomRight: {
+                latitude: 50.1030,
+                longitude: 8.6920
+            }
+        }
+        var top = (mapCorners.topLeft.latitude - position.latitude) / (mapCorners.topLeft.latitude - mapCorners.bottomRight.latitude) * 991;
+        var left = (position.longitude - mapCorners.topLeft.longitude) / (mapCorners.bottomRight.longitude - mapCorners.topLeft.longitude) * 1251;
+        return  myPos =  {
+            position: "absolute",
+            top: Math.round(top - 17.5) + "px",
+            left: Math.round(left - 17.5) + "px"
+        }
+
+    }
+
+    $scope.map = {
+        center: {
+            latitude: 50.110290,
+            longitude: 8.682265
+        },
+        position: {
+            top: -180,
+            left: -600
+        },
+        draggable: true,
+        zoom: 15
+    };
+
+    $scope.mapStyle = function() {
+        return {
+            top: $scope.map.position.top + "px",
+            left: $scope.map.position.left + "px"
+            /*backgroundImage: "url('./img/map.png')"*/
+        }
+    }
+
+    $scope.mapClicked = function(event) {
+        console.log(event);
+        var target = angular.element(event.target);
+        var parent = target.parent();;
+        if (target.prop('localName') === 'img') {
+            parent = parent.parent();
+        }
+
+        console.log("img top: " + target.prop('offsetTop'));
+        console.log("img left: " + target.prop('offsetLeft'));
+        console.log("img width: " + target.prop('offsetWidth'));
+        console.log("img height: " + target.prop('offsetHeight'));
+        console.log("parent top: " + parent.prop('offsetTop'));
+        console.log("parent left: " + parent.prop('offsetLeft'));
+        console.log("parent width: " + parent.prop('offsetWidth'));
+        console.log("parent height: " + parent.prop('offsetHeight'));
+        console.log("parent marginLeft: " + parent.prop('offsetParent'));
+
+        var viewportOffsetLeft = parent.prop('offsetLeft');
+        var viewportWidth = parent.prop('offsetWidth');
+        var clickX = event.clientX || event.changedTouches[0].clientX;
+        var shiftX = viewportOffsetLeft + viewportWidth/2 - clickX;
+        console.log(shiftX);
+
+        var viewportOffsetTop = parent.prop('offsetTop');
+        var viewportHeight = parent.prop('offsetHeight');
+        var clickY = event.clientY || event.changedTouches[0].clientY;
+        var shiftY = viewportOffsetTop + viewportHeight/2 - clickY;
+        console.log(shiftY);
+
+        $scope.map.position.left += shiftX;
+        $scope.map.position.top += shiftY;
+    }
+
     $scope.stopAndRedirect = function(path){
         $location.path(path);
         media.stop($scope.media);
@@ -75,11 +161,75 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $routeParams,
 //    });
 
 
+    function extractIcons() {
+        return _.chain(TOUR.pointsOfInterest)
+            .filter(function(poi) {
+                return poi.icon;
+            })
+            .map(function(poi) {
+                return {
+                    station: poi.title,
+                    src: poi.icon.src,
+                    srcActive: poi.icon.srcActive,
+                    top: poi.icon.top,
+                    left: poi.icon.left
+                }
+            })
+            .value();
+    }
+
+
+    $scope.mapconfig =  {
+        imageSource: './img/map.png',
+        container: {
+            width: 480,
+            height: 400
+        },
+        bounds: {
+            height: 991,
+            width: 1251,
+            topLeft: {
+                latitude: 50.1142,
+                longitude: 8.6702
+            },
+            bottomRight: {
+                latitude: 50.1030,
+                longitude: 8.6920
+            }
+        },
+        center: {
+            latitude: 50.110290,
+            longitude: 8.682265
+        },
+        icons: extractIcons()
+    }
+
+    $scope.userposition = {
+        latitude: 50.111290,
+        longitude: 8.681265
+    }
 
     $scope.getDeviceSize = function() {
         $scope.deviceSize = device.size();
     }
 
+    $scope.goFullscreen = function() {
+
+    }
+
+  /*  $scope.$watch('pos', function (newValue) {
+
+        if(!newValue) {
+            $scope.userposition = null;
+            return;
+        }
+
+        $scope.userposition = {
+            latitude: $scope.pos.latitude,
+            longitude: $scope.pos.longitude
+        };
+
+    });*/
 
 });
 appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, device){
@@ -103,9 +253,13 @@ appControllers.controller('MapCtrl', function($scope, Map) {
 
     $scope.$watch('pos', function (newValue) {
         $scope.userPosition = (!newValue)? null : newValue;
+
     });
 
+    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
+
     console.log($scope);
+
 
 });
 
@@ -122,3 +276,18 @@ appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR) {
 });
 
 
+/* This is just a test controller - DELETE THIS! */
+appControllers.controller('AudioCtrl', function ($rootScope, $scope, media) {
+    $scope.stopMedia = function () {
+        media.stop($rootScope.media);
+    };
+    $scope.playMedia = function () {
+        media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function () {
+            console.log("Success");
+        });
+    };
+
+// media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
+    //   console.log("playAudio():Audio Success");
+    //});
+});
