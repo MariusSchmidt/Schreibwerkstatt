@@ -251,18 +251,11 @@ appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, 
 
 appControllers.controller('MapCtrl', function($scope, Map) {
 
-    /*$scope.$watch('pos', function (newValue) {
-        if(!newValue) {
-            $scope.userPosition = null;
-        } else {
-            $scope.userPosition = Map.geoToPixels(newValue);
-        }
-    });*/
-
-    $scope.userPosition = {latitude: 50.110290, longitude: 8.671265};
+    $scope.$watch('pos', function (newValue) {
+        $scope.userPosition = (!newValue)? null : newValue;
+    });
 
     console.log($scope);
-
 
 });
 
