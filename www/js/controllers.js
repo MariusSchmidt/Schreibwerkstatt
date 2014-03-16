@@ -223,7 +223,13 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification,
     });*/
 
 });
-appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams){
+appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, device){
+
+    $scope.getWidth = {
+        "width" : device.width + 'px'
+    }
+    $scope.width = device.width;
+    $scope.height = device.height;
 
     $scope.imgID = $routeParams.imgID;
 });
