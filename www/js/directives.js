@@ -19,6 +19,7 @@ appDirectives.directive('angularmap', function (Map, device) {
         }
 
         scope.mapClicked = function (event) {
+
             this.clickX = event.clientX || event.changedTouches[0].clientX;
             this.clickY = event.clientY || event.changedTouches[0].clientY;
 
@@ -113,7 +114,7 @@ appDirectives.directive('angularmap', function (Map, device) {
         scope: {
             userPosition: '='
         },
-        template: '<div ng-style="containerStyle()" ng-click="mapClicked($event); $event.stopPropagation();">' +
+        template: '<div ng-style="containerStyle()" ng-click="mapClicked($event)">' +
             '<div ng-style="mapStyle()">' +
             '<img ng-repeat="icon in icons" ng-click="icon.toggleActive(); $event.stopPropagation();" ng-src="{{icon.getImage()}}" ng-style="iconStyle(icon)"  />' +
             '<img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />' +
