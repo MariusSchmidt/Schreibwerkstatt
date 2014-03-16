@@ -10,8 +10,9 @@ var nearInfoAlert = "Ihr Ziel ist in unmittelbarer N%E4he%2C m%F6chten sie nun I
  */
 appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media, device) {
 
-    $rootScope.poi = $rootScope.pois[$routeParams.stationID];
-    $rootScope.stationID = $routeParams.stationID;
+    $scope.stationID = $routeParams.stationID;
+    $scope.poi = $scope.pois[$scope.stationID];
+
 
     $scope.getMargin = function(){
         if(device.width >= 500){
@@ -44,7 +45,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
     $scope.showButton = function(){
         if ($rootScope.media) {
             return true;
-        } 
+        }
     }
 
     /*
@@ -70,6 +71,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
 
 
 
+  /*  $scope.$watch('pos', function (newValue) {
     $scope.getDeviceSize = function() {
         $scope.deviceSize = device.size();
     }
@@ -91,8 +93,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
 
 });
 
-appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, device){
-
+appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
     $scope.getWidth = {
         "width" : device.width + 'px'
     }
@@ -101,22 +102,22 @@ appControllers.controller('ImgCtrl', function($scope, $rootScope, $routeParams, 
 });
 
 
-appControllers.controller('MainCtrl', function ($rootScope, geolocation, TOUR, Map) {
+appControllers.controller('MainCtrl', function ($scope, geolocation, TOUR, Map) {
 
-    $rootScope.mapOffset = {top: 0, left: 0};
-    $rootScope.pois = TOUR.pointsOfInterest;
-    $rootScope.poi = $rootScope.pois[0];
+    $scope.mapOffset = {top: 0, left: 0};
+    $scope.pois = TOUR.pointsOfInterest;
+    $scope.poi = $scope.pois[0];
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
         /*alert(position.coords.accuracy);*/
-        $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+        $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
 
-    $rootScope.$watch('pos', function (newValue) {
-        $rootScope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
+    $scope.$watch('pos', function (newValue) {
+        $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
         angular.forEach(Map.icons, function(icon, index) {
-            var distance = Map.distance(icon.coords, $rootScope.userPosition);
+            var distance = Map.distance(icon.coords, $scope.userPosition);
             icon.isActive = (distance <= 0.1);
         });
     });
