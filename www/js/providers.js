@@ -19,6 +19,10 @@ appProviders.constant('TOUR', {
                 latitude: 50.1030,
                 longitude: 8.6920
             }
+        },
+        "positionMarker": {
+            "size": 43,
+            "src": './img/positionmarker.png'
         }
     },
     "pointsOfInterest": [

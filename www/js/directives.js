@@ -86,6 +86,8 @@ appDirectives.directive('angularmap', function (Map, device) {
         scope.positionMarkerStyle = function () {
             if (scope.userPosition) {
                 this.pixelCoords = Map.geoToPixels(scope.userPosition);
+                this.pixelCoords.top -= Map.positionMarker.size / 2;
+                this.pixelCoords.left -= Map.positionMarker.size / 2;
                 return {
                     position: 'absolute',
                     left: this.pixelCoords.left + 'px',

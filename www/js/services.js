@@ -225,6 +225,8 @@ services.service('Map', function (TOUR) {
         bottomRight: TOUR.mapconfig.bounds.bottomRight
     }
 
+    this.positionMarker = TOUR.mapconfig.positionMarker;
+
     this.icons = _.map(TOUR.icons, function (icon) {
         return {
             src: icon.src,
