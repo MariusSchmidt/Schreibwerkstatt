@@ -20,7 +20,8 @@
     /* Layout Module Configuration */
     .ym-wrapper {
         min-width: 320px;
-        max-width: 1024px;
+        max-width: 1251px;
+        height: 500px;
         margin: 0 auto;
         overflow: hidden;
     }
