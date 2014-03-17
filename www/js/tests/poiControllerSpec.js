@@ -4,16 +4,16 @@ describe('PoiCtrl', function(){
     var $scope;
     var routeParams;
     var geolocationMock;
-    var mediaMock;
-    var notificationMock;
-    var locationMock;
+    var media;
     var device;
-    var $location
+    var $location;
+    var rootScope;
 
     beforeEach(angular.mock.module('appControllers'));
 
-    beforeEach(angular.mock.inject(function($rootScope, $controller){
+    beforeEach(inject(function($rootScope, $controller){
         $scope = $rootScope.$new();
+        rootScope = $rootScope;
 
         $location = {
             lastParam: null,
@@ -22,26 +22,33 @@ describe('PoiCtrl', function(){
             }
         };
 
-        $scope.pois = [];
+        media = {
+            state : null,
+            stop: function(){
+                this.state = "stop";
+            },
+            play: function(){
+                this.state = "play";
+            }
+        };
+
+        $rootScope.media = {};
+        $scope.pois = [{}];
         routeParams = {};
         routeParams.stationID = 1;
         device = {};
         device.width = 500;
 
-        notificationMock = jasmine.createSpyObj('notification', ['confirm']);
-        mediaMock = jasmine.createSpyObj('media', ['play', 'stop']);
-        geolocationMock = jasmine.createSpyObj('geolocation', ['watchPosition', 'clearWatch']);
         //locationMock = jasmine.createSpyObj('location', ['path']);
 
         //declaration of the controller and mock injection
         $controller('PoiCtrl', {
             $routeParams: routeParams,
             $scope: $scope,
-            $rootScope: $rootScope,
+            $rootScope: rootScope,
             $location: $location,
             geolocation: geolocationMock,
-            media: mediaMock,
-            notification: notificationMock,
+            media: media,
             device: device
         });
     }));
@@ -66,24 +73,25 @@ describe('PoiCtrl', function(){
         $scope.stopAndRedirect("/path");
         expect(show).toBeFalsy();
         expect($location.lastParam).toBe("/path");
+        expect(media.state).toBe("stop");
     })
 
     it('should call media.play service', function(){
-
+        $scope.poi = {}
+        $scope.mediaPlay();
+        expect(media.state).toBe("play");
     })
 
-//    it('creates spies for each requested function', function(){
-//        expect(notificationMock.confirm).toBeDefined();
-//        expect(mediaMock.play).toBeDefined();
-//        expect(mediaMock.stop).toBeDefined();
-//        expect(geolocationMock.watchPosition).toBeDefined();
-//        expect(geolocationMock.clearWatch).toBeDefined();
-//    });
+    it('should call media.stop service', function(){
+        $scope.poi = {}
+        $scope.mediaStop();
+        expect(media.state).toBe("stop");
+        expect(show).toBeFalsy();
+    })
 
-//    it('should call phonegaps media API', function(){
-//        $scope.mediaPlay();
-//        expect(mediaMock.play).toHaveBeenCalled();
-//    });
+    it('should return true', function(){
+        expect($scope.showButton()).toBeTruthy();
+    })
 
 });
 
