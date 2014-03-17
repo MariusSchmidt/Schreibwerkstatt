@@ -3,7 +3,7 @@
 describe('Map', function() {
 
     beforeEach(module('phonegapServices'));
-    beforeEach(module('appProviders'));
+    beforeEach(module('appConfigurations'));
 
 
     it('should be defined', inject(function(Map) {
