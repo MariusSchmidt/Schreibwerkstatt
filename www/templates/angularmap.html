@@ -3,7 +3,8 @@
         <img ng-repeat="icon in icons" ng-click="icon.toggleActive(); $event.stopPropagation();" ng-src="{{icon.getImage()}}" ng-style="iconStyle(icon)"  />
         <img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />
         <div style="position:absolute; top:0; left:0; width: 1251px; height: 991px;">
-            <img src="./img/transparent.png" style="width: 1251px; height: 991px;" border="0" usemap="#map" />
+            <img src="./img/transparent.png" style="width: 1251px; height: 991px;" border="0" />
+            <!--
             <map name="map">
                 <area shape="circle" coords="735,337,15" ng-href="#/poi/0" />
                 <area shape="circle" coords="755,361,15" ng-href="#/poi/1" />
@@ -18,6 +19,7 @@
                 <area shape="circle" coords="1152,822,15" ng-href="#/poi/10" />
                 <area shape="circle" coords="158,250,15" ng-href="#/poi/11" />
             </map>
+            -->
         </div>
     </div>
     <img ng-click="goToUserPosition($event); $event.stopPropagation();" src="img/position.png" style="position: absolute; top:0; left:0;">
