@@ -237,9 +237,6 @@ services.service('Map', function (TOUR) {
             coords: icon.coords,
             getImage: function () {
                 return this.isActive ? this.srcActive : this.src;
-            },
-            toggleActive: function () {
-                this.isActive = !this.isActive
             }
         }
     });
