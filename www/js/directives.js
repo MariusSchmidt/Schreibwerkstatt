@@ -6,7 +6,6 @@ appDirectives.directive('angularmap', function ($location, Map, device) {
 
     function link(scope, element, attrs) {
 
-        /*scope.mapOffset = {top: 0, left: 0};*/
         scope.icons = Map.icons;
 
         element.css({
@@ -32,9 +31,8 @@ appDirectives.directive('angularmap', function ($location, Map, device) {
                 top: eventY - offsetTop - scope.mapOffset.top
             }
 
-            this.goToPixelPosition(pixelCoords)
-
-
+            this.goToPixelPosition(pixelCoords);
+            this.checkStationClicked(pixelCoords);
 
         }
 
@@ -62,6 +60,20 @@ appDirectives.directive('angularmap', function ($location, Map, device) {
             } else {
                 scope.mapOffset.top = offset.top;
             }
+        }
+
+        scope.checkStationClicked = function(pixelCoords) {
+            var keepGoing = true;
+            angular.forEach(Map.waypoints, function(waypoint, index) {
+                if (!keepGoing) {
+                    return;
+                }
+                if (waypoint.isHit(pixelCoords.left, pixelCoords.top)) {
+                    $location.path('/poi/' + index);
+                    keepGoing = false;
+                }
+            });
+
         }
 
         scope.goToUserPosition = function(event) {

@@ -47,8 +47,8 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/Station01.mp3",
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 725, "y": 325},
+                "bottomRight": {"x": 745, "y": 345}
             },
             "coords": {
                 "latitude": 50.110290,
@@ -78,8 +78,8 @@ appProviders.constant('TOUR', {
                 "left": 770
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x":745, "y": 351},
+                "bottomRight": {"x": 765, "y": 371}
             },
             "coords": {
                 "latitude": 50.110290,
@@ -109,8 +109,8 @@ appProviders.constant('TOUR', {
                 "left": 692
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 753, "y": 313},
+                "bottomRight": {"x": 773, "y": 333}
             },
             "coords": {
                 "latitude": 50.110290,
@@ -140,8 +140,8 @@ appProviders.constant('TOUR', {
                 "left": 487
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 476, "y": 388},
+                "bottomRight": {"x": 496, "y": 408}
             },
             "coords": {
                 "latitude": 50.109618,
@@ -171,8 +171,8 @@ appProviders.constant('TOUR', {
                 "left": 287
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 393, "y": 423},
+                "bottomRight": {"x": 413, "y": 443}
             },
             "coords": {
                 "latitude": 50.109510,
@@ -196,8 +196,8 @@ appProviders.constant('TOUR', {
             ],
             "audio": "media/Station06.mp3",
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 903, "y": 57},
+                "bottomRight": {"x": 923, "y": 77}
             },
             "coords": {
                 "latitude": 50.113542,
@@ -227,8 +227,8 @@ appProviders.constant('TOUR', {
                 "left": 838
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 829, "y": 292},
+                "bottomRight": {"x": 849, "y": 312}
             },
             "coords": {
                 "latitude": 50.113542,
@@ -258,8 +258,8 @@ appProviders.constant('TOUR', {
                 "left": 874
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 856, "y": 346},
+                "bottomRight": {"x": 876, "y": 366}
             },
             "coords": {
                 "latitude": 50.113542,
@@ -289,8 +289,8 @@ appProviders.constant('TOUR', {
                 "left": 1007
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 1013, "y": 424},
+                "bottomRight": {"x": 1033, "y": 444}
             },
             "coords": {
                 "latitude": 50.113542,
@@ -320,8 +320,8 @@ appProviders.constant('TOUR', {
                 "left": 1026
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 1005, "y": 611},
+                "bottomRight": {"x": 1025, "y": 631}
             },
             "coords": {
                 "latitude": 50.113542,
@@ -351,8 +351,8 @@ appProviders.constant('TOUR', {
                 "left": 1130
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 1142, "y": 812},
+                "bottomRight": {"x": 1162, "y": 832}
             },
             "coords": {
                 "latitude": 50.113542,
@@ -382,8 +382,8 @@ appProviders.constant('TOUR', {
                 "left": 134
             },
             "clickarea": {
-                "topLeft": {"x": 0, "y": 0},
-                "bottomRight": {"x": 50, "y": 50}
+                "topLeft": {"x": 148, "y": 240},
+                "bottomRight": {"x": 168, "y": 260}
             },
             "coords": {
                 "latitude": 50.113542,
