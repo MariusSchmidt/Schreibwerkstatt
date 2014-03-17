@@ -1,13 +1,5 @@
-var appControllers = angular.module('appControllers', ['appProviders', 'appDirectives']);
+var appControllers = angular.module('appControllers', ['appConfigurations', 'appDirectives']);
 
-/*
- *  HELPER
- */
-var nearInfoAlert = "Ihr Ziel ist in unmittelbarer N%E4he%2C m%F6chten sie nun Informationen dazu erhalten%3F";
-
-/*
- *  CONTROLLER
- */
 appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media, device) {
 
     $scope.stationID = $routeParams.stationID;

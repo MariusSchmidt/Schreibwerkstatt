@@ -7,10 +7,6 @@
  */
 'use strict';
 
-Number.prototype.mod = function (n) {
-    return ((this % n) + n) % n;
-};
-
 /* App Module */
 var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',

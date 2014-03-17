@@ -1,8 +1,10 @@
 'use strict';
 
-var appProviders = angular.module('appProviders', []);
+var appConfigurations = angular.module('appConfigurations', []);
 
-appProviders.constant('TOUR', {
+appConfigurations.value('NEAR_INFO_ALERT', 'Ihr Ziel ist in unmittelbarer N%E4he%2C m%F6chten sie nun Informationen dazu erhalten%3F');
+
+appConfigurations.constant('TOUR', {
     "legalNotice": {
 
     },

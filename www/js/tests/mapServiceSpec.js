@@ -3,7 +3,7 @@
 describe('Map', function() {
 
     beforeEach(module('phonegapServices'));
-    beforeEach(module('appProviders'));
+    beforeEach(module('appConfigurations'));
 
 
     it('should be defined', inject(function(Map) {
@@ -81,13 +81,13 @@ describe('Map', function() {
     it('should have third waypoint with defined clickarea', inject(function(Map) {
         var actual = Map.waypoints[2];
         expect(actual.id).toBe('Römer');
-        expect(actual.topLeft).toEqual({"x": 0, "y": 0});
-        expect(actual.bottomRight).toEqual({x: 50, y: 50});
+        expect(actual.topLeft).toEqual({"x": 753, "y": 313});
+        expect(actual.bottomRight).toEqual({x: 773, y: 333});
     }));
 
     it('should have third waypoint hit at 25, 25', inject(function(Map) {
         var actual = Map.waypoints[2];
-        expect(actual.isHit(25, 25)).toBeTruthy();
+        expect(actual.isHit(763, 323)).toBeTruthy();
     }));
 
     it('should have third waypoint not hit at 55, 25', inject(function(Map) {
