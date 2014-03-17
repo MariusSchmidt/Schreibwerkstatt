@@ -30,6 +30,7 @@ describe('PoiCtrl', function(){
 
 
     it('should have some scope variables', function(){
+
         $routeParams.stationID = 1;
         expect(true).toBeTruthy();
     })
