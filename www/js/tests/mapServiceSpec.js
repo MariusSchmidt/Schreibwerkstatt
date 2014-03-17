@@ -22,18 +22,6 @@ describe('Map', function() {
         expect(Map.distance(pos1, pos2)).toBeCloseTo(1.99, 2);
     }));
 
-    it('should calculate euclidean distance', inject(function(Map) {
-        var pos1 = {
-            latitude: 50.1142,
-            longitude: 8.6702
-        }
-        var pos2 = {
-            latitude: 50.1030,
-            longitude: 8.6920
-        }
-        expect(Map.euclideanDistance(pos1, pos2)).toBeCloseTo(1.99, 2);
-    }));
-
     it('should calculate offset 0,0 for topLeft Position', inject(function(Map) {
         expect(Map.geoToPixels({
             latitude: 50.1142,

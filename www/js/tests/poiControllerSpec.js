@@ -15,10 +15,12 @@ describe('PoiCtrl', function(){
     beforeEach(angular.mock.inject(function($rootScope, $controller){
         $scope = $rootScope.$new();
 
-        $location = {};
-        $location.path = function(path){
-            return path;
-        }
+        $location = {
+            lastParam: null,
+            path: function(path) {
+                this.lastParam = path;
+            }
+        };
 
         $scope.pois = [];
         routeParams = {};
@@ -61,10 +63,9 @@ describe('PoiCtrl', function(){
     });
 
     it('should set redirect and stop the running Media', function(){
-        $location.path("/path");
         $scope.stopAndRedirect("/path");
         expect(show).toBeFalsy();
-        //expect($location.path("test")).toHaveBeenCalled();
+        expect($location.lastParam).toBe("/path");
     })
 
     it('should call media.play service', function(){
