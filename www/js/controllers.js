@@ -108,18 +108,24 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, notificatio
 
     $scope.$watch('pos', function (newValue) {
         $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
-        var checked = [];
+        $scope.checked = [];
 
-        angular.forEach($scope.pois, function(poi, index){
-            if(Map.distance($scope.userPosition, poi.coords)){
-                    notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
-                        if (btnNos [0] === 1) {
-                            console.log("ja");
-                        }
-                    }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
-                    checked.push(poi.id);
-            }
-        });
+//        $scope.infoNotification = notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
+//            if (btnNos [0] === 1) {
+//                console.log("ja");
+//            }
+//        }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
+
+//        angular.forEach($scope.pois, function(poi, index){
+//            if(Map.distance($scope.pos, poi.coords) <= 0.1){
+//                alert("poiID " + poi.title);
+//                if ($scope.checked.indexOf(poi) === -1){
+//                    alert('indexOF' + $scope.checked.indexOf(poi));
+//                    $scope.checked.push(poi);
+//                    //$scope.infoNotification();
+//                }
+//            }
+//        });
 
         angular.forEach(Map.icons, function(icon, index) {
             var distance = Map.distance(icon.coords, $scope.userPosition);
