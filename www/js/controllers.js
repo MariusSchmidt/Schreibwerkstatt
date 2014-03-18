@@ -94,7 +94,7 @@ appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
 });
 
 
-appControllers.controller('MainCtrl', function ($scope, geolocation, TOUR, Map) {
+appControllers.controller('MainCtrl', function ($scope, geolocation, notification, TOUR, Map) {
 
     $scope.mapOffset = {top: 0, left: 0};
     $scope.pois = TOUR.pointsOfInterest;
@@ -108,9 +108,23 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, TOUR, Map) 
 
     $scope.$watch('pos', function (newValue) {
         $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
+        var checked = [];
+
+        angular.forEach($scope.pois, function(poi, index){
+            if(Map.distance($scope.userPosition, poi.coords)){
+                    notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
+                        if (btnNos [0] === 1) {
+                            console.log("ja");
+                        }
+                    }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
+                    checked.push(poi.id);
+            }
+        });
+
         angular.forEach(Map.icons, function(icon, index) {
             var distance = Map.distance(icon.coords, $scope.userPosition);
             icon.isActive = (distance <= 0.1);
+
         });
     });
 
