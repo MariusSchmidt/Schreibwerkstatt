@@ -87,12 +87,10 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
 
 appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
     $scope.stationID = $routeParams.stationID;
-
+    $scope.imgID = $routeParams.imgID;
     $scope.getWidth = {
         "width" : device.width + 'px'
     }
-
-    $scope.imgID = $routeParams.imgID;
 });
 
 

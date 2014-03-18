@@ -41,7 +41,7 @@ describe('MainCtrl',function(){
         expect($scope.pos.latitude).toBe(1.0);
     })
 
-    
+
 
 
 })
