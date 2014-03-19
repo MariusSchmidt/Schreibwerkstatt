@@ -133,7 +133,7 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, notificatio
             if($scope.nearPois.length == 1){
                 var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station "+$scope.nearPois.toString();
             } else {
-                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A"+$scope.nearPois.toString();
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A"+$scope.nearPois. toString();
             }
 
             notification.alert(unescape(infotext), function(){

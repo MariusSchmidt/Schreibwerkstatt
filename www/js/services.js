@@ -12,8 +12,10 @@ var getPhonegapPathPrefix = function () {
 //    }
     return ""
 };
-
-
+if(!platform){
+    var platform = {};
+    platform.path = "";
+}
 /*
  *  Services
  */
