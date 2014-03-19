@@ -99,6 +99,8 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, notificatio
     $scope.mapOffset = {top: 0, left: 0};
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[0];
+    $scope.checked = [];
+
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
@@ -106,32 +108,47 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, notificatio
         $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
 
+
     $scope.$watch('pos', function (newValue) {
+        $scope.nearPois = [];
         $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
-        $scope.checked = [];
-
-//        $scope.infoNotification = notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
-//            if (btnNos [0] === 1) {
-//                console.log("ja");
-//            }
-//        }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
-
-//        angular.forEach($scope.pois, function(poi, index){
-//            if(Map.distance($scope.pos, poi.coords) <= 0.1){
-//                alert("poiID " + poi.title);
-//                if ($scope.checked.indexOf(poi) === -1){
-//                    alert('indexOF' + $scope.checked.indexOf(poi));
-//                    $scope.checked.push(poi);
-//                    //$scope.infoNotification();
-//                }
-//            }
-//        });
 
         angular.forEach(Map.icons, function(icon, index) {
             var distance = Map.distance(icon.coords, $scope.userPosition);
             icon.isActive = (distance <= 0.1);
 
         });
+
+        angular.forEach($scope.pois, function(poi, index){
+            var distance = Map.distance($scope.pos, poi.coords);
+            if(distance <= 0.1){
+                //alert("poiID " + poi.title);
+                if ($scope.checked.indexOf(poi) == -1){
+                    $scope.checked.push(poi);
+                    $scope.nearPois.push(poi.id + 1);
+                }
+            }
+        });
+
+        if($scope.nearPois.length > 0){
+            if($scope.nearPois.length == 1){
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station "+$scope.nearPois.toString();
+            } else {
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A"+$scope.nearPois.toString();
+            }
+
+            notification.alert(unescape(infotext), function(){
+                }, unescape("Informationen verf%FCgbar%0A"), "ok"
+            );
+        }
+
+//        if($scope.nearPois.length > 0){
+//            notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
+//                if (btnNos [0] === 1) {
+//                    console.log("ja");
+//                }
+//            }, unescape("Sie befinden sich in unmittelbarer N%E4he zu " ), ["Ja", "Nein"]);
+//        }
     });
 
     /*console.log($scope);*/
