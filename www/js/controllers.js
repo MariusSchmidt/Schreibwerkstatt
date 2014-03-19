@@ -93,6 +93,12 @@ appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
     }
 });
 
+appControllers.controller('SplashCtrl', function($scope, device){
+
+    $scope.roemer = (device.width > 420)? './img/roemer_big.png' : './img/roemer_small.png';
+
+});
+
 
 appControllers.controller('MainCtrl', function ($scope, geolocation, notification, TOUR, Map) {
 
