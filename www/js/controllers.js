@@ -101,7 +101,6 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, notificatio
     $scope.poi = $scope.pois[0];
     $scope.checked = [];
 
-
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
         /*alert(position.coords.accuracy);*/

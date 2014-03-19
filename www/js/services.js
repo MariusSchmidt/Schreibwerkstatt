@@ -39,6 +39,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
             $rootScope.deviceready = false;
             var readyHeader = function () {
                 $rootScope.$apply(function () {
+
                     $rootScope.deviceready = true;
                     $document.off('deviceready', readyHeader);//Event was fired - unregister handler
                     deferred.resolve();
@@ -102,18 +103,19 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
     };
 });
 
-services.factory('media', function (deviceReadyService, $rootScope) {
+services.factory('media', function (deviceReadyService, $rootScope, platform) {
     return {
         play: function (src, onSuccess, onError) {
             if (!$rootScope.media) {
-                var phonegapPath = getPhonegapPathPrefix();
+                //var phonegapPath = getPhonegapPathPrefix();
                 deviceReadyService().then(function () {
                     var that = this,
                         args = arguments;
 
                     var mediaTimer = null;
-
-                    media = new Media(phonegapPath + src, function () {
+                    //alert(window.device.platform);
+                    //alert(platform.path + src);
+                    media = new Media(platform.path + src, function () {
                         var that = this,
                             args = arguments;
 
@@ -208,6 +210,14 @@ services.factory('device', function ($window, Map) {
     return {
         width: Math.min($window.innerWidth, Map.size.width),
         height: Math.min($window.innerHeight, Map.size.height)
+    }
+})
+
+services.factory('platform', function(){
+    if (window.device.platform === "Android") {
+        return {path: "file:///android_asset/www/"}
+    } else {
+        return {path: "" }
     }
 })
 
