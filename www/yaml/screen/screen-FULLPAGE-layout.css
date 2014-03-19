@@ -31,6 +31,14 @@
         margin: 0;
     }
 
+    .splash-bg {
+        background: #f6f6f6 url(../../img/background_z0_small.png) no-repeat left bottom;
+    }
+
+    .block-center {
+        margin: 0 auto;
+    }
+
     /* fallback for missing media queries support*/
     body > header, body > nav, body > main, body > footer {
         min-width: 320px;
@@ -90,6 +98,12 @@
         height: 991px;
     }
 
+}
+
+@media screen and (min-width: 321px) {
+    .splash-bg {
+        background: #f6f6f6 url(../../img/background_z0_big.png) no-repeat left bottom;
+    }
 }
 
 /* reset fallback values in modern browsers */
