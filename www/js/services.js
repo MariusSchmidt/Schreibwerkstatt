@@ -3,19 +3,9 @@ var services = angular.module('phonegapServices', []);
 /*
  *  HELPER
  */
+window.device = {};
+window.device.platform = {};
 
-var getPhonegapPathPrefix = function () {
-//    if (device.platform === "Android") {
-//        return "file:///android_asset/www/"
-//    } else {
-//        return ""
-//    }
-    return ""
-};
-if(!platform){
-    var platform = {};
-    platform.path = "";
-}
 /*
  *  Services
  */
