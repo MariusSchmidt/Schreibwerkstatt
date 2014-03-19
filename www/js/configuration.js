@@ -33,6 +33,7 @@ appConfigurations.constant('TOUR', {
             "title": "Einführung",
             "heading": "Passionsspiele im mittelalterlichen Frankfurt",
             "teaser": "Frankfurt war im späten Mittelalter nicht nur bedeutende Messestadt, sondern auch Schauplatz für die Aufführung von Passionsspielen. Fast die ganze Stadt war an diesen religiösen Massenveranstaltungen beteiligt.",
+            "poiimage": "",
             "images": [
                 {
                     "name": "01_start_gesamtansicht_frankfurt_faber.jpg",
@@ -62,6 +63,7 @@ appConfigurations.constant('TOUR', {
             "title": "Nikolaikirche",
             "heading": "Die Ratsherren und das letzte Abendmahl",
             "teaser": "Der Römerberg ist heute ein Touristenmagnet. Bereits im Mittelalter fanden hier wichtige öffentliche Ereignisse statt. Pfingsten 1492 wurde mitten im Herzen der Messestadt ein Passionsspiel aufgeführt. Selbst die Ratsherren nahmen an diesem Spektakel teil und sicherten sich die besten Plätze.",
+            "poiimage": "poi-02-nikolaikirche-01.png",
             "images": [
                 {
                     "name": "02_start_nikolaikirche.jpg",
@@ -93,6 +95,7 @@ appConfigurations.constant('TOUR', {
             "title": "Römer",
             "heading": "Verrat des Juden",
             "teaser": "Der Judaskuss gilt als größter Vertrauensbruch der christlichen Geschichte und ist ein wichtiges Motiv im Frankfurter Passionsspiel. Was geschieht im Mittelalter, wenn Judas’ Verrat öffentlich aufgeführt wird? Die emotionale Anteilnahme der Zuschauer ist so groß, dass der Frankfurter Rat Ausschreitungen befürchtet.",
+            "poiimage": "poi-03-roemer-01.png",
             "images": [
                 {
                     "name": "03_start_ruemerberg_und_nikolaikirche_merian_1628.jpg",
@@ -124,6 +127,7 @@ appConfigurations.constant('TOUR', {
             "title": "Karmeliterkloster",
             "heading": "Die Geißelung Jesu",
             "teaser": "Das Karmeliterkloster ist die einzige mittelalterliche Klosteranlage, die heute noch in Frankfurt erhalten ist. Im Kreuzgang des Klosters wird die Leidensgeschichte Jesu anschaulich dargestellt. Mehrere Jahre arbeitete der Maler Jörg Ratgeb an dem beeindruckenden Wandfresko.",
+            "poiimage": "poi-04-karmeliterkloster-01.png",
             "images": [
                 {
                     "name": "04_start_karmeliterkloster_merian.jpg",
@@ -155,6 +159,7 @@ appConfigurations.constant('TOUR', {
             "title": "Weißfrauenkloster",
             "heading": "Der Tanz Maria Magdalenas und der Nonnen",
             "teaser": "Das Weißfrauenkloster war der Frankfurter Stadtpatronin Maria Magdalena geweiht und diente früheren Prostituierten als neues Heim. Im Passionsspiel vergnügt sich Maria Magdalena mit ihrem Verehrer beim Tanz, und auch die Nonnen erhielten im 15. Jahrhundert männlichen Besuch.",
+            "poiimage": "poi-05-weissfrauenkloster-01.png",
             "images": [
                 {
                     "name": "05_start_weissfrauenkloster_merian_1628.jpg",
@@ -186,6 +191,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
@@ -211,6 +217,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "poi-07-dom-01.png",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
@@ -242,6 +249,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "poi-08-alte-synagoge-01.png",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
@@ -273,6 +281,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "poi-09-briggegiggel-01.png",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
@@ -304,6 +313,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "poi-10-brueckenturm-01.png",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
@@ -335,6 +345,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "poi-11-affentor-01.png",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
@@ -366,6 +377,7 @@ appConfigurations.constant('TOUR', {
             "title": "Judengasse",
             "heading": "Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "poiimage": "poi-12-galgentor-01.png",
             "images": [
                 {
                     "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
