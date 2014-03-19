@@ -2,7 +2,9 @@
     <div class="ym-wbox">
         <!--<img ng-src="{{poi.icon.srcActive}}" style="float: right"/>-->
         <h1>{{poi.heading}}</h1>
-        <img ng-src="img/{{poi.poiimage}}">
+        <span ng-if="poi.poiimage">
+            <img ng-src="img/{{poi.poiimage}}">
+        </span>
     </div>
 </header>
 <main>
