@@ -11,7 +11,7 @@
     <div class="ym-wrapper" style="height: auto;">
 
         <div class="ym-wbox" style="height: 32px">
-            <a class="float-left" style="font-size: 12px" ng-click="stopAndRedirect('/directive')">zurück</a>
+            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
             <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
             <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png" style="float: right">
         </div>
@@ -20,7 +20,7 @@
             <p>
                 <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
             </p>
-            <p ng-style="getMargin()" style="font-size: 12px; margin-right: 12px; margin-left: 12px;">
+            <p ng-style="getMargin()" style="font-size: 16px; margin-right: 12px; margin-left: 12px;">
                 {{poi.teaser}}
             </p>
             <p ng-repeat="image in poi.images" ng-if="$index != 0">
@@ -32,7 +32,7 @@
 <footer>
     <div class="ym-wrapper">
         <div class="ym-wbox">
-            <a class="float-left" style="font-size: 12px" ng-click="stopAndRedirect('/directive')">zurück</a>
+            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
             <div class="ym-clearfix ym-ie-clearing"></div>
         </div>
     </div>
