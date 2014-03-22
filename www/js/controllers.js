@@ -106,67 +106,50 @@ appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
 });
 
 appControllers.controller('SplashCtrl', function($scope, device){
-
     $scope.roemer = (device.width > 420)? './img/roemer_big.png' : './img/roemer_small.png';
-
 });
-
 
 appControllers.controller('MainCtrl', function ($scope, geolocation, notification, TOUR, Map) {
 
     $scope.mapOffset = {top: 0, left: 0};
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[0];
-    $scope.checked = [];
+    $scope.userPosition = null;
 
     geolocation.watchPosition(function (position) {
-        /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-        /*alert(position.coords.accuracy);*/
-        $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
-    });
 
+        if(!position.coords) {
+            $scope.userPosition = null;
+            return;
+        }
+        $scope.userPosition = position.coords;
 
-    $scope.$watch('pos', function (newValue) {
-        $scope.nearPois = [];
-        $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
 
         angular.forEach(Map.icons, function(icon, index) {
             var distance = Map.distance(icon.coords, $scope.userPosition);
             icon.isActive = (distance <= 0.1);
-
         });
 
-        angular.forEach($scope.pois, function(poi, index){
-            var distance = Map.distance($scope.pos, poi.coords);
-            if(distance <= 0.1){
-                //alert("poiID " + poi.title);
-                if ($scope.checked.indexOf(poi) == -1){
-                    $scope.checked.push(poi);
-                    $scope.nearPois.push(poi.id + 1);
-                }
-            }
-        });
-
-        if($scope.nearPois.length > 0){
-            if($scope.nearPois.length == 1){
-                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station "+$scope.nearPois.toString();
+        $scope.arrivedNewWaypoint = false;
+        $scope.activeWaypoints = [];
+        angular.forEach(Map.waypoints, function(waypoint, index) {
+            var distance = Map.distance(waypoint.coords, $scope.userPosition);
+            if (distance <= 0.1) {
+                $scope.arrivedNewWaypoint = $scope.arrivedNewWaypoint || (waypoint.isActive === false);
+                $scope.activeWaypoints.push(waypoint.id + 1);
+                waypoint.isActive = true;
             } else {
-                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A"+$scope.nearPois. toString();
+                waypoint.isActive = false;
             }
+        });
 
-            notification.alert(unescape(infotext), function(){
-                }, unescape("Informationen verf%FCgbar%0A"), "ok"
-            );
+        if ($scope.arrivedNewWaypoint) {
+            if($scope.activeWaypoints.length == 1){
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station " + $scope.activeWaypoints.toString();
+            } else {
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A" + $scope.activeWaypoints. toString();
+            }
+            notification.alert(unescape(infotext), function(){}, unescape("Informationen verf%FCgbar%0A"), "ok");
         }
-
-//        if($scope.nearPois.length > 0){
-//            notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
-//                if (btnNos [0] === 1) {
-//                    console.log("ja");
-//                }
-//            }, unescape("Sie befinden sich in unmittelbarer N%E4he zu " ), ["Ja", "Nein"]);
-//        }
     });
-
-    /*console.log($scope);*/
 });

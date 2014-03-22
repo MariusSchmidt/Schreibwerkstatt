@@ -196,7 +196,7 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
                             });
                         }
                     },
-                    {enableHighAccuracy: true, timeout: 2000});
+                    {enableHighAccuracy: true, timeout: 5000});
             });
 
         },
