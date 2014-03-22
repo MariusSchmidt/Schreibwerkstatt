@@ -60,6 +60,7 @@
     background: #fff;
     color: #000;
     text-align: left;
+    overflow-y: scroll;
   }
 
   /* (en) avoid visible outlines on DIV and h[x] elements in Webkit browsers */
@@ -670,6 +671,7 @@
     width: 100%;
   }
 }
+
 @media print {
   /**
   * @section print adjustments for core modules

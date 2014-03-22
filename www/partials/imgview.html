@@ -1,0 +1,24 @@
+<header>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <a class="float-left" style="font-size: 15px" ng-href="#/poi/{{stationID}}">zurück</a>
+        </div>
+    </div>
+</header>
+<main>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <img ng-src="./media/{{pois[stationID].images[imgID].name}}" ng-style="getWidth"/>
+            <p>
+                {{poi.images[0].caption}}
+            </p>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+
+        </div>
+    </div>
+</footer>

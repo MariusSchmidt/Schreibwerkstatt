@@ -1,38 +1,40 @@
-<nav id="nav">
-    <div class="ym-wrapper">
-        <div class="ym-wbox">
-            <img ng-click="shiftPoi(-1)" src="img/leftarrow.png" class="float-left">
-            <select ng-model="poi" ng-options="c.title for c in pois"></select>
-            <img ng-click="shiftPoi(1)" src="img/righttarrow.png" class="float-right">
-        </div>
+<header>
+    <div class="ym-wbox">
+        <!--<img ng-src="{{poi.icon.srcActive}}" style="float: right"/>-->
+        <h1 style="padding-bottom: 15px">{{poi.heading}}</h1>
+        <span ng-if="poi.poiimage">
+            <img ng-src="img/{{poi.poiimage}}">
+        </span>
     </div>
-</nav>
+</header>
 <main>
-    <div class="ym-wrapper" style="height: 375px;">
-        <div class="ym-wbox">
-            <section class="ym-grid linearize-level-1">
-                <article class="ym-g66 ym-gl content">
-                    <div class="ym-gbox-left ym-clearfix">
-                        <google-map center="map.center" zoom="map.zoom"
-                                draggable="false"
-                                options="{zoomControl: false, }"></google-map>
-                    </div>
-                </article>
-                <aside class="ym-g33 ym-gr">
-                    <div class="ym-gbox-right ym-clearfix">
-                        <h1>{{poi.heading}}</h1>
-                        <p>{{poi.teaser}}</p>
-                        <p>{{pos.latitude }}
-                            {{pos.longitude}}
-                            {{pos.accuracy }}</p>
-                        <p>{{pos.distance}}</p>
-                        <div>
-                            <a class="float-left" href="#/terms">Impressum</a>
-                            <a class="float-right" href="#/intro">Anleitung</a>
-                        </div>
-                    </div>
-                </aside>
-            </section>
+    <div class="ym-wrapper" style="height: auto;">
+
+        <div class="ym-wbox" style="height: 50px; padding-bottom: 10px;">
+            <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
+            <img ng-click="mediaPause()" ng-show=showButton() src="img/stop.png" style="float: right">
+            <img ng-click="mediaRepeat()" src="img/repeat.png" style="float: right">
+            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
+        </div>
+
+        <div class="ym-wbox" style="height: auto">
+            <p>
+                <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
+            </p>
+            <p ng-style="getMargin()" style="font-size: 16px; margin-right: 12px; margin-left: 12px;">
+                {{poi.teaser}}
+            </p>
+            <p ng-repeat="image in poi.images" ng-if="$index != 0">
+                <a ng-href="#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
+            </p>
         </div>
     </div>
 </main>
+<footer>
+    <div class="ym-wrapper">
+        <div class="ym-wbox">
+            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
+            <div class="ym-clearfix ym-ie-clearing"></div>
+        </div>
+    </div>
+</footer>

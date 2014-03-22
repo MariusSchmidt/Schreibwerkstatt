@@ -1,5 +1,0 @@
-var tour = {
-	"legalNotice": {
-		
-	}
-}

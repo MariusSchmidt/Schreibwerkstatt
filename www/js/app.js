@@ -1,67 +1,68 @@
 /**
-* Created with IntelliJ IDEA.
-* User: marius
-* Date: 22.01.14
-* Time: 19:49
-* To change this template use File | Settings | File Templates.
-*/
+ * Created with IntelliJ IDEA.
+ * User: marius
+ * Date: 22.01.14
+ * Time: 19:49
+ * To change this template use File | Settings | File Templates.
+ */
 'use strict';
 
-Number.prototype.mod = function(n) {
-    return ((this%n)+n)%n;
-};
-
 /* App Module */
-
 var schreibwerkApp = angular.module('schreibwerkapp', [
     'ngRoute',
+    'ngTouch',
     'appControllers',
-    'phonegapServices',
-    'google-maps'
+    'phonegapServices'
 ]);
 
 schreibwerkApp.config(['$routeProvider',
-    function($routeProvider) {
+    function ($routeProvider) {
         $routeProvider.
             when('/splash', {
-                templateUrl: 'partials/splash.html'
+                templateUrl: 'partials/splash.html',
+                controller: 'SplashCtrl'
             }).
             when('/terms', {
-                templateUrl: 'partials/terms.html'
+                templateUrl: 'partials/terms.html',
+                controller: 'SplashCtrl'
             }).
             when('/intro', {
-                templateUrl: 'partials/intro.html'
+                templateUrl: 'partials/intro.html',
+                controller: 'SplashCtrl'
             }).
-            when('/poi', {
+            when('/poi/:stationID', {
                 templateUrl: 'partials/poi.html',
                 controller: 'PoiCtrl'
+            }).
+            when('/directive', {
+                templateUrl: 'partials/directive.html'
+            }).
+            when('/imgview/:stationID/:imgID', {
+                templateUrl: 'partials/imgview.html',
+                controller: 'ImgCtrl'
             }).
             otherwise({
                 redirectTo: '/splash'
             });
-    }]);
+}]);
 
-schreibwerkApp.run(function($rootScope, $http) {
-    $http.get('tour.json')
-        .then(function (res) {
-            $rootScope.tour = res.data;
-        });
+
+schreibwerkApp.run(function ($document, $rootScope) {
+    $document.on('deviceready', function () {
+        //Listen to these events in every scope with
+        //$scope.$on('eventname' , functionToHandle)
+        document.addEventListener('resume', function () {
+            $rootScope.$broadcast('resume', true);
+        }, false);
+        document.addEventListener('pause', function () {
+            $rootScope.$broadcast('pause', true);
+        }, false);
+        document.addEventListener('menubutton', function () {
+            $rootScope.$broadcast('menubutton', true);
+        }, false);
+        document.addEventListener('backbutton', function () {
+            $rootScope.$broadcast('backbutton', true);
+
+        }, false);
+    });
 });
-
-
-//schreibwerkApp.run ( function ($document, $rootScope, deviceReadyService) {
-//    /* 
-//     * first things todo:
-//     *  
-//     */
-//    $rootScope.mediaPlaying = false; //If true: dont't run media.play()
-////    deviceReadyService().then( function () {
-////       /* 
-////        * Not sure if needed but usefull to bradcast in lower DOM-Levels later. 
-////        * deviceReady Service returns a promise this function is a complete-handle
-////        * that broadcasts the deviceReadyEvent to all DOM-Levels
-////        */
-////       console.log( $rootScope.deviceready );
-////       $rootScope.$broadcast ('deviceReadyEvent', true);  
-////    });
-//});

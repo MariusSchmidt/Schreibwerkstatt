@@ -1,0 +1,10 @@
+<div ng-style="containerStyle()" ng-click="mapClicked($event)">
+    <div ng-style="mapStyle()">
+        <img ng-repeat="icon in icons" ng-src="{{icon.getImage()}}" ng-style="iconStyle(icon)"  />
+        <img src="./img/positionmarker.png" ng-style="positionMarkerStyle()" />
+        <div style="position:absolute; top:0; left:0; width: 1251px; height: 991px;">
+            <img src="./img/transparent.png" style="width: 1251px; height: 991px;" border="0" />
+        </div>
+    </div>
+    <img ng-click="goToUserPosition($event); $event.stopPropagation();" src="img/position.png" style="position: absolute; top:0; left:0;">
+</div>

@@ -1,106 +1,172 @@
-var appControllers = angular.module('appControllers', []);
+var appControllers = angular.module('appControllers', ['appConfigurations', 'appDirectives']);
 
-/*
- *  HELPER
- */
-var nearInfoAlert = "Ihr Ziel ist in unmittelbarer Nähe,\n\
-                    möchten sie nun Informationen dazu erhalten?";
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media, device) {
 
-var calculateDistance = function (lat1, lon1, lat2, lon2) {
-    var deg2rad = function (deg) {
-        return deg * (Math.PI / 180);
-    };
-    var R = 6371; // Radius of the earth in km
-    var dLat = deg2rad(lat2 - lat1); // deg2rad below
-    var dLon = deg2rad(lon2 - lon1);
-    var a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
-                    Math.sin(dLon / 2) * Math.sin(dLon / 2)
-        ;
-    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    var d = R * c; // Distance in km
-    return d = d.toFixed(3); //Distance in m
-};
+    $scope.stationID = $routeParams.stationID;
+    $scope.poi = $scope.pois[$scope.stationID];
+    var show = false;
 
 
-/*
- *  CONTROLLER
- */
+    $scope.getMargin = function(){
+        if(device.width >= 500){
+            return {margin: '50px'};
+        }
+    }
 
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, notification, media) {
+    $scope.getImageWidth = function(){
+        if(device.width >= 500){
+            return { width: '460px'};
+        }
+        return { width: '230px'};
+    }
 
-    /*$scope.pois = [
-        {title: "01. Hauptwache", shortDesc: "Lorema", lat: 50.11473789901214, lon: 8.6785872056261,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"},
-        {title: "02. Judengasse", shortDesc: "Iosum", lat: 50.22513, lon: 8.57191,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"},
-        {title: "03. Konstablerwache", shortDesc: "Teyt", lat: 50.11572859300329, lon: 8.688672311522033,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"},
-        {title: "04. Dom", shortDesc: "Dicosum", lat: 50.115893706675315, lon: 8.69356466076514,
-            media: "http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3"}
-    ];*/
-    $scope.pois = $rootScope.tour.pointsOfInterest;
+    $scope.stopAndRedirect = function(path){
+        $location.path(path);
+        media.stop();
+        show = false;
+    }
 
+    $scope.mediaPlay = function() {
+        show = true;
+        if(!$rootScope.media){
+            media.play($scope.poi.audio)
+        } else {
+            media.resume()
+        }
+    }
 
-    $scope.poi = $scope.pois[0];
+    $scope.mediaPause = function() {
+        media.pause()
+        show = false;
+    }
 
-    $scope.shiftPoi = function (shiftCount) {
-        var index = $scope.pois.indexOf($scope.poi) + shiftCount;
-        index = (index < 0) ? $scope.pois.length - 1 : (index >= $scope.pois.length) ? 0 : index;
-        $scope.poi = $scope.pois[index];
-    };
+    $scope.mediaRepeat = function() {
+        if($rootScope.media){
+            media.stop()
+        }
+        media.play($scope.poi.audio)
+        show = true;
+    }
 
-    $scope.map = {
-        center: {
-            latitude: 45,
-            longitude: -73
-        },
-        zoom: 8
-    };
+    $scope.showButton = function(){
+        return show;
+    }
 
     /*
      * Watch position for changes.
      * If distance to poi <= 50 alert with media-information
      */
-    $scope.$watch('pos', function () {
-        distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
-            $scope.poi.lat, $scope.poi.lon);
-        $rootScope.pos.distance = distance;
-        if (distance <= 0.050 && lastcheck !== $scope.poi) {
-            notification.confirm(nearInfoAlert, function (btnNos) {
-                if (btnNos [0] === 1) {
-                    media.play($scope.poi.media, function () {
-                        console.log("JA");
-                    });
-                }
-            }, "Informationen verfügbar", ["Ja", "Nein"]);
+//    $scope.$watch('pos', function (newValue, oldValue) {
+//        distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
+//            $scope.poi.coords.latitude, $scope.poi.coords.longitude);
+//        $rootScope.pos.distance = distance;
+//        if (distance <= 0.050 && $scope.lastcheck !== $scope.poi) {
+//            notification.confirm(unescape(nearInfoAlert), function (btnNos) {
+//                if (btnNos [0] === 1) {
+//                    media.play($scope.poi.audio, function () {
+//                        window.alert("Ende!");
+//                        console.log("JA");
+//                    });
+//                }
+//            }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
+//            $scope.lastcheck = $scope.poi;
+//        }
+//    });
+
+
+
+  /*  $scope.$watch('pos', function (newValue) {
+    $scope.getDeviceSize = function() {
+        $scope.deviceSize = device.size();
+    }
+
+
+  /*  $scope.$watch('pos', function (newValue) {
+
+        if(!newValue) {
+            $scope.userposition = null;
+            return;
         }
-        var lastcheck = $scope.poi;
-    });
+
+        $scope.userposition = {
+            latitude: $scope.pos.latitude,
+            longitude: $scope.pos.longitude
+        };
+
+    });*/
+
+});
+
+appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
+    $scope.stationID = $routeParams.stationID;
+    $scope.imgID = $routeParams.imgID;
+    $scope.getWidth = {
+        "width" : device.width + 'px'
+    }
+});
+
+appControllers.controller('SplashCtrl', function($scope, device){
+
+    $scope.roemer = (device.width > 420)? './img/roemer_big.png' : './img/roemer_small.png';
+
 });
 
 
-appControllers.controller('MainCtrl', function ($rootScope, geolocation) {
+appControllers.controller('MainCtrl', function ($scope, geolocation, notification, TOUR, Map) {
+
+    $scope.mapOffset = {top: 0, left: 0};
+    $scope.pois = TOUR.pointsOfInterest;
+    $scope.poi = $scope.pois[0];
+    $scope.checked = [];
 
     geolocation.watchPosition(function (position) {
         /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-        $rootScope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+        /*alert(position.coords.accuracy);*/
+        $scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
     });
-});
 
-/* This is just a test controller - DELETE THIS! */
-appControllers.controller('AudioCtrl', function ($rootScope, $scope, media) {
-    $scope.stopMedia = function () {
-        media.stop($rootScope.media);
-    };
-    $scope.playMedia = function () {
-        media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3', function () {
-            console.log("Success");
+
+    $scope.$watch('pos', function (newValue) {
+        $scope.nearPois = [];
+        $scope.userPosition = (!newValue)?  Map.icons[0].coords : newValue;
+
+        angular.forEach(Map.icons, function(icon, index) {
+            var distance = Map.distance(icon.coords, $scope.userPosition);
+            icon.isActive = (distance <= 0.1);
+
         });
-    };
 
-// media.play('http://audio.ibeat.org/content/p1rj1s/p1rj1s_-_rockGuitar.mp3',function(){
-    //   console.log("playAudio():Audio Success");
-    //});
+        angular.forEach($scope.pois, function(poi, index){
+            var distance = Map.distance($scope.pos, poi.coords);
+            if(distance <= 0.1){
+                //alert("poiID " + poi.title);
+                if ($scope.checked.indexOf(poi) == -1){
+                    $scope.checked.push(poi);
+                    $scope.nearPois.push(poi.id + 1);
+                }
+            }
+        });
+
+        if($scope.nearPois.length > 0){
+            if($scope.nearPois.length == 1){
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station "+$scope.nearPois.toString();
+            } else {
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A"+$scope.nearPois. toString();
+            }
+
+            notification.alert(unescape(infotext), function(){
+                }, unescape("Informationen verf%FCgbar%0A"), "ok"
+            );
+        }
+
+//        if($scope.nearPois.length > 0){
+//            notification.confirm(unescape("nearInfoAlert"), function (btnNos) {
+//                if (btnNos [0] === 1) {
+//                    console.log("ja");
+//                }
+//            }, unescape("Sie befinden sich in unmittelbarer N%E4he zu " ), ["Ja", "Nein"]);
+//        }
+    });
+
+    /*console.log($scope);*/
 });
