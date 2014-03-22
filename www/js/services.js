@@ -255,7 +255,7 @@ services.service('Map', function (TOUR) {
 
     this.waypoints = _.map(TOUR.pointsOfInterest, function (poi) {
         return {
-            id: poi.title,
+            id: poi.id,
             topLeft: poi.clickarea.topLeft,
             bottomRight: poi.clickarea.bottomRight,
             isVisited: false,

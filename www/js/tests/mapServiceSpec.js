@@ -69,7 +69,7 @@ describe('Map', function() {
         expect(Map.icons[0].getImage()).toBe('./img/02-nikolaikirche2.png');
     }));
 
-    it('should have third be equal to weissfrauenkloster', inject(function(Map) {
+    it('should have twelfth icon be equal to alte bruecke', inject(function(Map) {
         var actual = Map.icons[12];
         expect(actual.src).toBe('./img/alte-bruecke1.png');
         expect(actual.srcActive).toBe('./img/alte-bruecke2.png');
@@ -80,7 +80,7 @@ describe('Map', function() {
 
     it('should have third waypoint with defined clickarea', inject(function(Map) {
         var actual = Map.waypoints[2];
-        expect(actual.id).toBe('Römer');
+        expect(actual.id).toBe(2);
         expect(actual.topLeft).toEqual({"x": 753, "y": 313});
         expect(actual.bottomRight).toEqual({x: 773, y: 333});
     }));
@@ -98,6 +98,16 @@ describe('Map', function() {
     it('should have third waypoint not hit at 25, 55', inject(function(Map) {
         var actual = Map.waypoints[2];
         expect(actual.isHit(25, 55)).toBeFalsy();
+    }));
+
+    it('should have twelfth waypoint be equal to Galgentor', inject(function(Map) {
+        var actual = Map.waypoints[11];
+        expect(actual.id).toBe(11);
+        expect(actual.topLeft).toEqual({"x": 148, "y": 240});
+        expect(actual.bottomRight).toEqual({"x": 168, "y": 260});
+        expect(actual.isVisited).toBeFalsy();
+        expect(actual.isActive).toBeFalsy();
+        expect(actual.coords).toEqual({"latitude": 50.109870, "longitude": 8.670244});
     }));
 
 });
