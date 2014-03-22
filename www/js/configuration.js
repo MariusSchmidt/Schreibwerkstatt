@@ -210,8 +210,8 @@ appConfigurations.constant('TOUR', {
                 "bottomRight": {"x": 849, "y": 312}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.110843,
+                "longitude": 8.684892
             }
         },
         {
@@ -236,8 +236,8 @@ appConfigurations.constant('TOUR', {
                 "bottomRight": {"x": 876, "y": 366}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.110405,
+                "longitude": 8.685357
             }
         },
         {
@@ -262,8 +262,8 @@ appConfigurations.constant('TOUR', {
                 "bottomRight": {"x": 1033, "y": 444}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.109340,
+                "longitude": 8.687811
             }
         },
         {
@@ -288,8 +288,8 @@ appConfigurations.constant('TOUR', {
                 "bottomRight": {"x": 1025, "y": 631}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.109340,
+                "longitude": 8.687811
             }
         },
         {
@@ -314,8 +314,8 @@ appConfigurations.constant('TOUR', {
                 "bottomRight": {"x": 1162, "y": 832}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.104778,
+                "longitude": 8.690161
             }
         },
         {
@@ -340,8 +340,8 @@ appConfigurations.constant('TOUR', {
                 "bottomRight": {"x": 168, "y": 260}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.109870,
+                "longitude": 8.670244
             }
         }
     ],
