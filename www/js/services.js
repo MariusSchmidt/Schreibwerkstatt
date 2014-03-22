@@ -258,6 +258,9 @@ services.service('Map', function (TOUR) {
             id: poi.title,
             topLeft: poi.clickarea.topLeft,
             bottomRight: poi.clickarea.bottomRight,
+            isVisited: false,
+            isActive: false,
+            coords: poi.coords,
             isHit: function (x, y) {
                 return this.topLeft.x <= x && x <= this.bottomRight.x && this.topLeft.y <= y && y <= this.bottomRight.y;
             }
