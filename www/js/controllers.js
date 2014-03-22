@@ -4,6 +4,7 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
 
     $scope.stationID = $routeParams.stationID;
     $scope.poi = $scope.pois[$scope.stationID];
+    var show = false;
 
 
     $scope.getMargin = function(){
@@ -21,23 +22,34 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
 
     $scope.stopAndRedirect = function(path){
         $location.path(path);
-        media.stop($scope.media);
+        media.stop();
         show = false;
     }
 
     $scope.mediaPlay = function() {
-        media.play($scope.poi.audio)
+        show = true;
+        if(!$rootScope.media){
+            media.play($scope.poi.audio)
+        } else {
+            media.resume()
+        }
     }
 
-    $scope.mediaStop = function() {
-        media.stop($scope.media)
+    $scope.mediaPause = function() {
+        media.pause()
         show = false;
     }
 
-    $scope.showButton = function(){
-        if ($rootScope.media) {
-            return true;
+    $scope.mediaRepeat = function() {
+        if($rootScope.media){
+            media.stop()
         }
+        media.play($scope.poi.audio)
+        show = true;
+    }
+
+    $scope.showButton = function(){
+        return show;
     }
 
     /*

@@ -10,10 +10,11 @@
 <main>
     <div class="ym-wrapper" style="height: auto;">
 
-        <div class="ym-wbox" style="height: 32px">
-            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
+        <div class="ym-wbox" style="height: 50px; padding-bottom: 10px;">
             <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
-            <img ng-click="mediaStop()" ng-show=showButton() src="img/stop.png" style="float: right">
+            <img ng-click="mediaPause()" ng-show=showButton() src="img/stop.png" style="float: right">
+            <img ng-click="mediaRepeat()" src="img/repeat.png" style="float: right">
+            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
         </div>
 
         <div class="ym-wbox" style="height: auto">

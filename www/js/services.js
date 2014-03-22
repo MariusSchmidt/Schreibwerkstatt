@@ -111,7 +111,7 @@ services.factory('media', function (deviceReadyService, $rootScope, platform) {
                         var that = this,
                             args = arguments;
 
-                        $rootScope.media = null;
+                        //$rootScope.media = null;
 
                         if (onSuccess) {
                             $rootScope.$apply(function () {
@@ -142,10 +142,20 @@ services.factory('media', function (deviceReadyService, $rootScope, platform) {
             }
 
         },
-        stop: function (media) {
-            if (media) {
-                media.stop();
+        stop: function () {
+            if ($rootScope.media) {
+                $rootScope.media.stop();
                 $rootScope.media = null;
+            }
+        },
+        pause: function(){
+            if($rootScope.media){
+                $rootScope.media.pause();
+            }
+        },
+        resume: function(){
+            if($rootScope.media){
+                $rootScope.media.play();
             }
         }
     };
