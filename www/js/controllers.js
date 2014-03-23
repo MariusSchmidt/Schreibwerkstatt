@@ -66,14 +66,14 @@ appControllers.controller('SplashCtrl', function($scope, device){
     $scope.roemer = (device.width > 420)? './img/roemer_big.png' : './img/roemer_small.png';
 });
 
-appControllers.controller('MainCtrl', function ($scope, geolocation, notification, TOUR, Map) {
+appControllers.controller('MainCtrl', function ($scope, $timeout, geolocation, notification, TOUR, Map) {
 
     $scope.mapOffset = {top: 0, left: 0};
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[0];
     $scope.userPosition = null;
 
-    geolocation.watchPosition(function (position) {
+    var positionCallback = function (position) {
 
         if(!position.coords) {
             $scope.userPosition = null;
@@ -108,5 +108,19 @@ appControllers.controller('MainCtrl', function ($scope, geolocation, notificatio
             }
             notification.alert(unescape(infotext), function(){}, unescape("Informationen verf%FCgbar%0A"), "ok");
         }
-    });
+    }
+
+    var errorCallback = function(error) {
+        $scope.userPosition = null;
+        angular.forEach(Map.icons, function(icon, index) {
+            icon.isActive = false;
+        });
+        angular.forEach(Map.waypoints, function(waypoint, index) {
+            waypoint.isActive = false;
+        });
+        alert('code: '    + error.code    + '\n' +
+            'message: ' + error.message + '\n');
+    };
+
+    geolocation.watchPosition(positionCallback);
 });
