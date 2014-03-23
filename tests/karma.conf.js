@@ -5,7 +5,7 @@ module.exports = function (config) {
     config.set({
 
         // base path, that will be used to resolve files and exclude
-        basePath: '../../',
+        basePath: '../',
 
 
         // frameworks to use
@@ -14,20 +14,21 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'js/libs/angular/angular.js',
-            'js/libs/angular/angular-mocks.js',
-            'js/libs/angular/angular-*.js',
-            'js/**/*.js',
-            'js/*.js',
-            'js/tests/*.js'
+            'www/js/libs/angular/angular.js',
+            'www/js/libs/angular/angular-mocks.js',
+            'www/js/libs/angular/angular-*.js',
+            'www/js/**/*.js',
+            'www/js/*.js',
+            'tests/*.js',
+            '/*.js'
         ],
 
 
         // list of files to exclude
         exclude: [
-            'js/libs/angular/angular-loader.js',
-            'js/libs/angular/*.min.js',
-            'js/libs/angular/angular-scenario.js'
+            'www/js/libs/angular/angular-loader.js',
+            'www/js/libs/angular/*.min.js',
+            'www/js/libs/angular/angular-scenario.js'
         ],
 
         plugins: [
