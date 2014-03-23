@@ -52,49 +52,6 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $r
         return show;
     }
 
-    /*
-     * Watch position for changes.
-     * If distance to poi <= 50 alert with media-information
-     */
-//    $scope.$watch('pos', function (newValue, oldValue) {
-//        distance = calculateDistance($rootScope.pos.latitude, $rootScope.pos.longitude,
-//            $scope.poi.coords.latitude, $scope.poi.coords.longitude);
-//        $rootScope.pos.distance = distance;
-//        if (distance <= 0.050 && $scope.lastcheck !== $scope.poi) {
-//            notification.confirm(unescape(nearInfoAlert), function (btnNos) {
-//                if (btnNos [0] === 1) {
-//                    media.play($scope.poi.audio, function () {
-//                        window.alert("Ende!");
-//                        console.log("JA");
-//                    });
-//                }
-//            }, unescape("Informationen verf%FCgbar"), ["Ja", "Nein"]);
-//            $scope.lastcheck = $scope.poi;
-//        }
-//    });
-
-
-
-  /*  $scope.$watch('pos', function (newValue) {
-    $scope.getDeviceSize = function() {
-        $scope.deviceSize = device.size();
-    }
-
-
-  /*  $scope.$watch('pos', function (newValue) {
-
-        if(!newValue) {
-            $scope.userposition = null;
-            return;
-        }
-
-        $scope.userposition = {
-            latitude: $scope.pos.latitude,
-            longitude: $scope.pos.longitude
-        };
-
-    });*/
-
 });
 
 appControllers.controller('ImgCtrl', function($scope, $routeParams, device){
