@@ -37,5 +37,4 @@ describe('MainCtrl',function(){
         expect($scope.poi.title).toBe("Einführung");
     })
 
-
 })
