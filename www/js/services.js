@@ -196,7 +196,7 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
                             });
                         }
                     },
-                    {enableHighAccuracy: true, timeout: 2000});
+                    {enableHighAccuracy: true, timeout: 5000});
             });
 
         },
@@ -255,9 +255,12 @@ services.service('Map', function (TOUR) {
 
     this.waypoints = _.map(TOUR.pointsOfInterest, function (poi) {
         return {
-            id: poi.title,
+            id: poi.id,
             topLeft: poi.clickarea.topLeft,
             bottomRight: poi.clickarea.bottomRight,
+            isVisited: false,
+            isActive: false,
+            coords: poi.coords,
             isHit: function (x, y) {
                 return this.topLeft.x <= x && x <= this.bottomRight.x && this.topLeft.y <= y && y <= this.bottomRight.y;
             }

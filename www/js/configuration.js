@@ -31,7 +31,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 0,
             "title": "Einführung",
-            "heading": "Passionsspiele im mittelalterlichen Frankfurt",
+            "heading": "1. Einführung: Passionsspiele im mittelalterlichen Frankfurt",
             "teaser": "Frankfurt war im späten Mittelalter nicht nur bedeutende Messestadt, sondern auch Schauplatz für die Aufführung von Passionsspielen. Fast die ganze Stadt war an diesen religiösen Massenveranstaltungen beteiligt.",
             "poiimage": "",
             "images": [
@@ -61,7 +61,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 1,
             "title": "Nikolaikirche",
-            "heading": "Die Ratsherren und das letzte Abendmahl",
+            "heading": "2. Nikolaikirche: Die Ratsherren und das letzte Abendmahl",
             "teaser": "Der Römerberg ist heute ein Touristenmagnet. Bereits im Mittelalter fanden hier wichtige öffentliche Ereignisse statt. Pfingsten 1492 wurde mitten im Herzen der Messestadt ein Passionsspiel aufgeführt. Selbst die Ratsherren nahmen an diesem Spektakel teil und sicherten sich die besten Plätze.",
             "poiimage": "poi-02-nikolaikirche-01.png",
             "images": [
@@ -75,12 +75,6 @@ appConfigurations.constant('TOUR', {
                 }
             ],
             "audio": "media/Station02.mp3",
-            "icon": {
-                "src": "./img/02-nikolaikirche1.png",
-                "srcActive": "./img/02-nikolaikirche2.png",
-                "top": 255,
-                "left": 770
-            },
             "clickarea": {
                 "topLeft": {"x":745, "y": 351},
                 "bottomRight": {"x": 765, "y": 371}
@@ -93,7 +87,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 2,
             "title": "Römer",
-            "heading": "Verrat des Juden",
+            "heading": "3. Römer: Verrat des Juden",
             "teaser": "Der Judaskuss gilt als größter Vertrauensbruch der christlichen Geschichte und ist ein wichtiges Motiv im Frankfurter Passionsspiel. Was geschieht im Mittelalter, wenn Judas’ Verrat öffentlich aufgeführt wird? Die emotionale Anteilnahme der Zuschauer ist so groß, dass der Frankfurter Rat Ausschreitungen befürchtet.",
             "poiimage": "poi-03-roemer-01.png",
             "images": [
@@ -107,12 +101,6 @@ appConfigurations.constant('TOUR', {
                 }
             ],
             "audio": "media/Station03.mp3",
-            "icon": {
-                "src": "./img/03-roemer1.png",
-                "srcActive": "./img/03-roemer2.png",
-                "top": 218,
-                "left": 692
-            },
             "clickarea": {
                 "topLeft": {"x": 753, "y": 313},
                 "bottomRight": {"x": 773, "y": 333}
@@ -125,7 +113,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 3,
             "title": "Karmeliterkloster",
-            "heading": "Die Geißelung Jesu",
+            "heading": "4. Karmeliterkloster: Die Geißelung Jesu",
             "teaser": "Das Karmeliterkloster ist die einzige mittelalterliche Klosteranlage, die heute noch in Frankfurt erhalten ist. Im Kreuzgang des Klosters wird die Leidensgeschichte Jesu anschaulich dargestellt. Mehrere Jahre arbeitete der Maler Jörg Ratgeb an dem beeindruckenden Wandfresko.",
             "poiimage": "poi-04-karmeliterkloster-01.png",
             "images": [
@@ -134,17 +122,11 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Karmeliterkloster (1628)"
                 },
                 {
-                    "name": "05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
+                    "name": "04_karmeliterkloster_geisselung_ratgeb.jpg",
                     "caption": "Jörg Ratgeb: Geißelung Jesu (1515-1521)"
                 }
             ],
             "audio": "media/Station04.mp3",
-            "icon": {
-                "src": "./img/04-karmeliterkloster1.png",
-                "srcActive": "./img/04-karmeliterkloster2.png",
-                "top": 252,
-                "left": 487
-            },
             "clickarea": {
                 "topLeft": {"x": 476, "y": 388},
                 "bottomRight": {"x": 496, "y": 408}
@@ -157,7 +139,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 4,
             "title": "Weißfrauenkloster",
-            "heading": "Der Tanz Maria Magdalenas und der Nonnen",
+            "heading": "5. Weißfrauenkloster: Der Tanz Maria Magdalenas und der Nonnen",
             "teaser": "Das Weißfrauenkloster war der Frankfurter Stadtpatronin Maria Magdalena geweiht und diente früheren Prostituierten als neues Heim. Im Passionsspiel vergnügt sich Maria Magdalena mit ihrem Verehrer beim Tanz, und auch die Nonnen erhielten im 15. Jahrhundert männlichen Besuch.",
             "poiimage": "poi-05-weissfrauenkloster-01.png",
             "images": [
@@ -166,17 +148,11 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Weißfrauenkloster  (1628)"
                 },
                 {
-                    "name": "04_karmeliterkloster_geisselung_ratgeb.jpg",
+                    "name": "05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
             "audio": "media/Station05.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 303,
-                "left": 287
-            },
             "clickarea": {
                 "topLeft": {"x": 393, "y": 423},
                 "bottomRight": {"x": 413, "y": 443}
@@ -189,7 +165,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 5,
             "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
+            "heading": "6. Judengasse: Juden im Ghetto und im Passionsspiel",
             "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
             "poiimage": "",
             "images": [
@@ -214,194 +190,158 @@ appConfigurations.constant('TOUR', {
         },
         {
             "id": 6,
-            "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
-            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "title": "Dom",
+            "heading": "7. Dom: Der Lanzenstich des Longinus",
+            "teaser": "Selbst beim Tod Jesu geschahen der Überlieferung nach noch Wunder: Der römische Hauptmann Longinus wurde von seiner Blindheit geheilt und bekannte sich zu Christus. Mitsamt seiner Lanze gehört Longinus zur überlebensgroßen Kreuzigungsgruppe im Dom, die wie ein zu Stein gewordenes Passionsspiel wirkt.",
             "poiimage": "poi-07-dom-01.png",
             "images": [
                 {
-                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                    "name": "07_start_dom_merian.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Frankfurter Dom (1617)"
                 },
                 {
-                    "name": "06_fettmilchaufstand_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                    "name": "07_backoffen_kruezigungsgruppe_longinus.jpg",
+                    "caption": "Hans Backoffen: Longinus (1509)"
                 }
             ],
-            "audio": "media/Station06.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 186,
-                "left": 838
-            },
+            "audio": "media/Station07.mp3",
             "clickarea": {
                 "topLeft": {"x": 829, "y": 292},
                 "bottomRight": {"x": 849, "y": 312}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.110843,
+                "longitude": 8.684892
             }
         },
         {
             "id": 7,
-            "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
-            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "title": "Synagoge",
+            "heading": "8. Alte Synagoge: Josef mit dem Judenhut",
+            "teaser": "Die alte jüdische Synagoge und der Dom standen sich im Mittelalter unmittelbar gegenüber. Auch an diesem Ort wurde das Passionsspiel einst aufgeführt. Der rechtgläubige Joseph über dem Südportal des Doms sollte den Frankfurter Juden im Alltag zur Mahnung dienen.",
             "poiimage": "poi-08-alte-synagoge-01.png",
             "images": [
                 {
-                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                    "name": "08_start_alte_synagoge_merian.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Frankfurter Dom (1628)"
                 },
                 {
-                    "name": "06_fettmilchaufstand_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                    "name": "08_joseph_dom_suedportal.jpg",
+                    "caption": "Meister Antze: Joseph (1350)"
                 }
             ],
-            "audio": "media/Station06.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 349,
-                "left": 874
-            },
+            "audio": "media/Station08.mp3",
             "clickarea": {
                 "topLeft": {"x": 856, "y": 346},
                 "bottomRight": {"x": 876, "y": 366}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.110405,
+                "longitude": 8.685357
             }
         },
         {
             "id": 8,
-            "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
-            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "title": "Briggegiggel",
+            "heading": "9. Briggegiggel: Die Verleugnung des Petrus",
+            "teaser": "Der Briggegiggel ist das Wahrzeichen der Alten Brücke. Der Hahn auf dem Kreuz erinnert daran, dass Petrus Jesus dreimal verleugnete und sein Handeln später bitter bereute. An seinem ursprünglichen Standort, in der Mitte der Brücke, wurden im späten Mittelalter Todesurteile vollstreckt.",
             "poiimage": "poi-09-briggegiggel-01.png",
             "images": [
                 {
-                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                    "name": "09_start_alte_bruecke.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Alte Brücke (1628)"
                 },
                 {
-                    "name": "06_fettmilchaufstand_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                    "name": "09_alte_bruecke_bedebuch.jpg",
+                    "caption": "Bedebuch: Briggegiggel (1405)"
                 }
             ],
-            "audio": "media/Station06.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 327,
-                "left": 1007
-            },
+            "audio": "media/Station09.mp3",
             "clickarea": {
                 "topLeft": {"x": 1013, "y": 424},
                 "bottomRight": {"x": 1033, "y": 444}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.109340,
+                "longitude": 8.687811
             }
         },
         {
             "id": 9,
-            "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
-            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "title": "Judenschandbild",
+            "heading": "10. Alte Brücke: Judenschandbild",
+            "teaser": "Der Antijudaismus im späten Mittelalter zeigte sich nicht nur im Passionsspiel, sondern auch im Frankfurter Stadtbild. An einem der beiden Türme der Alten Brücke befand sich lange Zeit ein Schandbild, das die Juden verunglimpfte und ihnen schreckliche Verbrechen unterstellte.",
             "poiimage": "poi-10-brueckenturm-01.png",
             "images": [
                 {
-                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                    "name": "10_start_alte_bruecke_brueckenturm.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Brückenturm der Alten Brücke (1628)"
                 },
                 {
-                    "name": "06_fettmilchaufstand_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                    "name": "10_alte_bruecke_judenschandbild.jpg",
+                    "caption": "Johann Jakob Schudt: Jüdische Merckwürdigkeiten (1714-1717)"
                 }
             ],
-            "audio": "media/Station06.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 512,
-                "left": 1026
-            },
+            "audio": "media/Station10.mp3",
             "clickarea": {
                 "topLeft": {"x": 1005, "y": 611},
                 "bottomRight": {"x": 1025, "y": 631}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.109340,
+                "longitude": 8.687811
             }
         },
         {
             "id": 10,
-            "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
-            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "title": "Affentor",
+            "heading": "11. Affentor: Das Glaubensbekenntnis eines Muslim",
+            "teaser": "Das Affentor markierte die alte Stadtgrenze. Auch im Frankfurter Passionsspiel wurden Grenzen gezogen und es wurde über die Zugehörigkeit zur Stadtgemeinschaft diskutiert. In der Zeit der Türkenkriege trat der muslimische Bote Machmet auf und wendete sich gegen die Juden.",
             "poiimage": "poi-11-affentor-01.png",
             "images": [
                 {
-                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                    "name": "11_start_affentor_merian.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Das Affentor (1628)"
                 },
                 {
-                    "name": "06_fettmilchaufstand_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                    "name": "11_kreuzigung_mittelrheinischer_meister_reiter_mit_turban.jpg",
+                    "caption": "Mittelrheinischer Meister: Kreuzigungsaltar (um 1420)"
                 }
             ],
-            "audio": "media/Station06.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 678,
-                "left": 1130
-            },
+            "audio": "media/Station11.mp3",
             "clickarea": {
                 "topLeft": {"x": 1142, "y": 812},
                 "bottomRight": {"x": 1162, "y": 832}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.104778,
+                "longitude": 8.690161
             }
         },
         {
             "id": 11,
-            "title": "Judengasse",
-            "heading": "Juden im Ghetto und im Passionsspiel",
-            "teaser": "Juden durften nicht an den Passionsspielen teilnehmen, sondern mussten während der Aufführung in ihren Häusern bleiben. Auf der Bühne allerdings schienen die Frankfurter Juden weiterhin präsent zu  sein; die Gegenspieler Jesu wurden nach den jüdischen Bewohnern Frankfurts benannt.",
+            "title": "Galgentor",
+            "heading": "12. Galgentor: Der gewaltsame Tod Jesu",
+            "teaser": "Auf dem Galgenfeld, wo im Mittelalter öffentliche Hinrichtungen stattfanden, wurden die Kreuze des Passionsspiels aufgestellt. Gewalt gehörte zum Alltag der Menschen, doch bestand nach Ansicht der Zuschauer ein Unterschied zwischen der Kreuzigung Christi und der Hinrichtung von Verbrechern: Jesus war unschuldig.",
             "poiimage": "poi-12-galgentor-01.png",
             "images": [
                 {
-                    "name": "06_start_frankfurt_judengasse_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Judengasse (1628)"
+                    "name": "12_start_galgentor_merian.jpg",
+                    "caption": "Matthäus Merian d.Ä.: Das Galgentor (1628)"
                 },
                 {
-                    "name": "06_fettmilchaufstand_merian_1628.jpg",
-                    "caption": "Matthäus Merian d.Ä.: Fettmilch-Aufstand (1628)"
+                    "name": "12_galgentor_schrotblatt_ub.jpg",
+                    "caption": "Schrotblatt mit der Annagelung ans Kreuz (um 1470/80)"
                 }
             ],
-            "audio": "media/Station06.mp3",
-            "icon": {
-                "src": "./img/05-weissfrauenkloster1.png",
-                "srcActive": "./img/05-weissfrauenkloster2.png",
-                "top": 132,
-                "left": 134
-            },
+            "audio": "media/Station12.mp3",
             "clickarea": {
                 "topLeft": {"x": 148, "y": 240},
                 "bottomRight": {"x": 168, "y": 260}
             },
             "coords": {
-                "latitude": 50.113542,
-                "longitude": 8.686668
+                "latitude": 50.109870,
+                "longitude": 8.670244
             }
         }
     ],
@@ -416,8 +356,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.682265
             }
         },
-
-
         {
             "src": "./img/03-roemer1.png",
             "srcActive": "./img/03-roemer2.png",
@@ -428,7 +366,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.682265
             }
         },
-
         {
             "src": "./img/04-karmeliterkloster1.png",
             "srcActive": "./img/04-karmeliterkloster2.png",
@@ -439,8 +376,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.677803
             }
         },
-
-
         {
             "src": "./img/05-weissfrauenkloster1.png",
             "srcActive": "./img/05-weissfrauenkloster2.png",
@@ -451,7 +386,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.6770
             }
         },
-
         {
             "src": "./img/07-dom1.png",
             "srcActive": "./img/07-dom2.png",
@@ -462,7 +396,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.684892
             }
         },
-
         {
             "src": "./img/08-alte-synagoge1.png",
             "srcActive": "./img/08-alte-synagoge2.png",
@@ -473,7 +406,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.685357
             }
         },
-
         {
             "src": "./img/09-briggegiggel1.png",
             "srcActive": "./img/09-briggegiggel2.png",
@@ -484,7 +416,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.687811
             }
         },
-
         {
             "src": "./img/10-brueckenturm1.png",
             "srcActive": "./img/10-brueckenturm2.png",
@@ -506,7 +437,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.690161
             }
         },
-
         {
             "src": "./img/12-galgentor1.png",
             "srcActive": "./img/12-galgentor2.png",
@@ -517,7 +447,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.670244
             }
         },
-
         {
             "src": "./img/m-jued-museum1.png",
             "srcActive": "./img/m-jued-museum2.png",
@@ -528,7 +457,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.674520
             }
         },
-
         {
             "src": "./img/m-staedelmusem1.png",
             "srcActive": "./img/m-staedelmusem2.png",
@@ -539,7 +467,6 @@ appConfigurations.constant('TOUR', {
                 "longitude": 8.673608
             }
         },
-
         {
             "src": "./img/alte-bruecke1.png",
             "srcActive": "./img/alte-bruecke2.png",
