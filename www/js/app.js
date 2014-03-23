@@ -48,7 +48,9 @@ schreibwerkApp.config(['$routeProvider',
 
 
 schreibwerkApp.run(function ($document, $rootScope) {
+    $rootScope.deviceReady = false;
     $document.on('deviceready', function () {
+        $rootScope.deviceReady = true;
         //Listen to these events in every scope with
         //$scope.$on('eventname' , functionToHandle)
         document.addEventListener('resume', function () {

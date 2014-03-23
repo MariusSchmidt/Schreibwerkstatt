@@ -24,10 +24,12 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
     return function () {
         var deferred = $q.defer();
 
-        if ($rootScope.deviceready === true) { //is deviceready already fired? -> promise complete
+        if ($rootScope.deviceReady) { //is deviceready already fired? -> promise complete
             deferred.resolve();
+        } else {
+            deferred.reject();
         }
-        else if ($rootScope.deviceready === undefined) { // else listen for it until its fired an complete promise.
+        /*else if ($rootScope.deviceready === undefined) { // else listen for it until its fired an complete promise.
             $rootScope.deviceready = false;
             var readyHeader = function () {
                 $rootScope.$apply(function () {
@@ -38,7 +40,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
                 });
             };
             $document.on('deviceready', readyHeader);
-        }
+        }*/
         return deferred.promise;
     };
 });
@@ -204,6 +206,32 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
             alert(watchID);
             watchID.clearWatch();
             $rootScope.watchID = null;
+        },
+        getCurrentPosition: function (onSuccess, onError) {
+            deviceReadyService().then(function () {
+                /* Call Phonegap API */
+                navigator.geolocation.getCurrentPosition(function () {
+                        var that = this,
+                            args = arguments;
+
+                        if (onSuccess) {
+                            $rootScope.$apply(function () {
+                                onSuccess.apply(that, args);
+                            });
+                        }
+                    }, function () {
+                        var that = this,
+                            args = arguments;
+
+                        if (onError) {
+                            $rootScope.$apply(function () {
+                                onError.apply(that, args);
+                            });
+                        }
+                    },
+                    {enableHighAccuracy: true, timeout: 5000});
+            });
+
         }
     };
 });
