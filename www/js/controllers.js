@@ -1,6 +1,6 @@
 var appControllers = angular.module('appControllers', ['appConfigurations', 'appDirectives']);
 
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, $location, $routeParams, notification, media, device) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $window, $location, $routeParams, notification, media, device) {
 
     $scope.stationID = $routeParams.stationID;
     $scope.poi = $scope.pois[$scope.stationID];
