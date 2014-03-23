@@ -11,9 +11,10 @@ describe('PoiCtrl', function(){
 
     beforeEach(angular.mock.module('appControllers'));
 
-    beforeEach(inject(function($rootScope, $controller){
+    beforeEach(inject(function($rootScope, $controller, $injector){
         $scope = $rootScope.$new();
-        rootScope = $rootScope;
+
+        rootScope = {};
 
         $location = {
             lastParam: null,
@@ -29,10 +30,15 @@ describe('PoiCtrl', function(){
             },
             play: function(){
                 this.state = "play";
+            },
+            resume: function(){
+                this.state = "resumed";
+            },
+            pause: function(){
+                this.state = "paused";
             }
         };
 
-        $rootScope.media = {};
         $scope.pois = [{}];
         routeParams = {};
         routeParams.stationID = 1;
@@ -53,6 +59,7 @@ describe('PoiCtrl', function(){
         });
     }));
 
+    var show;
 
     it('should have some scope variables', function(){
         expect($scope.stationID).toBe(1);
@@ -84,12 +91,15 @@ describe('PoiCtrl', function(){
 
     it('should call media.stop service', function(){
         $scope.poi = {}
-        $scope.mediaStop();
-        expect(media.state).toBe("stop");
+        $scope.mediaPause();
+        expect(media.state).toBe("paused");
         expect(show).toBeFalsy();
     })
 
     it('should return true', function(){
+        $scope.poi = {}
+        expect($scope.showButton()).toBeFalsy();
+        $scope.mediaPlay();
         expect($scope.showButton()).toBeTruthy();
     })
 

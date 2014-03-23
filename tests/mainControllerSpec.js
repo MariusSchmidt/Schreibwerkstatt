@@ -37,11 +37,5 @@ describe('MainCtrl',function(){
         expect($scope.poi.title).toBe("Einführung");
     })
 
-    it('should watch position and save it in $scope.pos', function(){
-        expect($scope.pos.latitude).toBe(1.0);
-    })
-
-
-
 
 })
