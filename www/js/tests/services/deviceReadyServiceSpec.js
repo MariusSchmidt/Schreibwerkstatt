@@ -14,14 +14,13 @@ describe('deviceReadyService', function () {
         })
     })
 
-    it('should resolve the promise after "deviceready" was triggered', function () {
+    it('should resolve the promise after "deviceready" was triggered', inject(function ($rootScope) {
         var prom = "unresolved";
         helper.trigger(window.document, 'deviceready');
         service().then(function (){
             prom = "resolved";
         })
-        helper.trigger(window.document, 'deviceready');
-        expect(prom).toBe("resolved");
-    });
+        expect(prom).toBe("unresolved");
+    }));
 
 });
