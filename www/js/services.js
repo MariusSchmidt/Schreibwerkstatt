@@ -76,7 +76,7 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
                     if (callback) {
                         /* Run callback in $rootScope - because this is not 
                          * inside Angular context  */
-                        $rootScope.apply(callback());
+                        $rootScope.apply(callback);
                     }
                 }, title, buttonName);
             });

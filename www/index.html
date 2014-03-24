@@ -1,65 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app="schreibwerkapp">
 <head>
-    <title>Jasmine Spec Runner</title>
-    <link rel="stylesheet" type="text/css" href="js/tests/lib/jasmine-1.2.0/jasmine.css">
-    <script type="text/javascript" src="js/tests/lib/jasmine-1.2.0/jasmine.js"></script>
-    <script type="text/javascript" src="js/tests/lib/jasmine-1.2.0/jasmine-html.js"></script>
-    <script type="text/javascript" src="js/tests/lib/jasmine-1.2.0/jasmine-jquery.js"></script>
-
     <script type="text/javascript" src="phonegap.js"></script>
+    <script type="text/javascript" src="js/underscore.js"></script>
     <script type="text/javascript" src="js/angular.js"></script>
-    <script type="text/javascript" src="js/libs/angular/angular.min.js"></script>
-    <script type="text/javascript" src="js/libs/angular/angular-loader.js"></script>
-    <script type="text/javascript" src="js/libs/angular/angular-mocks.js"></script>
-    <script type="text/javascript" src="js/angular-resource.js"></script>
     <script type="text/javascript" src="js/angular-route.js"></script>
-    <script type="text/javascript" src="js/angular-touch.js"></script>
     <script type="text/javascript" src="js/angular-resource.js"></script>
+    <script type="text/javascript" src="js/angular-touch.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/configuration.js"></script>
-    <script type="text/javascript" src="js/controllers.js"></script>
     <script type="text/javascript" src="js/directives.js"></script>
     <script type="text/javascript" src="js/services.js"></script>
-    <script type="text/javascript" src="js/underscore.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
 
-    <script type="text/javascript" src="js/tests/helper.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8;" lang="de" />
+    <!-- Mobile viewport optimisation -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script type="text/javascript" src="js/tests/controller/ImgCtrlSpec.js"></script>
-    <script type="text/javascript" src="js/tests/controller/mainControllerSpec.js"></script>
-    <script type="text/javascript" src="js/tests/controller/mapControllerSpec.js"></script>
-    <script type="text/javascript" src="js/tests/controller/poiControllerSpec.js"></script>
-
-    <script type="text/javascript" src="js/tests/services/deviceReadyServiceSpec.js"></script>
-    <script type="text/javascript" src="js/tests/services/deviceServiceSpec.js"></script>
-    <script type="text/javascript" src="js/tests/services/mapServiceSpec.js"></script>
-    <script type="text/javascript" src="js/tests/services/platformServiceSpec.js"></script>
-
-    <script type="text/javascript">
-        (function() {
-            console.log("tests")
-            var jasmineEnv = jasmine.getEnv();
-            jasmineEnv.updateInterval = 1000;
-            var htmlReporter = new jasmine.HtmlReporter();
-            jasmineEnv.addReporter(htmlReporter);
-            jasmineEnv.specFilter = function(spec) {
-                return htmlReporter.specFilter(spec);
-            };
-
-            var currentWindowOnload = window.onload;
-            window.onload = function() {
-                if (currentWindowOnload) {
-                    currentWindowOnload();
-                }
-                execJasmine();
-            };
-            function execJasmine() {
-                jasmineEnv.execute();
-            }
-        })();
-    </script>
+    <!-- (en) Add your meta data here -->
+    <link href="css/flexible-grids.css" rel="stylesheet" type="text/css"/>
+    <!--[if lte IE 7]>
+    <link href="yaml/core/iehacks.css" rel="stylesheet" type="title/css"/>
+    <![endif]-->
 </head>
-<body>
-<div id="stage" style="display:none;"></div>
+<body ng-view ng-controller="MainCtrl" >
 </body>
 </html>

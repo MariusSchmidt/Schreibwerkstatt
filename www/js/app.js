@@ -53,6 +53,7 @@ schreibwerkApp.run(function ($document, $rootScope) {
         $rootScope.deviceReady = true;
         //Listen to these events in every scope with
         //$scope.$on('eventname' , functionToHandle)
+        $rootScope.$broadcast('deviceready', true);
         document.addEventListener('resume', function () {
             $rootScope.$broadcast('resume', true);
         }, false);

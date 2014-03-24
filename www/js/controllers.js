@@ -71,7 +71,7 @@ appControllers.controller('SplashCtrl', function ($scope, device) {
     $scope.roemer = (device.width > 420) ? './img/roemer_big.png' : './img/roemer_small.png';
 });
 
-appControllers.controller('MainCtrl', function ($scope, $timeout, geolocation, notification, TOUR, Map) {
+appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, notification, TOUR, Map) {
 
     $scope.gpsNeededMsgShown = false;
     $scope.gpsErrorCount = 0;
@@ -82,61 +82,67 @@ appControllers.controller('MainCtrl', function ($scope, $timeout, geolocation, n
     $scope.userPosition = null;
 
     var positionCallback = function(position) {
-        $scope.gpsErrorCount = 0;
-        if (!position.coords) {
-            $scope.userPosition = null;
-            return;
-        }
-        $scope.userPosition = position.coords;
+        $scope.$apply(function() {
+            $scope.gpsErrorCount = 0;
+            if (!position.coords) {
+                $scope.userPosition = null;
+                return;
+            }
+            $scope.userPosition = position.coords;
 
 
-        angular.forEach(Map.icons, function (icon, index) {
-            var distance = Map.distance(icon.coords, $scope.userPosition);
-            icon.isActive = (distance <= 0.1);
-        });
+            angular.forEach(Map.icons, function (icon, index) {
+                var distance = Map.distance(icon.coords, $scope.userPosition);
+                icon.isActive = (distance <= 0.1);
+            });
 
-        $scope.arrivedNewWaypoint = false;
-        $scope.activeWaypoints = [];
-        angular.forEach(Map.waypoints, function (waypoint, index) {
-            var distance = Map.distance(waypoint.coords, $scope.userPosition);
-            if (distance <= 0.1) {
-                $scope.arrivedNewWaypoint = $scope.arrivedNewWaypoint || (waypoint.isActive === false);
-                $scope.activeWaypoints.push(waypoint.id + 1);
-                waypoint.isActive = true;
-            } else {
-                waypoint.isActive = false;
+            $scope.arrivedNewWaypoint = false;
+            $scope.activeWaypoints = [];
+            angular.forEach(Map.waypoints, function (waypoint, index) {
+                var distance = Map.distance(waypoint.coords, $scope.userPosition);
+                if (distance <= 0.1) {
+                    $scope.arrivedNewWaypoint = $scope.arrivedNewWaypoint || (waypoint.isActive === false);
+                    $scope.activeWaypoints.push(waypoint.id + 1);
+                    waypoint.isActive = true;
+                } else {
+                    waypoint.isActive = false;
+                }
+            });
+
+            if ($scope.arrivedNewWaypoint) {
+                if ($scope.activeWaypoints.length == 1) {
+                    var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station " + $scope.activeWaypoints.toString();
+                } else {
+                    var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A" + $scope.activeWaypoints.toString();
+                }
+                notification.alert(unescape(infotext), function () {
+                }, unescape("Informationen verf%FCgbar%0A"), "ok");
             }
         });
-
-        if ($scope.arrivedNewWaypoint) {
-            if ($scope.activeWaypoints.length == 1) {
-                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station " + $scope.activeWaypoints.toString();
-            } else {
-                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A" + $scope.activeWaypoints.toString();
-            }
-            notification.alert(unescape(infotext), function () {
-            }, unescape("Informationen verf%FCgbar%0A"), "ok");
-        }
     }
 
     var errorCallback = function(error) {
-        $scope.gpsErrorCount++;
-        $scope.userPosition = null;
-        angular.forEach(Map.icons, function (icon, index) {
-            icon.isActive = false;
+        $scope.$apply(function() {
+            $scope.gpsErrorCount++;
+            $scope.userPosition = null;
+            angular.forEach(Map.icons, function (icon, index) {
+                icon.isActive = false;
+            });
+            angular.forEach(Map.waypoints, function (waypoint, index) {
+                waypoint.isActive = false;
+            });
+            if (!$scope.gpsNeededMsgShown && $scope.gpsErrorCount >= 3) {
+                var msg = 'Die Schreibwerkapp erfordert GPS und mobile Daten. Bitte stellen Sie Ihr Gerät entsprechend ein, um den vollen Funktionsumfang zu nutzen. Diese Meldung wird nicht erneut angezeigt.';
+                notification.alert(msg, function () {}, 'Keine Geokoordinaten verfügbar');
+                $scope.gpsNeededMsgShown = true;
+            }
         });
-        angular.forEach(Map.waypoints, function (waypoint, index) {
-            waypoint.isActive = false;
-        });
-        if (!$scope.gpsNeededMsgShown && $scope.gpsErrorCount >= 10) {
-            var msg = 'Die Schreibwerkapp erfordert GPS und mobile Daten. Bitte stellen Sie Ihr Gerät entsprechend ein, um den vollen Funktionsumfang zu nutzen. Diese Meldung wird nicht erneut angezeigt.';
-            notification.alert(msg, function () {}, 'Keine Geokoordinaten verfügbar');
-            $scope.gpsNeededMsgShown = true;
-        }
     }
 
-    $timeout(function () {
-        geolocation.watchPosition(positionCallback, errorCallback)
-    }, 3000)
+    $interval(function() {
+        if ($scope.deviceReady) {
+            navigator.geolocation.getCurrentPosition(positionCallback, errorCallback, {enableHighAccuracy: true, timeout: 30000, maximumAge: 90000});
+        }
+    }, 10000);
 
 });
