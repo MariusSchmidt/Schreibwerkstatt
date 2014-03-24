@@ -52,6 +52,11 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $window, $loc
         return show;
     }
 
+    $scope.$on('pause', function(){
+        media.stop();
+        show = false;
+    })
+
 });
 
 appControllers.controller('ImgCtrl', function ($scope, $routeParams, device) {
