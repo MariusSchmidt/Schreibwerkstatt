@@ -15,7 +15,8 @@ describe('deviceReadyService', function () {
     })
 
     it('should resolve the promise after "deviceready" was triggered', function () {
-        var prom = 0;
+        var prom = "unresolved";
+        helper.trigger(window.document, 'deviceready');
         service().then(function (){
             prom = "resolved";
         })
