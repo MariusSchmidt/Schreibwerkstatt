@@ -71,15 +71,18 @@ appControllers.controller('SplashCtrl', function ($scope, device) {
     $scope.roemer = (device.width > 420) ? './img/roemer_big.png' : './img/roemer_small.png';
 });
 
-appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, notification, TOUR, Map) {
+appControllers.controller('MainCtrl', function ($scope, $timeout, geolocation, notification, TOUR, Map) {
 
     $scope.gpsNeededMsgShown = false;
+    $scope.gpsErrorCount = 0;
+
     $scope.mapOffset = {top: 0, left: 0};
     $scope.pois = TOUR.pointsOfInterest;
     $scope.poi = $scope.pois[0];
     $scope.userPosition = null;
 
     var positionCallback = function(position) {
+        $scope.gpsErrorCount = 0;
         if (!position.coords) {
             $scope.userPosition = null;
             return;
@@ -117,6 +120,7 @@ appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, 
     }
 
     var errorCallback = function(error) {
+        $scope.gpsErrorCount++;
         $scope.userPosition = null;
         angular.forEach(Map.icons, function (icon, index) {
             icon.isActive = false;
@@ -124,15 +128,15 @@ appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, 
         angular.forEach(Map.waypoints, function (waypoint, index) {
             waypoint.isActive = false;
         });
-        if (!$scope.gpsNeededMsgShown) {
+        if (!$scope.gpsNeededMsgShown && $scope.gpsErrorCount >= 10) {
             var msg = 'Die Schreibwerkapp erfordert GPS und mobile Daten. Bitte stellen Sie Ihr Gerät entsprechend ein, um den vollen Funktionsumfang zu nutzen. Diese Meldung wird nicht erneut angezeigt.';
             notification.alert(msg, function () {}, 'Keine Geokoordinaten verfügbar');
+            $scope.gpsNeededMsgShown = true;
         }
-        $scope.gpsNeededMsgShown = true;
     }
 
-    $interval(function () {
-        geolocation.getCurrentPosition(positionCallback, errorCallback)
-    }, 5500)
+    $timeout(function () {
+        geolocation.watchPosition(positionCallback, errorCallback)
+    }, 3000)
 
 });
