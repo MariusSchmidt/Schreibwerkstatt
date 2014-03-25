@@ -81,68 +81,45 @@ appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, 
     $scope.poi = $scope.pois[0];
     $scope.userPosition = null;
 
-    var positionCallback = function(position) {
-        $scope.$apply(function() {
-            $scope.gpsErrorCount = 0;
-            if (!position.coords) {
-                $scope.userPosition = null;
-                return;
-            }
-            $scope.userPosition = position.coords;
-
-
-            angular.forEach(Map.icons, function (icon, index) {
-                var distance = Map.distance(icon.coords, $scope.userPosition);
-                icon.isActive = (distance <= 0.1);
-            });
-
-            $scope.arrivedNewWaypoint = false;
-            $scope.activeWaypoints = [];
-            angular.forEach(Map.waypoints, function (waypoint, index) {
-                var distance = Map.distance(waypoint.coords, $scope.userPosition);
-                if (distance <= 0.1) {
-                    $scope.arrivedNewWaypoint = $scope.arrivedNewWaypoint || (waypoint.isActive === false);
-                    $scope.activeWaypoints.push(waypoint.id + 1);
-                    waypoint.isActive = true;
-                } else {
-                    waypoint.isActive = false;
-                }
-            });
-
-            if ($scope.arrivedNewWaypoint) {
-                if ($scope.activeWaypoints.length == 1) {
-                    var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station " + $scope.activeWaypoints.toString();
-                } else {
-                    var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A" + $scope.activeWaypoints.toString();
-                }
-                notification.alert(unescape(infotext), function () {
-                }, unescape("Informationen verf%FCgbar%0A"), "ok");
-            }
-        });
-    }
-
-    var errorCallback = function(error) {
-        $scope.$apply(function() {
-            $scope.gpsErrorCount++;
+    geolocation.watchPosition(function (position) {
+        /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
+        /*alert(position.coords.accuracy);*/
+        //$scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
+        $scope.gpsErrorCount = 0;
+        if (!position.coords) {
             $scope.userPosition = null;
-            angular.forEach(Map.icons, function (icon, index) {
-                icon.isActive = false;
-            });
-            angular.forEach(Map.waypoints, function (waypoint, index) {
+            return;
+        }
+        $scope.userPosition = position.coords;
+
+
+        angular.forEach(Map.icons, function (icon, index) {
+            var distance = Map.distance(icon.coords, $scope.userPosition);
+            icon.isActive = (distance <= 0.1);
+        });
+
+        $scope.arrivedNewWaypoint = false;
+        $scope.activeWaypoints = [];
+        angular.forEach(Map.waypoints, function (waypoint, index) {
+            var distance = Map.distance(waypoint.coords, $scope.userPosition);
+            if (distance <= 0.1) {
+                $scope.arrivedNewWaypoint = $scope.arrivedNewWaypoint || (waypoint.isActive === false);
+                $scope.activeWaypoints.push(waypoint.id + 1);
+                waypoint.isActive = true;
+            } else {
                 waypoint.isActive = false;
-            });
-            if (!$scope.gpsNeededMsgShown && $scope.gpsErrorCount >= 3) {
-                var msg = 'Die Schreibwerkapp erfordert GPS und mobile Daten. Bitte stellen Sie Ihr Gerät entsprechend ein, um den vollen Funktionsumfang zu nutzen. Diese Meldung wird nicht erneut angezeigt.';
-                notification.alert(msg, function () {}, 'Keine Geokoordinaten verfügbar');
-                $scope.gpsNeededMsgShown = true;
             }
         });
-    }
 
-    $interval(function() {
-        if ($scope.deviceReady) {
-            navigator.geolocation.getCurrentPosition(positionCallback, errorCallback, {enableHighAccuracy: true, timeout: 30000, maximumAge: 90000});
+        if ($scope.arrivedNewWaypoint) {
+            if ($scope.activeWaypoints.length == 1) {
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu Station " + $scope.activeWaypoints.toString();
+            } else {
+                var infotext = "Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A" + $scope.activeWaypoints.toString();
+            }
+            notification.alert(unescape(infotext), function () {
+            }, unescape("Informationen verf%FCgbar%0A"), "ok");
         }
-    }, 10000);
+    });
 
 });

@@ -24,12 +24,10 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
     return function () {
         var deferred = $q.defer();
 
-        if ($rootScope.deviceReady) { //is deviceready already fired? -> promise complete
+        if ($rootScope.deviceready === true) { //is deviceready already fired? -> promise complete
             deferred.resolve();
-        } else {
-            deferred.reject();
         }
-        /*else if ($rootScope.deviceready === undefined) { // else listen for it until its fired an complete promise.
+        else if ($rootScope.deviceready === undefined) { // else listen for it until its fired an complete promise.
             $rootScope.deviceready = false;
             var readyHeader = function () {
                 $rootScope.$apply(function () {
@@ -40,7 +38,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
                 });
             };
             $document.on('deviceready', readyHeader);
-        }*/
+        }
         return deferred.promise;
     };
 });
@@ -50,23 +48,23 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
      * This service provides the basic notification functions of Phonegap:
      * - alert (Testable with Ripple: Yes)
      * - confirm (Testable with Ripple: No)
-     * 
+     *
      * Usage:
      * (Dont forget dependency Injection)
-     * alert: 
+     * alert:
      * notification.alert(message, callback, title, buttonName)
      * @param {string} message
      * @param {function} callback
      * @param {string} title
      * @param {string} buttonName
-     * confirm: 
+     * confirm:
      * notification.confirm(message, callback, title, [buttonLabels])
      * @param {string} message
      * @param {function} callback
      * @param {string} title
      * @param {Array} buttonLabels
      * @returns {Array} btnNos (btnNos[0] contains index of klicked Button
-     *  
+     *
      */
     return {
         alert: function (message, callback, title, buttonName) {
@@ -74,9 +72,9 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
                 /* Call Phonegap API */
                 navigator.notification.alert(message, function () {
                     if (callback) {
-                        /* Run callback in $rootScope - because this is not 
+                        /* Run callback in $rootScope - because this is not
                          * inside Angular context  */
-                        $rootScope.apply(callback);
+                        $rootScope.apply(callback());
                     }
                 }, title, buttonName);
             });
@@ -86,8 +84,8 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
                 /* Call Phonegap API */
                 navigator.notification.confirm(message, function () {
                     if (callback) {
-                        /* Run callback in $rootScope - because this is not 
-                         * inside Angular context  
+                        /* Run callback in $rootScope - because this is not
+                         * inside Angular context
                          */
                         $rootScope.apply(callback.apply(null, [].concat(arguments)));
                     }
@@ -166,12 +164,12 @@ services.factory('media', function (deviceReadyService, $rootScope, platform) {
 services.factory('geolocation', function (deviceReadyService, $rootScope) {
     /* This service provides Phonegaps watchPosition function.
      * It returns the devices current Position in a defined interval
-     * 
+     *
      * @param {function} sucessCallback
      * @param {function} errorCallback
      * @param {string} options ({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };)
      * @returns {position} Position
-     * 
+     *
      * Testable with Ripple: Yes
      */
     return {
@@ -198,7 +196,7 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
                             });
                         }
                     },
-                    {enableHighAccuracy: true, timeout: 5000});
+                    {enableHighAccuracy: true, timeout: 2000});
             });
 
         },
@@ -206,32 +204,6 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
             alert(watchID);
             watchID.clearWatch();
             $rootScope.watchID = null;
-        },
-        getCurrentPosition: function (onSuccess, onError) {
-            deviceReadyService().then(function () {
-                /* Call Phonegap API */
-                navigator.geolocation.getCurrentPosition(function () {
-                        var that = this,
-                            args = arguments;
-
-                        if (onSuccess) {
-                            $rootScope.$apply(function () {
-                                onSuccess.apply(that, args);
-                            });
-                        }
-                    }, function () {
-                        var that = this,
-                            args = arguments;
-
-                        if (onError) {
-                            $rootScope.$apply(function () {
-                                onError.apply(that, args);
-                            });
-                        }
-                    },
-                    {enableHighAccuracy: true, timeout: 5000});
-            });
-
         }
     };
 });
