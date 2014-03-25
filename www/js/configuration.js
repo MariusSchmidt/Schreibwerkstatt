@@ -66,7 +66,7 @@ appConfigurations.constant('TOUR', {
             "poiimage": "poi-02-nikolaikirche-01.png",
             "images": [
                 {
-                    "name": "02_start_nikolaikirche.jpg",
+                    "name": "02_Start_Nikolaikirche_Merian.jpg",
                     "caption": "Matthäus Merian d.Ä.: Nikolaikirche (1628)"
                 },
                 {
@@ -87,7 +87,7 @@ appConfigurations.constant('TOUR', {
         {
             "id": 2,
             "title": "Römer",
-            "heading": "3. Römer: Verrat des Juden",
+            "heading": "3. Römer: Verrat des Judas",
             "teaser": "Der Judaskuss gilt als größter Vertrauensbruch der christlichen Geschichte und ist ein wichtiges Motiv im Frankfurter Passionsspiel. Was geschieht im Mittelalter, wenn Judas’ Verrat öffentlich aufgeführt wird? Die emotionale Anteilnahme der Zuschauer ist so groß, dass der Frankfurter Rat Ausschreitungen befürchtet.",
             "poiimage": "poi-03-roemer-01.png",
             "images": [
@@ -148,7 +148,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Weißfrauenkloster  (1628)"
                 },
                 {
-                    "name": "05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
+                    "name": "05_Backoffen_Kreuzigungsgruppe_Maria Magdalena.jpg",
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
@@ -200,7 +200,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Frankfurter Dom (1617)"
                 },
                 {
-                    "name": "07_backoffen_kruezigungsgruppe_longinus.jpg",
+                    "name": "07_Backoffen_Kreuzigungsgruppe_Longinus.jpg",
                     "caption": "Hans Backoffen: Longinus (1509)"
                 }
             ],
@@ -218,7 +218,7 @@ appConfigurations.constant('TOUR', {
             "id": 7,
             "title": "Synagoge",
             "heading": "8. Alte Synagoge: Josef mit dem Judenhut",
-            "teaser": "Die alte jüdische Synagoge und der Dom standen sich im Mittelalter unmittelbar gegenüber. Auch an diesem Ort wurde das Passionsspiel einst aufgeführt. Der rechtgläubige Joseph über dem Südportal des Doms sollte den Frankfurter Juden im Alltag zur Mahnung dienen.",
+            "teaser": "Die alte jüdische Synagoge und der Dom standen sich im Mittelalter unmittelbar gegenüber. Auch an diesem Ort wurde das Passionsspiel einst aufgeführt. Der rechtgläubige Josef über dem Südportal des Doms sollte den Frankfurter Juden im Alltag zur Mahnung dienen.",
             "poiimage": "poi-08-alte-synagoge-01.png",
             "images": [
                 {
@@ -227,7 +227,7 @@ appConfigurations.constant('TOUR', {
                 },
                 {
                     "name": "08_joseph_dom_suedportal.jpg",
-                    "caption": "Meister Antze: Joseph (1350)"
+                    "caption": "Meister Antze: Josef (1350)"
                 }
             ],
             "audio": "media/Station08.mp3",
