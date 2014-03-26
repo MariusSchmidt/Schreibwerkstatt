@@ -100,6 +100,7 @@ appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, 
 
         $scope.arrivedNewWaypoint = false;
         $scope.activeWaypoints = [];
+
         angular.forEach(Map.waypoints, function (waypoint, index) {
             var distance = Map.distance(waypoint.coords, $scope.userPosition);
             if (distance <= 0.1) {

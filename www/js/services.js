@@ -23,6 +23,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
      */
     return function () {
         var deferred = $q.defer();
+        var readyHeader = null;
 
         if ($rootScope.deviceready === true) { //is deviceready already fired? -> promise complete
             deferred.resolve();
@@ -37,7 +38,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
                     deferred.resolve();
                 });
             };
-            $document.on('deviceready', readyHeader);
+            document.addEventListener('deviceready', readyHeader, false);
         }
         return deferred.promise;
     };
