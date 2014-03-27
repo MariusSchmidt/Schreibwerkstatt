@@ -70,6 +70,7 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
     return {
         alert: function (message, callback, title, buttonName) {
             deviceReadyService().then(function () {
+                window.alert("alert");
                 /* Call Phonegap API */
                 navigator.notification.alert(message, function () {
                     if (callback) {

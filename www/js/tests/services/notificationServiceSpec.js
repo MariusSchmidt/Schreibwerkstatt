@@ -8,18 +8,21 @@ describe('notificationService', function () {
     beforeEach(module('phonegapServices'));
 
     beforeEach(function(){
-        inject(function ($rootScope, deviceReadyService){
+        inject(function ($rootScope){
 
         })
     })
 
+
     it('should call notification alert', inject(function (notification) {
         var called = false;
-        notification.alert(unescape("message"), function () {
+        notification.alert("message", function () {
             called = true;
-        }, unescape("title"), "button");
-        helper.trigger(window.document, 'deviceready');
-        expect(called).toBe(true);
+        }, "title", "button")
+        //helper.trigger(window.document, 'deviceready');
+        setTimeout(function(){
+            expect(called).toBe(true);
+        }, 5000)
     }));
 
 });
