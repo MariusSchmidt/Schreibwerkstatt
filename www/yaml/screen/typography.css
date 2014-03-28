@@ -133,9 +133,9 @@
         padding: 1.42857em;
     }
 
-    .box > *:last-child {
-        margin-bottom: 0;
-    }
+    /*.box > *:last-child {*/
+        /*margin-bottom: 0;*/
+    /*}*/
 
     .info {
         background: rgba(255,255,255,0.8);
