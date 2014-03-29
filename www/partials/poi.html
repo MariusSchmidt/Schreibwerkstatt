@@ -1,40 +1,36 @@
 <header>
-    <div class="ym-wbox">
-        <!--<img ng-src="{{poi.icon.srcActive}}" style="float: right"/>-->
+    <div class="splash-content">
         <h1 style="padding-bottom: 15px">{{poi.heading}}</h1>
-        <span ng-if="poi.poiimage">
-            <img ng-src="img/{{poi.poiimage}}">
-        </span>
     </div>
 </header>
 <main>
-    <div class="ym-wrapper" style="height: auto;">
-
-        <div class="ym-wbox" style="height: 50px; padding-bottom: 10px;">
+    <div class="splash-content" style="color: white; ">
+        <span ng-if="poi.poiimage">
+            <img ng-src="img/{{poi.poiimage}}" style="display: block; margin: 0 auto">
+        </span>
+        <div>
+            <a style="font-size: 15px; color: #FFF;" ng-click="stopAndRedirect('/directive')">zurück</a>
             <img ng-click="mediaPlay()" ng-hide=showButton() src="img/go.png" style="float: right">
             <img ng-click="mediaPause()" ng-show=showButton() src="img/stop.png" style="float: right">
             <img ng-click="mediaRepeat()" src="img/repeat.png" style="float: right">
-            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
         </div>
-
-        <div class="ym-wbox" style="height: auto">
-            <p>
-                <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
-            </p>
-            <p ng-style="getMargin()" style="font-size: 16px; margin-right: 12px; margin-left: 12px;">
-                {{poi.teaser}}
-            </p>
-            <p ng-repeat="image in poi.images" ng-if="$index != 0">
-                <a ng-href="#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
-            </p>
+        <br/>
+        <div style="clear: both;">
+            <a href="#/imgview/{{poi.id}}/0"><img ng-src="./media/{{poi.images[0].name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
+        </div>
+        <br/>
+        <p>
+            {{poi.teaser}}
+        </p>
+        <div ng-repeat="image in poi.images" ng-if="$index != 0">
+            <br/>
+            <a ng-href="#/imgview/{{poi.id}}/{{$index}}/"><img ng-src="./media/{{image.name}}" ng-style="getImageWidth()" style="display: block; margin: 0 auto"/></a>
         </div>
     </div>
 </main>
 <footer>
-    <div class="ym-wrapper">
-        <div class="ym-wbox">
-            <a class="float-left" style="font-size: 15px" ng-click="stopAndRedirect('/directive')">zurück</a>
-            <div class="ym-clearfix ym-ie-clearing"></div>
-        </div>
+    <div class="poi-footer-content">
+        <a style="font-size: 15px;" ng-click="stopAndRedirect('/directive')">zurück</a>
+        <div class="ym-clearfix ym-ie-clearing"></div>
     </div>
 </footer>

@@ -66,7 +66,7 @@ appConfigurations.constant('TOUR', {
             "poiimage": "poi-02-nikolaikirche-01.png",
             "images": [
                 {
-                    "name": "02_Start_Nikolaikirche_Merian.jpg",
+                    "name": "02_start_nikolaikirche.jpg",
                     "caption": "Matthäus Merian d.Ä.: Nikolaikirche (1628)"
                 },
                 {
@@ -148,7 +148,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Weißfrauenkloster  (1628)"
                 },
                 {
-                    "name": "05_Backoffen_Kreuzigungsgruppe_Maria Magdalena.jpg",
+                    "name": "05_backoffen_kreuzigungsgruppe_maria magdalena.jpg",
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
@@ -200,7 +200,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Frankfurter Dom (1617)"
                 },
                 {
-                    "name": "07_Backoffen_Kreuzigungsgruppe_Longinus.jpg",
+                    "name": "07_backoffen_kreuzigungsgruppe_longinus.jpg",
                     "caption": "Hans Backoffen: Longinus (1509)"
                 }
             ],

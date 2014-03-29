@@ -97,6 +97,7 @@ appDirectives.directive('angularmap', function ($location, Map, device) {
         $scope.mapStyle = function () {
             return {
                 position: 'relative',
+                overflow: 'hidden',
                 top: $scope.mapOffset.top + 'px',
                 left: $scope.mapOffset.left + 'px',
                 width: Map.size.width + 'px',

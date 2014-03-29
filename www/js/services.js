@@ -70,7 +70,6 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
     return {
         alert: function (message, callback, title, buttonName) {
             deviceReadyService().then(function () {
-                window.alert("alert");
                 /* Call Phonegap API */
                 navigator.notification.alert(message, function () {
                     if (callback) {
@@ -203,14 +202,13 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
 
         },
         clearWatch: function (watchID) {
-            alert(watchID);
             watchID.clearWatch();
             $rootScope.watchID = null;
         }
     };
 });
 
-services.factory('device', function ($window, Map) {
+services.factory('device', function ($window, $document, Map) {
     return {
         width: Math.min($window.innerWidth, Map.size.width),
         height: Math.min($window.innerHeight, Map.size.height)
