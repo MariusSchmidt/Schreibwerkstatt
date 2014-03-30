@@ -148,7 +148,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Weißfrauenkloster  (1628)"
                 },
                 {
-                    "name": "05_backoffen_kreuzigungsgruppe_maria magdalena.jpg",
+                    "name": "05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
@@ -200,7 +200,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Frankfurter Dom (1617)"
                 },
                 {
-                    "name": "07_backoffen_kreuzigungsgruppe_longinus.jpg",
+                    "name": "07_backoffen_kreuzigungsgruppe_longinus_.jpg",
                     "caption": "Hans Backoffen: Longinus (1509)"
                 }
             ],
