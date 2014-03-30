@@ -28,16 +28,15 @@
     /* font-size: 14px; */
     body {
         font-family: "Droid Serif", Georgia, "Times New Roman", Times, serif;
-        font-size: 62.5%;
+        font-size: 80%;
         color: #DDDDDD;
     }
 
     /*--- Headings | Überschriften ------------------------------------------------------------------------*/
     h1,
     h2 {
-        font-family: "Droid Sans", Arial, Helvetica, sans-serif;
-        font-weight: 400;
-        color: #FFFFFF;
+        font-weight: bold;
+        color: #000;
         margin: 0;
     }
 
@@ -56,6 +55,10 @@
         margin: 0;
     }
 
+    header h1, header h2 {
+        color: #FFF;
+    }
+
     /* --- general title formatting | Allgemeine Textauszeichnung ------------------------------------------ */
     p {
         font-size: 100%;
@@ -65,9 +68,13 @@
 
     /*--- Links ----------------------------------------------------------------------------------------- */
     a {
-        color: cornsilk;
+        color: #FFF;
         background: transparent;
         text-decoration: none;
+    }
+
+    main a {
+        color: #888;
     }
 
     a:active {
@@ -134,7 +141,7 @@
     }
 
     /*.box > *:last-child {*/
-        /*margin-bottom: 0;*/
+    /*margin-bottom: 0;*/
     /*}*/
 
     .info {
@@ -159,4 +166,16 @@
         margin: 0;
     }
 
+    .right {
+        display: block;
+        text-align: right;
+        margin: 0;
+    }
+
+}
+
+@media screen and (min-width: 321px) {
+    body {
+        font-size: 87.5%;
+    }
 }

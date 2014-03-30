@@ -23,6 +23,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
      */
     return function () {
         var deferred = $q.defer();
+        var readyHeader = null;
 
         if ($rootScope.deviceready === true) { //is deviceready already fired? -> promise complete
             deferred.resolve();
@@ -37,7 +38,7 @@ services.factory('deviceReadyService', function ($document, $q, $rootScope) {
                     deferred.resolve();
                 });
             };
-            $document.on('deviceready', readyHeader);
+            document.addEventListener('deviceready', readyHeader, false);
         }
         return deferred.promise;
     };
@@ -48,23 +49,23 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
      * This service provides the basic notification functions of Phonegap:
      * - alert (Testable with Ripple: Yes)
      * - confirm (Testable with Ripple: No)
-     * 
+     *
      * Usage:
      * (Dont forget dependency Injection)
-     * alert: 
+     * alert:
      * notification.alert(message, callback, title, buttonName)
      * @param {string} message
      * @param {function} callback
      * @param {string} title
      * @param {string} buttonName
-     * confirm: 
+     * confirm:
      * notification.confirm(message, callback, title, [buttonLabels])
      * @param {string} message
      * @param {function} callback
      * @param {string} title
      * @param {Array} buttonLabels
      * @returns {Array} btnNos (btnNos[0] contains index of klicked Button
-     *  
+     *
      */
     return {
         alert: function (message, callback, title, buttonName) {
@@ -72,7 +73,7 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
                 /* Call Phonegap API */
                 navigator.notification.alert(message, function () {
                     if (callback) {
-                        /* Run callback in $rootScope - because this is not 
+                        /* Run callback in $rootScope - because this is not
                          * inside Angular context  */
                         $rootScope.apply(callback());
                     }
@@ -84,8 +85,8 @@ services.factory('notification', function (deviceReadyService, $rootScope) {
                 /* Call Phonegap API */
                 navigator.notification.confirm(message, function () {
                     if (callback) {
-                        /* Run callback in $rootScope - because this is not 
-                         * inside Angular context  
+                        /* Run callback in $rootScope - because this is not
+                         * inside Angular context
                          */
                         $rootScope.apply(callback.apply(null, [].concat(arguments)));
                     }
@@ -164,12 +165,12 @@ services.factory('media', function (deviceReadyService, $rootScope, platform) {
 services.factory('geolocation', function (deviceReadyService, $rootScope) {
     /* This service provides Phonegaps watchPosition function.
      * It returns the devices current Position in a defined interval
-     * 
+     *
      * @param {function} sucessCallback
      * @param {function} errorCallback
      * @param {string} options ({ maximumAge: 3000, timeout: 5000, enableHighAccuracy: true };)
      * @returns {position} Position
-     * 
+     *
      * Testable with Ripple: Yes
      */
     return {
@@ -200,15 +201,14 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
             });
 
         },
-        clearWatch: function (watchID) {
-            alert(watchID);
-            watchID.clearWatch();
+        clearWatch: function () {
+            navigator.geolocation.clearWatch($rootScope.watchID);
             $rootScope.watchID = null;
         }
     };
 });
 
-services.factory('device', function ($window, Map) {
+services.factory('device', function ($window, $document, Map) {
     return {
         width: Math.min($window.innerWidth, Map.size.width),
         height: Math.min($window.innerHeight, Map.size.height)
@@ -255,9 +255,12 @@ services.service('Map', function (TOUR) {
 
     this.waypoints = _.map(TOUR.pointsOfInterest, function (poi) {
         return {
-            id: poi.title,
+            id: poi.id,
             topLeft: poi.clickarea.topLeft,
             bottomRight: poi.clickarea.bottomRight,
+            isVisited: false,
+            isActive: false,
+            coords: poi.coords,
             isHit: function (x, y) {
                 return this.topLeft.x <= x && x <= this.bottomRight.x && this.topLeft.y <= y && y <= this.bottomRight.y;
             }

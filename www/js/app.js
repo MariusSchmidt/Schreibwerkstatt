@@ -19,16 +19,13 @@ schreibwerkApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
             when('/splash', {
-                templateUrl: 'partials/splash.html',
-                controller: 'SplashCtrl'
+                templateUrl: 'partials/splash.html'
             }).
             when('/terms', {
-                templateUrl: 'partials/terms.html',
-                controller: 'SplashCtrl'
+                templateUrl: 'partials/terms.html'
             }).
             when('/intro', {
-                templateUrl: 'partials/intro.html',
-                controller: 'SplashCtrl'
+                templateUrl: 'partials/intro.html'
             }).
             when('/poi/:stationID', {
                 templateUrl: 'partials/poi.html',
@@ -48,9 +45,12 @@ schreibwerkApp.config(['$routeProvider',
 
 
 schreibwerkApp.run(function ($document, $rootScope) {
+    $rootScope.deviceReady = false;
     $document.on('deviceready', function () {
+        $rootScope.deviceReady = true;
         //Listen to these events in every scope with
         //$scope.$on('eventname' , functionToHandle)
+        $rootScope.$broadcast('deviceready', true);
         document.addEventListener('resume', function () {
             $rootScope.$broadcast('resume', true);
         }, false);

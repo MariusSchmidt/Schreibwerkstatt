@@ -19,7 +19,11 @@ module.exports = function (config) {
             'js/libs/angular/angular-*.js',
             'js/**/*.js',
             'js/*.js',
-            'js/tests/*.js'
+            'js/tests/controller/*.js',
+            'js/tests/services/*.js',
+            'js/tests/directives/*.js',
+            '*.js',
+            '/*.js'
         ],
 
 

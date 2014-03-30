@@ -1,0 +1,114 @@
+body {
+    background-color:black;
+}
+
+header, footer {
+    color: whitesmoke;
+    height : 40px;
+    width: 100%;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin-top:40px;
+    margin-bottom:40px;
+}
+
+.splash-background {
+    background: url(../img/background_z0_small.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-color: #f6f6f6;
+}
+
+.splash-background-roemer {
+    background: url(../img/roemer_small.png), url(../img/background_z0_small.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom center, bottom left;
+    background-color: #f6f6f6;
+}
+
+.splash-canvas {
+    display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin: 15px;
+    background: rgba(255,255,255, 0.85);
+}
+
+.splash-content {
+    display: block;
+    position:absolute;
+    height:auto;
+    bottom:0;
+    top:0;
+    left:0;
+    right:0;
+    margin: 15px;
+    overflow: auto;
+    color: black;
+}
+
+.poi-footer-content {
+    padding: 5px 15px 0px 15px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+td {
+    padding: 5px;
+}
+
+@media screen and (min-width: 621px) {
+
+    header, footer {
+        height : 60px;
+    }
+
+    main {
+        margin: 60px 0;
+    }
+
+    .splash-background {
+        background: url(../img/background_z0_big.png);
+        background-repeat: no-repeat;
+        background-position: bottom right;
+        background-color: #f6f6f6;
+    }
+
+    .splash-background-roemer {
+        background: url(../img/roemer_big.png), url(../img/background_z0_big.png);
+        background-repeat: no-repeat, no-repeat;
+        background-position: bottom center, bottom left;
+        background-color: #f6f6f6;
+    }
+
+    .splash-canvas {
+        margin: 50px;
+    }
+
+    .splash-content {
+        margin: 50px;
+    }
+
+    .poi-footer-content {
+        padding: 10px 50px 0px 50px;
+    }
+}

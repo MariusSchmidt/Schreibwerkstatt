@@ -32,7 +32,10 @@
     }
 
     .splash-bg {
-        background: #f6f6f6 url(../../img/background_z0_small.png) no-repeat left bottom;
+        background: url(../../img/roemer_small.png), url(../../img/background_z0_small.png);
+        background-repeat: no-repeat, no-repeat;
+        background-position: bottom center, bottom left;
+        background-color: #f6f6f6;
     }
 
     .block-center {
@@ -98,11 +101,20 @@
         height: 991px;
     }
 
+    body, html {
+        margin: 0;
+        padding: 0;
+        height:100%;
+    }
+
 }
 
-@media screen and (min-width: 321px) {
+@media screen and (min-width: 621px) {
     .splash-bg {
-        background: #f6f6f6 url(../../img/background_z0_big.png) no-repeat left bottom;
+        background: url(../../img/roemer_big.png), url(../../img/background_z0_big.png);
+        background-repeat: no-repeat, no-repeat;
+        background-position: bottom center, bottom left;
+        background-color: #f6f6f6;
     }
 }
 
