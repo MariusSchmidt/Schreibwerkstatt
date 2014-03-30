@@ -19,16 +19,13 @@ schreibwerkApp.config(['$routeProvider',
     function ($routeProvider) {
         $routeProvider.
             when('/splash', {
-                templateUrl: 'partials/splash.html',
-                controller: 'SplashCtrl'
+                templateUrl: 'partials/splash.html'
             }).
             when('/terms', {
-                templateUrl: 'partials/terms.html',
-                controller: 'SplashCtrl'
+                templateUrl: 'partials/terms.html'
             }).
             when('/intro', {
-                templateUrl: 'partials/intro.html',
-                controller: 'SplashCtrl'
+                templateUrl: 'partials/intro.html'
             }).
             when('/poi/:stationID', {
                 templateUrl: 'partials/poi.html',

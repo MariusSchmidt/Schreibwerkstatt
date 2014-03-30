@@ -201,8 +201,8 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
             });
 
         },
-        clearWatch: function (watchID) {
-            watchID.clearWatch();
+        clearWatch: function () {
+            navigator.geolocation.clearWatch($rootScope.watchID);
             $rootScope.watchID = null;
         }
     };
