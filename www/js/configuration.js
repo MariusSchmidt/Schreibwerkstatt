@@ -148,7 +148,7 @@ appConfigurations.constant('TOUR', {
                     "caption": "Matthäus Merian d.Ä.: Weißfrauenkloster  (1628)"
                 },
                 {
-                    "name": "05_backoffen_kreuzigungsgruppe_maria_magdalena.jpg",
+                    "name": "05_backoffen_kreuzigungsgruppe_maria magdalena.jpg",
                     "caption": "Hans Backoffen: Maria Magdalena (1509)"
                 }
             ],
