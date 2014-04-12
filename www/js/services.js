@@ -210,8 +210,8 @@ services.factory('geolocation', function (deviceReadyService, $rootScope) {
 
 services.factory('device', function ($window, $document, Map) {
     return {
-        width: Math.min($window.innerWidth, Map.size.width),
-        height: Math.min($window.innerHeight, Map.size.height)
+        width: 600, //Math.min($window.innerWidth, Map.size.width),
+        height: 800//Math.min($window.innerHeight, Map.size.height)
     }
 })
 
@@ -219,7 +219,7 @@ services.factory('platform', function(){
     if (window.device.platform === "Android") {
         return {path: "file:///android_asset/www/"}
     } else {
-        return {path: "" }
+        return {path: "../" }
     }
 })
 
@@ -289,4 +289,18 @@ services.service('Map', function (TOUR) {
         }
     }
 
+});
+
+services.factory('AudioService', function () {
+    "use strict";
+
+    var params = {
+        swf_path:'../swf/audio5js.swf',
+        throw_errors:true,
+        format_time:true
+    };
+
+    var audio5js = new Audio5js(params);
+
+    return audio5js;
 });

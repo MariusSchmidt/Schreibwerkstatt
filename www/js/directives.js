@@ -45,7 +45,7 @@ appDirectives.directive('angularmap', function ($location, Map, device) {
         }
 
         $scope.setMapOffset = function(offset) {
-            if (offset.left > 0) {
+            if (offset.left > 0 || $scope.canvas.width > Map.size.width) {
                 $scope.mapOffset.left = 0;
             } else if (Math.abs(offset.left) + $scope.canvas.width > Map.size.width) {
                 $scope.mapOffset.left = $scope.canvas.width - Map.size.width;
@@ -53,7 +53,7 @@ appDirectives.directive('angularmap', function ($location, Map, device) {
                 $scope.mapOffset.left = offset.left;
             }
 
-            if (offset.top > 0) {
+            if (offset.top > 0 || $scope.canvas.height > Map.size.height) {
                 $scope.mapOffset.top = 0;
             } else if (Math.abs(offset.top) + $scope.canvas.height > Map.size.height) {
                 $scope.mapOffset.top = $scope.canvas.height - Map.size.height;

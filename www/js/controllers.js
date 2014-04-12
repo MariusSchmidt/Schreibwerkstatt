@@ -1,10 +1,12 @@
 var appControllers = angular.module('appControllers', ['appConfigurations', 'appDirectives']);
 
-appControllers.controller('PoiCtrl', function ($rootScope, $scope, $window, $location, $routeParams, notification, media, device) {
+appControllers.controller('PoiCtrl', function ($rootScope, $scope, $window, $location, $routeParams, notification, AudioService, device) {
 
     $scope.stationID = $routeParams.stationID;
     $scope.poi = $scope.pois[$scope.stationID];
     var show = false;
+
+    AudioService.load($scope.poi.audio);
 
 
     $scope.getMargin = function () {
@@ -22,29 +24,24 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $window, $loc
 
     $scope.stopAndRedirect = function (path) {
         $location.path(path);
-        media.stop();
+        AudioService.pause();
         show = false;
     }
 
     $scope.mediaPlay = function () {
         show = true;
-        if (!$rootScope.media) {
-            media.play($scope.poi.audio)
-        } else {
-            media.resume()
-        }
+        AudioService.play();
     }
 
     $scope.mediaPause = function () {
-        media.pause()
+        AudioService.pause()
         show = false;
     }
 
     $scope.mediaRepeat = function () {
-        if ($rootScope.media) {
-            media.stop()
-        }
-        media.play($scope.poi.audio)
+        AudioService.pause();
+        AudioService.seek(0);
+        AudioService.play();
         show = true;
     }
 
@@ -53,13 +50,13 @@ appControllers.controller('PoiCtrl', function ($rootScope, $scope, $window, $loc
     }
 
     $scope.$on('pause', function(){
-        media.stop();
+        AudioService.pause();
         show = false;
     })
 
 });
 
-appControllers.controller('ImgCtrl', function ($scope, $routeParams, device, media) {
+appControllers.controller('ImgCtrl', function ($scope, $routeParams, device, AudioService) {
     $scope.stationID = $routeParams.stationID;
     $scope.imgID = $routeParams.imgID;
     $scope.getWidth = {
@@ -67,12 +64,12 @@ appControllers.controller('ImgCtrl', function ($scope, $routeParams, device, med
     }
 
     $scope.$on('pause', function(){
-        media.stop();
+        AudioService.stop();
         show = false;
     })
 });
 
-appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, notification, TOUR, Map) {
+appControllers.controller('MainCtrl', function ($scope, $timeout, geolocation, notification, TOUR, Map) {
 
     $scope.gpsNeededMsgShown = false;
     $scope.gpsErrorCount = 0;
@@ -82,10 +79,50 @@ appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, 
     $scope.poi = $scope.pois[0];
     $scope.userPosition = null;
 
-    $scope.startWatch = function() {
+
+    $scope.simulateGeopos = function() {
+
+        $scope.userPosition = {
+            "latitude": 50.110290,
+            "longitude": 8.682265
+        }
+
+        angular.forEach(Map.icons, function (icon, index) {
+            var distance = Map.distance(icon.coords, $scope.userPosition);
+            icon.isActive = (distance <= 0.1);
+        });
+
+        $scope.arrivedNewWaypoint = false;
+        $scope.activeWaypoints = [];
+
+        angular.forEach(Map.waypoints, function (waypoint, index) {
+            var distance = Map.distance(waypoint.coords, $scope.userPosition);
+            if (distance <= 0.1) {
+                $scope.arrivedNewWaypoint = $scope.arrivedNewWaypoint || (waypoint.isActive === false);
+                $scope.activeWaypoints.push(waypoint.id + 1);
+                waypoint.isActive = true;
+            } else {
+                waypoint.isActive = false;
+            }
+        });
+
+
+        if ($scope.arrivedNewWaypoint) {
+            if ($scope.activeWaypoints.length == 1) {
+                var infotext = "Simulierte Geoposition: Sie befinden sich in unmittelbarer N%E4he zu Station " + $scope.activeWaypoints.toString();
+            } else {
+                var infotext = "Simulierte Geoposition: Sie befinden sich in unmittelbarer N%E4he zu folgenden Stationen%3A %0A" + $scope.activeWaypoints.toString();
+            }
+            alert(unescape(infotext));
+        }
+    }
+
+    //$timeout($scope.simulateGeopos, 5000);
+
+    /*$scope.startWatch = function() {
         geolocation.watchPosition(function (position) {
-            /* Add pos to rootScope pos will be watched for changes in PoiCtrl */
-            /*alert(position.coords.accuracy);*/
+            *//* Add pos to rootScope pos will be watched for changes in PoiCtrl *//*
+            *//*alert(position.coords.accuracy);*//*
             //$scope.pos = {latitude: position.coords.latitude, longitude: position.coords.longitude, accuracy: position.coords.accuracy};
             $scope.gpsErrorCount = 0;
             if (!position.coords) {
@@ -134,6 +171,6 @@ appControllers.controller('MainCtrl', function ($scope, $interval, geolocation, 
         $scope.startWatch();
     })
 
-    $scope.startWatch();
+    $scope.startWatch();*/
 
 });
