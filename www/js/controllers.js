@@ -117,7 +117,7 @@ appControllers.controller('MainCtrl', function ($scope, $timeout, geolocation, n
         }
     }
 
-    //$timeout($scope.simulateGeopos, 5000);
+    $timeout($scope.simulateGeopos, 8000);
 
     /*$scope.startWatch = function() {
         geolocation.watchPosition(function (position) {
